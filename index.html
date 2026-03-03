@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Untitled</title>
-    
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ReadEnglish - تعلم الإنجليزية</title>
-<script src="https://code.responsivevoice.org/responsivevoice.js?key=FREE"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0f0f0f;--card:#1a1a1a;--card2:#222;--blue:#4A90E2;--gold:#f5a623;--text:#f0f0f0;--muted:#888;--border:#333;--green:#4CAF50;--red:#f44336}
@@ -39,30 +27,28 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .books-scroll::-webkit-scrollbar{display:none}
 .book-card{flex-shrink:0;width:130px;cursor:pointer;transition:transform .2s}
 .book-card:hover{transform:translateY(-3px)}
-.book-cover{width:130px;height:180px;border-radius:12px;position:relative;overflow:hidden;margin-bottom:8px;box-shadow:0 8px 20px rgba(0,0,0,.5)}
-.book-cover img{width:100%;height:100%;object-fit:cover}
-.book-cover-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;font-size:3.5rem}
+.book-cover{width:130px;height:180px;border-radius:12px;position:relative;overflow:hidden;margin-bottom:8px;box-shadow:0 8px 20px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.book-emoji{font-size:4rem}
+.book-title-cover{font-size:.6rem;color:white;text-align:center;padding:0 6px;font-weight:700;direction:ltr;line-height:1.3}
 .book-level-badge{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:20px;font-size:.68rem;font-weight:700}
-.badge-a1{background:rgba(76,175,80,.9);color:white}
-.badge-a2{background:rgba(74,144,226,.9);color:white}
-.badge-b1{background:rgba(255,152,0,.9);color:white}
-.badge-b2{background:rgba(244,67,54,.9);color:white}
-.book-title{font-size:.78rem;font-weight:700;text-align:center;line-height:1.3;direction:ltr}
+.badge-a1{background:rgba(76,175,80,.95);color:white}
+.badge-a2{background:rgba(74,144,226,.95);color:white}
+.badge-b1{background:rgba(255,152,0,.95);color:white}
+.badge-b2{background:rgba(244,67,54,.95);color:white}
+.book-name{font-size:.78rem;font-weight:700;text-align:center;line-height:1.3;direction:ltr}
 .book-author{font-size:.68rem;color:var(--muted);text-align:center;margin-top:2px}
 .featured{padding:0 16px 16px}
-.featured-card{border-radius:16px;overflow:hidden;position:relative;height:220px;cursor:pointer;display:flex;align-items:flex-end}
-.featured-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.featured-overlay{position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.9))}
+.featured-card{border-radius:16px;overflow:hidden;position:relative;height:200px;cursor:pointer;display:flex;align-items:flex-end}
+.featured-overlay{position:absolute;inset:0;background:linear-gradient(transparent 20%,rgba(0,0,0,.92))}
+.featured-emoji{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:5rem}
 .featured-info{position:relative;z-index:2;padding:16px;width:100%}
 .featured-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.75rem;font-weight:700;margin-bottom:6px}
-.featured-title{font-size:1.1rem;font-weight:800;font-family:Georgia,serif;direction:ltr}
+.featured-title{font-size:1.05rem;font-weight:800;direction:ltr}
 .featured-sub{font-size:.8rem;color:#ccc;margin-top:4px}
-
-/* READER */
 .reader-topbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:50;gap:8px}
-.reader-title{font-size:.88rem;font-weight:700;flex:1;text-align:center;direction:ltr}
+.reader-title{font-size:.85rem;font-weight:700;flex:1;text-align:center;direction:ltr;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .new-words-badge{background:var(--green);color:white;padding:3px 8px;border-radius:20px;font-size:.7rem;white-space:nowrap}
-.chapter-content{padding:16px 16px 220px;line-height:2.2;font-size:1.05rem;direction:ltr;text-align:left}
+.chapter-content{padding:16px 16px 230px;line-height:2.4;font-size:1.05rem;direction:ltr;text-align:left}
 .chapter-title{font-size:1.1rem;font-weight:800;margin-bottom:16px;direction:rtl;text-align:right}
 .chapter-title span{color:var(--blue)}
 .word{cursor:pointer;border-radius:3px;padding:0 1px;transition:background .1s;display:inline}
@@ -70,9 +56,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .word.highlighted{background:rgba(245,166,35,.35);color:var(--gold)}
 .word.new-word{color:var(--gold);border-bottom:1.5px dashed var(--gold)}
 .sent-btn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:var(--card2);border-radius:50%;cursor:pointer;font-size:.6rem;border:1px solid var(--border);vertical-align:middle;color:var(--muted);margin:0 3px}
-.sent-btn:hover{background:var(--blue);color:white;border-color:var(--blue)}
-
-/* AUDIO PANEL */
+.sent-btn:hover{background:var(--blue);color:white}
 .audio-panel{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:10px 14px 14px;z-index:100}
 .audio-tabs{display:flex;gap:0;margin-bottom:10px;background:var(--bg);border-radius:10px;padding:3px}
 .audio-tab{flex:1;padding:7px;text-align:center;border-radius:8px;cursor:pointer;font-size:.82rem;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}
@@ -82,45 +66,35 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .progress-dot{position:absolute;top:50%;transform:translateY(-50%);width:13px;height:13px;background:var(--blue);border-radius:50%;margin-left:-6px;box-shadow:0 2px 6px rgba(74,144,226,.5)}
 .time-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .time-txt{font-size:.72rem;color:var(--muted)}
-.speed-btn{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:20px;font-size:.8rem;cursor:pointer;font-weight:700}
-.controls{display:flex;align-items:center;justify-content:center;gap:18px}
-.skip-btn{background:var(--card2);border:none;color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.speed-btn{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:4px 14px;border-radius:20px;font-size:.82rem;cursor:pointer;font-weight:700;transition:all .2s}
+.speed-btn:active{transform:scale(.95)}
+.controls{display:flex;align-items:center;justify-content:center;gap:20px}
+.skip-btn{background:var(--card2);border:none;color:var(--text);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .skip-lbl{font-size:.5rem;color:var(--muted)}
-.play-main{width:54px;height:54px;border-radius:50%;background:var(--blue);border:none;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(74,144,226,.4);transition:transform .1s}
+.play-main{width:56px;height:56px;border-radius:50%;background:var(--blue);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(74,144,226,.4);transition:transform .1s}
 .play-main:active{transform:scale(.93)}
-
-/* TRANSLATION POPUP */
-.trans-popup{position:fixed;z-index:300;background:#1e1e2e;border:1.5px solid var(--blue);border-radius:14px;padding:14px;max-width:190px;box-shadow:0 8px 28px rgba(0,0,0,.7);display:none}
+.trans-popup{position:fixed;z-index:300;background:#1a1a2e;border:1.5px solid var(--blue);border-radius:14px;padding:14px;max-width:185px;box-shadow:0 8px 28px rgba(0,0,0,.8);display:none}
 .trans-popup.show{display:block}
 .trans-word{font-size:1.1rem;font-weight:700;color:var(--blue);direction:ltr}
-.trans-phonetic{font-size:.75rem;color:var(--muted);direction:ltr;margin-bottom:4px}
-.trans-arabic{font-size:.95rem;color:var(--text);margin-bottom:8px}
-.trans-speak{background:var(--blue);border:none;color:white;padding:5px 10px;border-radius:8px;font-size:.75rem;cursor:pointer;width:100%}
-
-/* QUIZ */
-.quiz-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:400;align-items:center;justify-content:center;padding:20px}
+.trans-arabic{font-size:.95rem;color:var(--text);margin:6px 0}
+.trans-speak{background:var(--blue);border:none;color:white;padding:6px 10px;border-radius:8px;font-size:.78rem;cursor:pointer;width:100%;font-weight:600}
+.quiz-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:400;align-items:center;justify-content:center;padding:20px}
 .quiz-overlay.show{display:flex}
 .quiz-card{background:var(--card);border-radius:20px;padding:24px;width:100%;max-width:400px;border:1px solid var(--border)}
 .quiz-progress{font-size:.78rem;color:var(--muted);margin-bottom:4px;text-align:center}
-.quiz-q{font-size:1rem;font-weight:700;text-align:center;margin-bottom:20px;direction:ltr;line-height:1.5}
+.quiz-q{font-size:1rem;font-weight:700;text-align:center;margin-bottom:20px;direction:ltr;line-height:1.6}
 .quiz-opts{display:flex;flex-direction:column;gap:10px}
-.quiz-opt{background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-size:.9rem;direction:ltr;transition:all .2s;text-align:left}
+.quiz-opt{background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-size:.9rem;direction:ltr;transition:all .2s}
 .quiz-opt:hover{border-color:var(--blue)}
 .quiz-opt.correct{background:rgba(76,175,80,.2);border-color:var(--green);color:var(--green)}
 .quiz-opt.wrong{background:rgba(244,67,54,.2);border-color:var(--red);color:var(--red)}
-.quiz-result{text-align:center;padding:10px 0}
-.quiz-score{font-size:2.5rem;font-weight:900;color:var(--gold)}
-.quiz-msg{color:var(--muted);font-size:.9rem;margin-top:6px}
+.quiz-score{font-size:2.8rem;font-weight:900;color:var(--gold);text-align:center}
 .quiz-btn{background:var(--blue);color:white;border:none;padding:12px 28px;border-radius:12px;font-size:.95rem;cursor:pointer;margin-top:16px;width:100%;font-weight:700}
-
-/* VOCAB */
 .vocab-list{padding:12px}
 .vocab-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
 .vocab-en{font-size:.95rem;font-weight:700;direction:ltr}
 .vocab-ar{font-size:.82rem;color:var(--muted)}
-.speak-word{background:none;border:none;color:var(--blue);font-size:1rem;cursor:pointer}
-
-/* PROGRESS */
+.speak-word-btn{background:var(--card2);border:1px solid var(--border);color:var(--blue);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
 .progress-page{padding:16px}
 .prog-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px}
 .prog-title{font-size:.92rem;font-weight:700;margin-bottom:10px}
@@ -128,39 +102,28 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .prog-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--blue),#66b3ff);transition:width .5s}
 .prog-info{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
 .streak-num{font-size:2.8rem;font-weight:900;color:var(--gold);text-align:center}
-
-/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);display:flex;z-index:60;padding:8px 0 12px}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px}
 .nav-icon{font-size:1.25rem}
 .nav-label{font-size:.63rem;color:var(--muted)}
 .nav-item.active .nav-label{color:var(--blue)}
-.empty-state{text-align:center;padding:40px;color:var(--muted)}
 </style>
 </head>
 <body>
 
-<!-- TRANSLATION POPUP -->
 <div class="trans-popup" id="transPopup">
   <div class="trans-word" id="tWord"></div>
-  <div class="trans-phonetic" id="tPhonetic"></div>
   <div class="trans-arabic" id="tArabic"></div>
-  <button class="trans-speak" onclick="speakWord(document.getElementById('tWord').textContent)">🔊 استمع للكلمة</button>
+  <button class="trans-speak" onclick="speakWord(document.getElementById('tWord').textContent)">🔊 استمع</button>
 </div>
 
-<!-- QUIZ OVERLAY -->
 <div class="quiz-overlay" id="quizOverlay">
   <div class="quiz-card" id="quizCard"></div>
 </div>
 
-<!-- LIBRARY PAGE -->
+<!-- LIBRARY -->
 <div class="page active" id="libPage">
-  <div class="topbar">
-    <div class="topbar-title">المكتبة 📚</div>
-    <div style="display:flex;gap:8px">
-      <button class="icon-btn">🔍</button>
-    </div>
-  </div>
+  <div class="topbar"><div class="topbar-title">المكتبة 📚</div></div>
   <div class="level-tabs">
     <button class="ltab active" onclick="filterLevel('all',this)">الكل</button>
     <button class="ltab" onclick="filterLevel('A1',this)">🟢 A1</button>
@@ -175,37 +138,27 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
       <div class="cat-chip" onclick="filterCat('mystery',this)">🔍 غموض</div>
       <div class="cat-chip" onclick="filterCat('classic',this)">📖 كلاسيكي</div>
       <div class="cat-chip" onclick="filterCat('adventure',this)">🗺️ مغامرة</div>
-      <div class="cat-chip" onclick="filterCat('science',this)">🔬 علوم</div>
     </div>
   </div>
   <div class="featured" id="featuredDiv"></div>
-  <div class="section">
-    <div class="section-title">✨ فانتازي وخيال</div>
-    <div class="books-scroll" id="fantasyGrid"></div>
-  </div>
-  <div class="section">
-    <div class="section-title">🔍 غموض وإثارة</div>
-    <div class="books-scroll" id="mysteryGrid"></div>
-  </div>
-  <div class="section">
-    <div class="section-title">📖 كلاسيكي ومغامرة</div>
-    <div class="books-scroll" id="classicGrid"></div>
-  </div>
+  <div class="section"><div class="section-title">✨ فانتازي وخيال</div><div class="books-scroll" id="fantasyGrid"></div></div>
+  <div class="section"><div class="section-title">🔍 غموض وإثارة</div><div class="books-scroll" id="mysteryGrid"></div></div>
+  <div class="section"><div class="section-title">🗺️ مغامرة وكلاسيكي</div><div class="books-scroll" id="classicGrid"></div></div>
 </div>
 
-<!-- READER PAGE -->
+<!-- READER -->
 <div class="page" id="readerPage">
   <div class="reader-topbar">
     <button class="icon-btn" onclick="closeReader()">✕</button>
     <div class="reader-title" id="readerTitle"></div>
-    <div class="new-words-badge" id="newWordsBadge">✅ 0 كلمة</div>
-    <button class="icon-btn" onclick="showQuiz()">🧪</button>
+    <div class="new-words-badge" id="newWordsBadge">✅ 0</div>
+    <button class="icon-btn" onclick="showQuiz()" title="اختبار">🧪</button>
   </div>
   <div class="chapter-content" id="chapterContent"></div>
   <div class="audio-panel">
     <div class="audio-tabs">
       <div class="audio-tab active" id="listenTab" onclick="setMode('listen')">🎧 استماع</div>
-      <div class="audio-tab" id="readTab" onclick="setMode('read')">📖 القراءة</div>
+      <div class="audio-tab" id="readTab" onclick="setMode('read')">📖 قراءة</div>
     </div>
     <div class="progress-bar" onclick="seekProgress(event)" id="progressBar">
       <div class="progress-fill" id="progressFill" style="width:0%"></div>
@@ -224,194 +177,185 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   </div>
 </div>
 
-<!-- VOCAB PAGE -->
+<!-- VOCAB -->
 <div class="page" id="vocabPage">
   <div class="topbar"><div class="topbar-title">المفردات 📝</div></div>
   <div class="vocab-list" id="vocabList"></div>
 </div>
 
-<!-- PROGRESS PAGE -->
+<!-- PROGRESS -->
 <div class="page" id="progressPage">
   <div class="topbar"><div class="topbar-title">النشاط 🏆</div></div>
   <div class="progress-page">
     <div class="prog-card" style="text-align:center">
-      <div class="streak-num">🔥 <span id="streakNum">1</span></div>
+      <div class="streak-num">🔥 1</div>
       <div style="color:var(--muted);font-size:.85rem">أيام متواصلة</div>
     </div>
     <div class="prog-card">
-      <div class="prog-title">📚 الكتب المقروءة</div>
-      <div class="prog-bar-wrap"><div class="prog-bar-fill" id="booksProg" style="width:0%"></div></div>
-      <div class="prog-info"><span id="booksRead">0 كتاب</span><span>الهدف: 10</span></div>
-    </div>
-    <div class="prog-card">
       <div class="prog-title">📝 المفردات المحفوظة</div>
-      <div class="prog-bar-wrap"><div class="prog-bar-fill" id="vocabProg" style="width:0%;background:linear-gradient(90deg,var(--green),#81c784)"></div></div>
+      <div class="prog-bar-wrap"><div class="prog-bar-fill" id="vocabProg" style="width:0%"></div></div>
       <div class="prog-info"><span id="vocabCountProg">0 كلمة</span><span>الهدف: 100</span></div>
     </div>
     <div class="prog-card">
       <div class="prog-title">🧪 نتائج الاختبارات</div>
-      <div id="quizResults" style="color:var(--muted);font-size:.85rem">لم تجري اختبارات بعد</div>
+      <div id="quizResults" style="color:var(--muted);font-size:.85rem;padding:8px 0">لم تجري اختبارات بعد</div>
     </div>
   </div>
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav" id="bottomNav">
-  <div class="nav-item" onclick="showMainPage('progressPage',this)">
-    <div class="nav-icon">🏆</div><div class="nav-label">النشاط</div>
-  </div>
-  <div class="nav-item active" onclick="showMainPage('libPage',this)">
-    <div class="nav-icon">📚</div><div class="nav-label">المكتبة</div>
-  </div>
-  <div class="nav-item" onclick="showMainPage('vocabPage',this)">
-    <div class="nav-icon">📝</div><div class="nav-label">المفردات</div>
-  </div>
+  <div class="nav-item" onclick="showMainPage('progressPage',this)"><div class="nav-icon">🏆</div><div class="nav-label">النشاط</div></div>
+  <div class="nav-item active" onclick="showMainPage('libPage',this)"><div class="nav-icon">📚</div><div class="nav-label">المكتبة</div></div>
+  <div class="nav-item" onclick="showMainPage('vocabPage',this)"><div class="nav-icon">📝</div><div class="nav-label">المفردات</div></div>
 </div>
 
 <script>
-// ===== BOOKS DATA =====
 const books=[
-  {id:0,title:"Harry Potter and the Philosopher's Stone",author:"J.K. Rowling",level:"A1",cat:"fantasy",
-   cover:"https://covers.openlibrary.org/b/id/10110415-M.jpg",color:"#1a237e",emoji:"⚡",
-   quiz:[
-     {q:"Where does Harry sleep at the Dursley house?",opts:["In a bedroom","Under the stairs","In the garden","In the attic"],ans:1},
-     {q:"What is the name of Harry's owl?",opts:["Snowball","Hedwig","Luna","Pearl"],ans:1},
-     {q:"What does Hagrid give Harry on his birthday?",opts:["A wand","A broomstick","A birthday cake","A cat"],ans:2},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"حياة هاري الحزينة",text:"Harry Potter is a small boy who lives with the Dursley family. His aunt Petunia and uncle Vernon are not kind to him. They give him old clothes that are too big and make him sleep in a small space under the stairs. Dudley is Harry's cousin. Dudley has many toys and sweets, but he is rude and always tries to hurt Harry. The Dursleys never say anything nice to Harry and treat him very badly. They do not tell him the truth about his parents. They say that his parents died in a car crash. Harry feels sad and lonely. He never gets gifts or love. He does not feel like part of the family. He just wants to belong somewhere. One day, something very strange happens to Harry. A big snake at the zoo starts to talk to him. Harry is very surprised. He does not know why this happens. The Dursleys are very angry and scared."},{title:"Chapter 2",subtitle:"الرسائل الغامضة",text:"One morning, many letters arrive at the Dursley house. They are for Harry. Uncle Vernon takes the letters and does not let Harry read them. More letters come every day. Uncle Vernon is very angry and scared. He does not want Harry to read the letters. He takes the family to a small house near the sea. They think no one can find them there. But on Harry's birthday, a very big man breaks down the door. His name is Hagrid. He has kind eyes and a warm smile. Hagrid gives Harry a birthday cake. It is Harry's first birthday cake. Harry is very happy. Hagrid tells Harry the truth. Harry is a wizard. His parents were a witch and a wizard. They did not die in a car crash. A very bad wizard named Voldemort killed them."},{title:"Chapter 3",subtitle:"عالم السحر",text:"Hagrid takes Harry to London. They go to a secret street called Diagon Alley. It is a magical place full of witches and wizards. Harry sees shops with magical things like wands, cauldrons, and spell books. They go to Gringotts bank. It is run by goblins. Harry learns that his parents left him gold in the bank. Harry is not poor at all. He buys everything he needs for school. He buys robes, books, and a wand. His wand chooses him. The wand maker says that Harry's wand is special. Then Hagrid buys Harry a wonderful gift. It is a beautiful white owl. Harry names her Hedwig. Harry is very happy. He has never had a pet before."}]},
-
-  {id:1,title:"Harry Potter and the Chamber of Secrets",author:"J.K. Rowling",level:"A2",cat:"fantasy",
-   cover:"https://covers.openlibrary.org/b/id/8234416-M.jpg",color:"#1b5e20",emoji:"🐍",
-   quiz:[
-     {q:"What is the name of the elf who warns Harry?",opts:["Kreacher","Dobby","Winky","Griphook"],ans:1},
-     {q:"Where is the Chamber of Secrets located?",opts:["In the library","Under the lake","Beneath the girls' bathroom","In the forest"],ans:2},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"دوبي يحذر هاري",text:"Harry Potter is spending the summer with the Dursleys again. He misses his friends at Hogwarts very much. One evening, Harry goes to his room and finds a small strange creature sitting on his bed. The creature has big green eyes and very large ears. It is a house elf. His name is Dobby. Dobby tells Harry that he must not go back to Hogwarts. He says that terrible things will happen there this year. Harry says he must go back. His friends are there. Dobby begs Harry to stay home. Harry refuses. Dobby then runs downstairs and does something terrible. He uses magic to make a big pudding fly through the air and fall on the head of Uncle Vernon's important guest. The Dursleys are very angry. They lock Harry in his room. But that night, Harry's friends Ron and Fred and George arrive in a flying car to rescue him."}]},
-
-  {id:2,title:"The Lion, the Witch and the Wardrobe",author:"C.S. Lewis",level:"A1",cat:"fantasy",
-   cover:"https://covers.openlibrary.org/b/id/8763898-M.jpg",color:"#004d40",emoji:"🦁",
-   quiz:[
-     {q:"What does Lucy find at the back of the wardrobe?",opts:["A hidden room","Snow and a forest","A treasure chest","A secret door"],ans:1},
-     {q:"What is the name of the faun Lucy meets?",opts:["Mr Beaver","Aslan","Mr Tumnus","Jadis"],ans:2},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"الخزانة السحرية",text:"Four children go to live in a big old house in the country. Their names are Peter, Susan, Edmund, and Lucy. The house belongs to an old professor. It is a very large house with many rooms. One day, the children explore the house. Lucy finds a big wooden wardrobe. She opens the door and goes inside. She pushes past the coats. At the back of the wardrobe, she feels something strange. It is cold and wet. She looks down and sees snow. She walks forward and finds herself in a forest. The snow falls softly. Lucy sees a lamp post in the middle of the forest. A strange creature walks toward her. He has the legs of a goat but the body of a man. He carries an umbrella and some parcels. His name is Mr Tumnus. He is a faun. Mr Tumnus is very surprised to see Lucy."}]},
-
-  {id:3,title:"A Study in Scarlet",author:"Arthur Conan Doyle",level:"B1",cat:"mystery",
-   cover:"https://covers.openlibrary.org/b/id/8739161-M.jpg",color:"#4a148c",emoji:"🔍",
-   quiz:[
-     {q:"How does Holmes know Watson has been in Afghanistan?",opts:["Watson told him","Watson's friend told him","Holmes deduced it from clues","He read it in a letter"],ans:2},
-     {q:"What is Holmes' profession?",opts:["Police detective","Consulting detective","Private investigator","Professor"],ans:1},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"اللقاء الأول",text:"In the year 1878, I took my degree of Doctor of Medicine. I went to serve in Afghanistan where I was wounded in battle. After many months in hospital, I was sent back to England. I had no money and no home. I needed to find somewhere cheap to live. One day I met an old friend named Stamford. He said he knew a man also looking for someone to share rooms. His name was Sherlock Holmes. Stamford warned me that Holmes was brilliant but very strange. He worked as a consulting detective. At the chemistry laboratory I met Holmes for the first time. He was tall and thin with sharp piercing eyes. When he saw me he said something extraordinary. He said, I perceive you have been in Afghanistan. I was completely astonished. How could he know that? Holmes just smiled quietly. I knew then that my life was about to become very interesting indeed."}]},
-
-  {id:4,title:"Charlotte's Web",author:"E.B. White",level:"A1",cat:"classic",
-   cover:"https://covers.openlibrary.org/b/id/8406786-M.jpg",color:"#e65100",emoji:"🕷️",
-   quiz:[
-     {q:"Who is Wilbur?",opts:["A horse","A pig","A spider","A dog"],ans:1},
-     {q:"What does Charlotte write in her web?",opts:["Help me","Some pig","Save me","Run away"],ans:1},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"خنزير صغير",text:"Wilbur is a small pig who lives on a farm. He is born in the spring. Fern is a young girl who lives on the farm. When Wilbur is born he is very small and weak. Fern's father wants to kill him. But Fern cries and begs her father to let Wilbur live. Her father gives Wilbur to Fern. Fern takes care of Wilbur like a baby. She feeds him milk from a bottle. Wilbur grows bigger and stronger every day. When Wilbur is five weeks old Fern's father says he must go to live in the barn. In the barn Wilbur meets many animals. But Wilbur is lonely. He wants a friend. One morning he hears a small voice. The voice says it will be his friend. But Wilbur cannot see anyone. That night he finally sees who is speaking to him. It is a spider named Charlotte. She lives in the corner of his pen. Charlotte is wise and kind and she will save Wilbur's life."}]},
-
-  {id:5,title:"The Little Prince",author:"Antoine de Saint-Exupéry",level:"A2",cat:"classic",
-   cover:"https://covers.openlibrary.org/b/id/8096089-M.jpg",color:"#006064",emoji:"👑",
-   quiz:[
-     {q:"Where does the Little Prince come from?",opts:["Earth","A small asteroid","The moon","Mars"],ans:1},
-     {q:"What animal does the Little Prince meet in the desert?",opts:["A snake","A fox","A lion","A camel"],ans:0},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"الأمير الصغير",text:"Once when I was six years old I saw a magnificent picture in a book about the forest. It showed a boa constrictor swallowing a wild animal. I drew my own picture and showed it to the grown-ups. They told me it was a hat. My drawing was not a hat. It was a boa constrictor digesting an elephant. The grown-ups could not understand. So they told me to stop drawing and study useful things instead. I became a pilot and flew my airplane all over the world. Then one day my engine broke over the Sahara desert. I was completely alone far from any people. I had very little water and food. On the first night I fell asleep on the sand. When I woke up a small strange boy was standing in front of me. He had golden hair and a wonderful laugh. He asked me very seriously to draw him a sheep. I was so surprised. We were far from everywhere in the middle of the desert."}]},
-
-  {id:6,title:"The Jungle Book",author:"Rudyard Kipling",level:"A2",cat:"adventure",
-   cover:"https://covers.openlibrary.org/b/id/8739182-M.jpg",color:"#33691e",emoji:"🐯",
-   quiz:[
-     {q:"What is the name of the boy raised by wolves?",opts:["Shere Khan","Baloo","Mowgli","Bagheera"],ans:2},
-     {q:"Who is Mowgli's bear friend?",opts:["Baloo","Bagheera","Rikki","Kaa"],ans:0},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"طفل الغابة",text:"Mowgli is a small boy who grows up in the jungle. When he is a baby a tiger named Shere Khan tries to kill him. His parents run away in fear. Baby Mowgli crawls alone into the jungle. He finds the cave of a wolf family. Father Wolf and Mother Wolf take care of him like their own child. They call him Mowgli which means little frog. Mowgli grows up with the wolf cubs. He learns to run and hunt and speak the language of the animals. He is different from the wolves but they love him very much. Baloo the old bear teaches Mowgli the law of the jungle. Bagheera the black panther watches over him and keeps him safe. But Shere Khan the tiger never forgets about Mowgli. He tells the other animals that a man cub does not belong in the jungle. One day Mowgli must face Shere Khan and discover who he truly is."}]},
-
-  {id:7,title:"Treasure Island",author:"Robert Louis Stevenson",level:"B1",cat:"adventure",
-   cover:"https://covers.openlibrary.org/b/id/8739204-M.jpg",color:"#bf360c",emoji:"🏴‍☠️",
-   quiz:[
-     {q:"What does Jim find in the old sailor's chest?",opts:["Gold coins","A treasure map","An old sword","A compass"],ans:1},
-     {q:"What is the name of the one-legged pirate?",opts:["Captain Smollett","Ben Gunn","Long John Silver","Billy Bones"],ans:2},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"الخريطة الغامضة",text:"My name is Jim Hawkins and I live with my parents at the Admiral Benbow inn by the sea. One autumn evening a strange old sailor comes to our inn. His name is Billy Bones and he has a large wooden chest. He pays my father to let him stay. Billy Bones drinks too much rum and sings loud songs about pirates. He asks me to watch the road for a one-legged man. He says I must warn him if I see such a man coming. One day a blind man called Pew arrives and gives Billy Bones a black spot which is a death warning from pirates. Billy Bones is so frightened that he has a stroke and dies. Before he dies I take the key from his neck and open his chest. Inside I find clothes, gold coins, and most importantly a sealed packet. Later I discover it contains a map of an island where the pirate Captain Flint buried his enormous treasure. Our adventure is about to begin."}]},
-
-  {id:8,title:"The Secret Garden",author:"Frances Hodgson Burnett",level:"A2",cat:"classic",
-   cover:"https://covers.openlibrary.org/b/id/8739210-M.jpg",color:"#558b2f",emoji:"🌸",
-   quiz:[
-     {q:"Where does Mary go to live after her parents die?",opts:["London","Misselthwaite Manor","A boarding school","Her aunt's cottage"],ans:1},
-     {q:"What does Mary discover behind a hidden door?",opts:["A library","A secret garden","A hidden room","A treasure"],ans:1},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"الحديقة السرية",text:"Mary Lennox is a very disagreeable little girl. She is thin and pale with a sour expression. She grows up in India where her parents pay little attention to her. When Mary is nine years old her parents die of cholera. She is sent to England to live with her uncle Mr Archibald Craven at Misselthwaite Manor on the Yorkshire moors. The manor is very large and dark with a hundred rooms most of them locked. Her uncle is rarely home and spends his time traveling. The servants are kind but strict. Mary is bored and lonely. She begins to explore the grounds of the manor. One day she discovers that there is a garden with a locked door and no key. A friendly robin shows her where the key is buried. Mary finds the key and opens the door. She steps inside and gasps. The garden has been locked and forgotten for ten years but it is still alive. This will become her secret garden."}]},
-
-  {id:9,title:"Alice's Adventures in Wonderland",author:"Lewis Carroll",level:"A2",cat:"fantasy",
-   cover:"https://covers.openlibrary.org/b/id/8739225-M.jpg",color:"#6a1b9a",emoji:"🐰",
-   quiz:[
-     {q:"What does Alice follow down the rabbit hole?",opts:["A cat","A white rabbit","A red queen","A mad hatter"],ans:1},
-     {q:"What does the bottle say that Alice drinks from?",opts:["Drink me","Magic potion","Shrink","Alice"],ans:0},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"أليس في بلاد العجائب",text:"Alice is sitting with her sister on the riverbank feeling very bored. She notices a white rabbit run past her. This is not unusual except that the rabbit takes a watch out of its waistcoat pocket and says that it is very late. Alice jumps up and follows the rabbit. She sees it disappear down a large rabbit hole. Alice follows without thinking how she will get out again. She falls down a very long dark tunnel. As she falls she notices shelves on the walls with jars of marmalade and books. She falls very slowly for a long time. At last she lands softly at the bottom. She finds herself in a long hall with many locked doors. On a glass table she finds a tiny golden key. She finds a small door and the key fits. Through the door she can see a beautiful garden. But the door is too small for her to fit through. Then she finds a bottle on the table with a label saying drink me."}]},
-
-  {id:10,title:"Around the World in 80 Days",author:"Jules Verne",level:"B1",cat:"adventure",
-   cover:"https://covers.openlibrary.org/b/id/8739240-M.jpg",color:"#0277bd",emoji:"🌍",
-   quiz:[
-     {q:"How much does Phileas Fogg bet?",opts:["Ten thousand pounds","Twenty thousand pounds","Five thousand pounds","Fifty thousand pounds"],ans:1},
-     {q:"What is the name of Fogg's servant?",opts:["Passepartout","Fix","Aouda","James"],ans:0},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"الرهان الكبير",text:"Phileas Fogg is a very precise English gentleman who lives in London. He follows a very strict daily routine. Every day he does exactly the same things at exactly the same times. He is a member of the Reform Club where he spends his evenings playing cards with other gentlemen. One evening at the club the men are reading about a new train line that has opened in India. This means that a man could now travel around the entire world in just eighty days. The other gentlemen say this is impossible. Too many things could go wrong. But Fogg says it is perfectly possible and he is willing to bet twenty thousand pounds to prove it. The bet is accepted. That very night Fogg packs a small bag takes his new French servant Passepartout and departs from London. They must return to the Reform Club in exactly eighty days or Fogg will lose everything he owns."}]},
-
-  {id:11,title:"The Call of the Wild",author:"Jack London",level:"B1",cat:"adventure",
-   cover:"https://covers.openlibrary.org/b/id/8739255-M.jpg",color:"#37474f",emoji:"🐺",
-   quiz:[
-     {q:"What kind of animal is Buck?",opts:["A wolf","A dog","A bear","A fox"],ans:1},
-     {q:"Where is Buck taken from his home?",opts:["Alaska","California","Canada","Colorado"],ans:1},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"نداء البرية",text:"Buck is a large powerful dog who lives a comfortable life on a ranch in California. He weighs one hundred and forty pounds and is the king of his world. But it is the time of the gold rush in Alaska and strong sled dogs are worth a great deal of money. One day the gardener at the ranch steals Buck and sells him. Buck is put on a train and then a ship and taken far north to Alaska. When Buck arrives in the frozen north he discovers a world of cruelty and hard work. He must learn new rules. The law of club and fang is the law of this world. The strong survive and the weak die. Buck watches other dogs and learns quickly. He discovers a strength and wildness inside himself that he never knew existed. Deep inside him something ancient is awakening. It is the call of the wild."}]},
-
-  {id:12,title:"Romeo and Juliet",author:"William Shakespeare",level:"B2",cat:"classic",
-   cover:"https://covers.openlibrary.org/b/id/8739270-M.jpg",color:"#880e4f",emoji:"💔",
-   quiz:[
-     {q:"Which two families are enemies in the story?",opts:["Montague and Capulet","Benvolio and Tybalt","Paris and Romeo","Nurse and Friar"],ans:0},
-     {q:"Where does the story take place?",opts:["Venice","Florence","Verona","Milan"],ans:2},
-   ],
-   chapters:[{title:"Chapter 1",subtitle:"حب ممنوع",text:"In the city of Verona there are two great families who hate each other. They are the Montagues and the Capulets. Their ancient quarrel causes constant fighting in the streets. Romeo is a young man from the Montague family. He is romantic and sensitive and believes he is in love with a girl named Rosaline. One evening the Capulets hold a grand party and Romeo sneaks in wearing a mask hoping to see Rosaline. But when he sees Juliet Capulet for the first time he forgets Rosaline completely. Juliet is the most beautiful girl he has ever seen. He speaks to her and they fall deeply in love at once. But then Romeo discovers that Juliet is a Capulet. And Juliet discovers that Romeo is a Montague. Their love is impossible. Their families would never allow it. But their hearts will not listen to reason."}]},
+  {id:0,title:"Harry Potter and the Philosopher's Stone",author:"J.K. Rowling",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#1a237e,#3949ab)",emoji:"⚡",
+  quiz:[
+    {q:"Where does Harry sleep at the Dursley house?",opts:["In a bedroom","Under the stairs","In the garden","In the attic"],ans:1},
+    {q:"What is the name of Harry's owl?",opts:["Snowball","Hedwig","Luna","Pearl"],ans:1},
+    {q:"What does Hagrid give Harry on his birthday?",opts:["A wand","A broomstick","A birthday cake","A cat"],ans:2},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"حياة هاري الحزينة",text:"Harry Potter is a small boy who lives with the Dursley family. His aunt Petunia and uncle Vernon are not kind to him. They give him old clothes that are too big and make him sleep in a small space under the stairs. Dudley is Harry's cousin. Dudley has many toys and sweets, but he is rude and always tries to hurt Harry. The Dursleys never say anything nice to Harry. They do not tell him the truth about his parents. They say that his parents died in a car crash. Harry feels sad and lonely. He never gets gifts or love. He does not feel like part of the family."},
+    {title:"Chapter 2",subtitle:"الرسائل الغامضة",text:"One morning, many letters arrive at the Dursley house. They are for Harry. Uncle Vernon takes the letters and does not let Harry read them. More letters come every day. Uncle Vernon is very angry and scared. He takes the family to a small house near the sea. But on Harry's birthday, a very big man breaks down the door. His name is Hagrid. He has kind eyes and a warm smile. Hagrid gives Harry a birthday cake. It is Harry's first birthday cake. Hagrid tells Harry the truth. Harry is a wizard. His parents were a witch and a wizard. A very bad wizard named Voldemort killed them."},
+    {title:"Chapter 3",subtitle:"عالم السحر",text:"Hagrid takes Harry to London. They go to a secret street called Diagon Alley. It is a magical place full of witches and wizards. Harry sees shops with magical things like wands and spell books. They go to Gringotts bank. It is run by goblins. Harry learns that his parents left him gold in the bank. He buys everything he needs for school. He buys robes, books, and a wand. His wand chooses him. Then Hagrid buys Harry a wonderful gift. It is a beautiful white owl. Harry names her Hedwig."},
+  ]},
+  {id:1,title:"Harry Potter and the Chamber of Secrets",author:"J.K. Rowling",level:"A2",cat:"fantasy",color:"linear-gradient(135deg,#1b5e20,#388e3c)",emoji:"🐍",
+  quiz:[
+    {q:"What is the name of the house elf who warns Harry?",opts:["Kreacher","Dobby","Winky","Griphook"],ans:1},
+    {q:"Where is the Chamber of Secrets?",opts:["In the library","Under the lake","Beneath the girls bathroom","In the forest"],ans:2},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"تحذير دوبي",text:"Harry Potter is spending the summer with the Dursleys again. He misses his friends at Hogwarts very much. One evening Harry goes to his room and finds a small strange creature sitting on his bed. The creature has big green eyes and very large ears. It is a house elf. His name is Dobby. Dobby tells Harry that he must not go back to Hogwarts. He says that terrible things will happen there this year. Harry says he must go back because his friends are there. Dobby begs Harry to stay home. But Harry refuses. That night Harry's friends Ron and Fred and George arrive in a flying car to rescue him from the Dursleys."},
+  ]},
+  {id:2,title:"The Lion, the Witch and the Wardrobe",author:"C.S. Lewis",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#004d40,#00796b)",emoji:"🦁",
+  quiz:[
+    {q:"What does Lucy find at the back of the wardrobe?",opts:["A hidden room","Snow and a forest","A treasure chest","A secret door"],ans:1},
+    {q:"What is the name of the faun Lucy meets?",opts:["Mr Beaver","Aslan","Mr Tumnus","Jadis"],ans:2},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"الخزانة السحرية",text:"Four children go to live in a big old house in the country. Their names are Peter, Susan, Edmund, and Lucy. One day the children explore the house. Lucy finds a big wooden wardrobe. She opens the door and goes inside. She pushes past the coats. At the back of the wardrobe she feels something strange. It is cold and wet. She looks down and sees snow. She walks forward and finds herself in a forest. The snow falls softly. Lucy sees a lamp post in the middle of the forest. A strange creature walks toward her. He has the legs of a goat but the body of a man. His name is Mr Tumnus. He is a faun and he is very surprised to see Lucy."},
+  ]},
+  {id:3,title:"A Study in Scarlet",author:"Arthur Conan Doyle",level:"B1",cat:"mystery",color:"linear-gradient(135deg,#4a148c,#7b1fa2)",emoji:"🔍",
+  quiz:[
+    {q:"How does Holmes know Watson has been in Afghanistan?",opts:["Watson told him","A friend told him","Holmes deduced it from clues","He read it in a letter"],ans:2},
+    {q:"What is Holmes's job?",opts:["Police officer","Consulting detective","Private investigator","Professor"],ans:1},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"اللقاء الأول",text:"In the year 1878 I took my degree of Doctor of Medicine. I went to serve in Afghanistan where I was wounded in battle. After many months in hospital I was sent back to England. I had no money and no home. One day I met an old friend named Stamford. He said he knew a man also looking for someone to share rooms with. His name was Sherlock Holmes. At the laboratory I met Holmes for the first time. He was tall and thin with sharp eyes. When he saw me he said something extraordinary. He said I perceive you have been in Afghanistan. I was completely astonished. How could he possibly know that? Holmes just smiled. I knew then that my life was about to become very interesting."},
+  ]},
+  {id:4,title:"Charlotte's Web",author:"E.B. White",level:"A1",cat:"classic",color:"linear-gradient(135deg,#e65100,#f57c00)",emoji:"🕷️",
+  quiz:[
+    {q:"Who is Wilbur?",opts:["A horse","A pig","A spider","A dog"],ans:1},
+    {q:"Who saves Wilbur's life?",opts:["Fern","Mr Zuckerman","Charlotte","Templeton"],ans:2},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"خنزير صغير",text:"Wilbur is a small pig who lives on a farm. He is born in the spring. Fern is a young girl who lives on the farm. When Wilbur is born he is very small and weak. Fern cries and begs her father to let Wilbur live. Fern takes care of Wilbur like a baby. She feeds him milk from a bottle. Wilbur grows bigger and stronger every day. When Wilbur is older he goes to live in the barn. In the barn Wilbur meets many animals but he is lonely. He wants a friend. One morning he hears a small voice that says it will be his friend. That night he sees who is speaking to him. It is a spider named Charlotte. She lives in the corner of his pen and she is wise and kind."},
+  ]},
+  {id:5,title:"The Little Prince",author:"Antoine de Saint-Exupery",level:"A2",cat:"classic",color:"linear-gradient(135deg,#006064,#0097a7)",emoji:"👑",
+  quiz:[
+    {q:"Where does the Little Prince come from?",opts:["Earth","A small asteroid","The moon","Mars"],ans:1},
+    {q:"What does the pilot draw for the prince?",opts:["A flower","A sheep","A snake","A house"],ans:1},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"الأمير الصغير",text:"Once when I was six years old I saw a magnificent picture in a book about the forest. It showed a boa constrictor swallowing a wild animal. I drew my own picture and showed it to the grown-ups. They told me it was just a hat. The grown-ups could not understand. So I became a pilot and flew my airplane all over the world. One day my engine broke over the Sahara desert. I was completely alone far from any people. On the first night I fell asleep on the sand. When I woke up a small strange boy was standing in front of me. He had golden hair and a wonderful laugh. He asked me very seriously to draw him a sheep. I was very surprised because we were far from everywhere in the middle of the desert."},
+  ]},
+  {id:6,title:"The Jungle Book",author:"Rudyard Kipling",level:"A2",cat:"adventure",color:"linear-gradient(135deg,#33691e,#558b2f)",emoji:"🐯",
+  quiz:[
+    {q:"What is the name of the boy raised by wolves?",opts:["Shere Khan","Baloo","Mowgli","Bagheera"],ans:2},
+    {q:"Who is Mowgli's bear teacher?",opts:["Baloo","Bagheera","Rikki","Kaa"],ans:0},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"طفل الغابة",text:"Mowgli is a small boy who grows up in the jungle. When he is a baby a tiger named Shere Khan tries to kill him. Baby Mowgli crawls alone into the jungle and finds the cave of a wolf family. Father Wolf and Mother Wolf take care of him like their own child. They call him Mowgli which means little frog. Mowgli grows up with the wolf cubs. He learns to run and hunt and speak the language of the animals. Baloo the old bear teaches Mowgli the law of the jungle. Bagheera the black panther watches over him and keeps him safe. But Shere Khan the tiger never forgets about Mowgli and one day Mowgli must face him."},
+  ]},
+  {id:7,title:"Treasure Island",author:"Robert Louis Stevenson",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#bf360c,#e64a19)",emoji:"🏴‍☠️",
+  quiz:[
+    {q:"What does Jim find in the old sailor's chest?",opts:["Gold coins","A treasure map","An old sword","A compass"],ans:1},
+    {q:"What is the one-legged pirate's name?",opts:["Captain Smollett","Ben Gunn","Long John Silver","Billy Bones"],ans:2},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"الخريطة الغامضة",text:"My name is Jim Hawkins and I live with my parents at an inn by the sea. One autumn evening a strange old sailor comes to our inn. His name is Billy Bones and he has a large wooden chest. He asks me to watch the road for a one-legged man. One day a blind man arrives and gives Billy Bones a black spot which is a death warning from pirates. Billy Bones is so frightened that he dies. I take the key from his neck and open his chest. Inside I find clothes, gold coins, and most importantly a sealed packet. Later I discover it contains a map of an island where the pirate Captain Flint buried his enormous treasure. Our great adventure is about to begin."},
+  ]},
+  {id:8,title:"The Secret Garden",author:"Frances Hodgson Burnett",level:"A2",cat:"classic",color:"linear-gradient(135deg,#558b2f,#7cb342)",emoji:"🌸",
+  quiz:[
+    {q:"Where does Mary go to live?",opts:["London","Misselthwaite Manor","A boarding school","Her aunt's cottage"],ans:1},
+    {q:"What does Mary discover behind a hidden door?",opts:["A library","A secret garden","A hidden room","A treasure"],ans:1},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"الحديقة السرية",text:"Mary Lennox is a disagreeable little girl who grows up in India. When she is nine years old her parents die and she is sent to England to live with her uncle at Misselthwaite Manor on the Yorkshire moors. The manor is very large and dark with many locked rooms. Mary is bored and lonely. She begins to explore the grounds of the manor. One day she discovers a garden with a locked door and no key. A friendly robin shows her where the key is buried. Mary finds the key and opens the door. She steps inside and gasps. The garden has been locked and forgotten for ten years but it is still alive. This will become her secret garden and it will change everything for her."},
+  ]},
+  {id:9,title:"Alice's Adventures in Wonderland",author:"Lewis Carroll",level:"A2",cat:"fantasy",color:"linear-gradient(135deg,#6a1b9a,#8e24aa)",emoji:"🐰",
+  quiz:[
+    {q:"What does Alice follow down the rabbit hole?",opts:["A cat","A white rabbit","A red queen","A mad hatter"],ans:1},
+    {q:"What does the bottle say that Alice drinks?",opts:["Drink me","Magic potion","Shrink","Alice"],ans:0},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"أليس في بلاد العجائب",text:"Alice is sitting with her sister on the riverbank feeling very bored. She notices a white rabbit run past her. This is unusual because the rabbit takes a watch out of its waistcoat pocket and says that it is very late. Alice jumps up and follows the rabbit. She sees it disappear down a large rabbit hole and follows without thinking how she will get out again. She falls down a very long dark tunnel. As she falls she notices shelves on the walls with jars of marmalade. She lands softly at the bottom and finds herself in a long hall with many locked doors. On a glass table she finds a tiny golden key. She finds a small door and the key fits. Through the door she can see a beautiful garden. But the door is too small for her to fit through. Then she finds a bottle on the table with a label that says drink me."},
+  ]},
+  {id:10,title:"Around the World in 80 Days",author:"Jules Verne",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#0277bd,#0288d1)",emoji:"🌍",
+  quiz:[
+    {q:"How much does Phileas Fogg bet?",opts:["Ten thousand pounds","Twenty thousand pounds","Five thousand pounds","Fifty thousand pounds"],ans:1},
+    {q:"What is the name of Fogg's servant?",opts:["Passepartout","Fix","Aouda","James"],ans:0},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"الرهان الكبير",text:"Phileas Fogg is a very precise English gentleman who lives in London. He follows a very strict daily routine and does exactly the same things at exactly the same times every day. He is a member of the Reform Club where he spends his evenings playing cards. One evening the men are talking about whether a person could now travel around the entire world in just eighty days. The other gentlemen say this is impossible because too many things could go wrong. But Fogg says it is perfectly possible and he bets twenty thousand pounds to prove it. The bet is accepted. That very night Fogg packs a small bag, takes his new French servant Passepartout, and departs from London. They must return in exactly eighty days or Fogg will lose everything he owns."},
+  ]},
+  {id:11,title:"The Call of the Wild",author:"Jack London",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#37474f,#546e7a)",emoji:"🐺",
+  quiz:[
+    {q:"What kind of animal is Buck?",opts:["A wolf","A dog","A bear","A fox"],ans:1},
+    {q:"Where is Buck taken from his comfortable home?",opts:["Alaska","California","Canada","Colorado"],ans:1},
+  ],
+  chapters:[
+    {title:"Chapter 1",subtitle:"نداء البرية",text:"Buck is a large powerful dog who lives a comfortable life on a ranch in California. He weighs one hundred and forty pounds and is the king of his world. But it is the time of the gold rush in Alaska and strong sled dogs are worth a great deal of money. One day the gardener at the ranch steals Buck and sells him. Buck is put on a train and then a ship and taken far north to Alaska. When Buck arrives in the frozen north he discovers a world of cruelty and hard work. He must learn new rules quickly because the law of this world is the law of club and fang. Deep inside him something ancient is slowly awakening. It is the call of the wild."},
+  ]},
 ];
 
-// ===== VOCAB DATA =====
 const wordTranslations={
-  "harry":"هاري","potter":"فخاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة/عمة","uncle":"خال/عم","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","sweets":"حلوى","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","crash":"حادث","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","belong":"ينتمي","strange":"غريب","surprised":"متفاجئ","different":"مختلف","letters":"رسائل","birthday":"عيد الميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","excited":"متحمس","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","umbrella":"مظلة","friend":"صديق","warm":"دافئ","brilliant":"عبقري","detective":"محقق","interesting":"مشوق","weak":"ضعيف","born":"وُلد","cries":"يبكي","begs":"يتوسل","stronger":"أقوى","voice":"صوت","wise":"حكيم","magnificent":"رائع","frightening":"مخيف","useful":"مفيد","desert":"صحراء","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","afraid":"خائف","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","journey":"رحلة","adventure":"مغامرة","discover":"يكتشف","ancient":"قديم","mysterious":"غامض","enormous":"ضخم","terrible":"مريع","comfortable":"مريح","precise":"دقيق","routine":"روتين","strict":"صارم","quarrel":"شجار","impossible":"مستحيل","constant":"مستمر","sensitive":"حساس","romantic":"رومانسي","garden":"حديقة","locked":"مقفل","forbidden":"ممنوع","enormous":"ضخم","journey":"رحلة","power":"قوة","freedom":"حرية","dream":"حلم","hope":"أمل","darkness":"ظلام","light":"نور","heart":"قلب","soul":"روح","silent":"صامت"
+  "harry":"هاري","potter":"فخاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","sweets":"حلوى","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","crash":"حادث","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","belong":"ينتمي","strange":"غريب","surprised":"متفاجئ","different":"مختلف","letters":"رسائل","birthday":"عيد الميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","excited":"متحمس","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","umbrella":"مظلة","friend":"صديق","warm":"دافئ","brilliant":"عبقري","detective":"محقق","interesting":"مشوق","weak":"ضعيف","born":"وُلد","stronger":"أقوى","voice":"صوت","wise":"حكيم","magnificent":"رائع","desert":"صحراء","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","journey":"رحلة","adventure":"مغامرة","discover":"يكتشف","ancient":"قديم","mysterious":"غامض","enormous":"ضخم","terrible":"مريع","comfortable":"مريح","strict":"صارم","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","power":"قوة","freedom":"حرية","dream":"حلم","hope":"أمل","heart":"قلب","light":"نور","silent":"صامت","arrived":"وصل","found":"وجد","inside":"داخل","outside":"خارج","together":"معاً","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","never":"أبداً","sometimes":"أحياناً","every":"كل","first":"أول","last":"أخير","next":"التالي","old":"قديم","new":"جديد","big":"كبير","little":"صغير","long":"طويل","short":"قصير","young":"شاب","large":"ضخم","dark":"مظلم","bright":"ساطع","cold":"بارد","hot":"ساخن","hard":"صعب","easy":"سهل","real":"حقيقي","true":"صحيح","free":"حر","open":"مفتوح","door":"باب","window":"نافذة","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","earth":"أرض","sky":"سماء","sun":"شمس","moon":"قمر","star":"نجمة","night":"ليل","morning":"صباح","time":"وقت","year":"سنة","day":"يوم"
 };
 
-// ===== STATE =====
-let savedVocab=JSON.parse(localStorage.getItem('vocab')||'[]');
-let quizScores=JSON.parse(localStorage.getItem('quizScores')||'[]');
-let currentBook=null;
-let currentChapter=0;
-let isPlaying=false;
-let playSpeed=1.0;
-let sentences=[];
-let currentSentence=0;
-let progressTimer=null;
-let elapsedTime=0;
-let totalTime=0;
-let currentLevel='all';
-let currentCat='all';
+let savedVocab=JSON.parse(localStorage.getItem('eng_vocab')||'[]');
+let quizScores=JSON.parse(localStorage.getItem('eng_quiz')||'[]');
+let currentBook=null,currentChapter=0;
+let isPlaying=false,playSpeed=1.0;
+let sentences=[],currentSentence=0;
+let progressTimer=null,elapsedTime=0,totalTime=0;
+let currentLevel='all',currentCat='all';
 let sessionWords=0;
+let voices=[];
 
-// ===== RENDER LIBRARY =====
+// Load voices
+function loadVoices(){
+  voices=speechSynthesis.getVoices();
+}
+speechSynthesis.onvoiceschanged=loadVoices;
+loadVoices();
+
+function getBritishVoice(){
+  if(!voices.length)voices=speechSynthesis.getVoices();
+  return voices.find(v=>v.lang==='en-GB'&&v.name.includes('Female'))
+    ||voices.find(v=>v.lang==='en-GB')
+    ||voices.find(v=>v.lang.startsWith('en-'))
+    ||voices[0];
+}
+
+// ===== LIBRARY =====
 function renderLibrary(){
-  const filtered=books.filter(b=>(currentLevel==='all'||b.level===currentLevel)&&(currentCat==='all'||b.cat===currentCat));
-  const fantasy=filtered.filter(b=>b.cat==='fantasy');
-  const mystery=filtered.filter(b=>b.cat==='mystery');
-  const classic=filtered.filter(b=>b.cat==='classic'||b.cat==='adventure'||b.cat==='science');
+  const f=b=>(currentLevel==='all'||b.level===currentLevel)&&(currentCat==='all'||b.cat===currentCat);
+  const all=books.filter(f);
+  const fantasy=all.filter(b=>b.cat==='fantasy');
+  const mystery=all.filter(b=>b.cat==='mystery');
+  const classic=all.filter(b=>b.cat==='classic'||b.cat==='adventure');
+  const feat=all[0]||books[0];
 
-  // Featured
-  const feat=filtered[0]||books[0];
   document.getElementById('featuredDiv').innerHTML=`
     <div class="section-title">⭐ مميز لك</div>
-    <div class="featured-card" onclick="openBook(${feat.id})">
-      <img class="featured-img" src="${feat.cover}" onerror="this.style.display='none'" alt="">
+    <div class="featured-card" style="background:${feat.color}" onclick="openBook(${feat.id})">
       <div class="featured-overlay"></div>
+      <div class="featured-emoji">${feat.emoji}</div>
       <div class="featured-info">
         <div class="featured-badge badge-${feat.level.toLowerCase()}">${feat.level} ${levelName(feat.level)}</div>
         <div class="featured-title">${feat.title}</div>
@@ -419,45 +363,40 @@ function renderLibrary(){
       </div>
     </div>`;
 
-  document.getElementById('fantasyGrid').innerHTML=(fantasy.length?fantasy:filtered.slice(0,5)).map(bookHTML).join('')||'<div style="color:var(--muted);padding:20px">لا توجد كتب في هذا التصنيف</div>';
-  document.getElementById('mysteryGrid').innerHTML=(mystery.length?mystery:filtered.slice(0,4)).map(bookHTML).join('')||'<div style="color:var(--muted);padding:20px">لا توجد كتب</div>';
-  document.getElementById('classicGrid').innerHTML=(classic.length?classic:filtered.slice(0,4)).map(bookHTML).join('')||'<div style="color:var(--muted);padding:20px">لا توجد كتب</div>';
+  const renderGrid=(list,fallback)=>
+    (list.length?list:fallback).map(b=>`
+      <div class="book-card" onclick="openBook(${b.id})">
+        <div class="book-cover" style="background:${b.color}">
+          <div class="book-emoji">${b.emoji}</div>
+          <div class="book-title-cover">${b.title}</div>
+          <div class="book-level-badge badge-${b.level.toLowerCase()}">${b.level}</div>
+        </div>
+        <div class="book-name">${b.title}</div>
+        <div class="book-author">${b.author}</div>
+      </div>`).join('');
+
+  document.getElementById('fantasyGrid').innerHTML=renderGrid(fantasy,all.slice(0,4));
+  document.getElementById('mysteryGrid').innerHTML=renderGrid(mystery,all.slice(0,3));
+  document.getElementById('classicGrid').innerHTML=renderGrid(classic,all.slice(0,4));
 }
 
-function bookHTML(b){
-  return`<div class="book-card" onclick="openBook(${b.id})">
-    <div class="book-cover" style="background:linear-gradient(135deg,${b.color},${b.color}88)">
-      <img src="${b.cover}" alt="${b.title}" onerror="this.style.display='none'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:12px">
-      <div class="book-cover-fallback">${b.emoji}</div>
-      <div class="book-level-badge badge-${b.level.toLowerCase()}">${b.level}</div>
-    </div>
-    <div class="book-title">${b.title}</div>
-    <div class="book-author">${b.author}</div>
-  </div>`;
-}
-
-function levelName(l){return{A1:'مبتدئ',A2:'ابتدائي',B1:'متوسط',B2:'متقدم'}[l]||l;}
+function levelName(l){return{A1:'مبتدئ',A2:'ابتدائي',B1:'متوسط',B2:'متقدم'}[l]||'';}
 
 function filterLevel(l,btn){
   currentLevel=l;
   document.querySelectorAll('.ltab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  renderLibrary();
+  btn.classList.add('active');renderLibrary();
 }
-
 function filterCat(c,btn){
   currentCat=c;
   document.querySelectorAll('.cat-chip').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  renderLibrary();
+  btn.classList.add('active');renderLibrary();
 }
 
-// ===== OPEN BOOK =====
+// ===== READER =====
 function openBook(id){
-  currentBook=books[id];
-  currentChapter=0;
-  stopAudio();
-  sessionWords=0;
+  currentBook=books[id];currentChapter=0;
+  stopAudio();sessionWords=0;
   renderChapter();
   document.getElementById('libPage').classList.remove('active');
   document.getElementById('readerPage').classList.add('active');
@@ -473,29 +412,55 @@ function closeReader(){
 
 function renderChapter(){
   const ch=currentBook.chapters[currentChapter]||currentBook.chapters[0];
-  document.getElementById('readerTitle').textContent=currentBook.title.split(' ').slice(0,4).join(' ');
+  document.getElementById('readerTitle').textContent=currentBook.title;
   sentences=ch.text.match(/[^.!?]+[.!?]+/g)||[ch.text];
   totalTime=sentences.length*5;
   document.getElementById('timeTot').textContent=formatTime(totalTime);
 
   let html=`<div class="chapter-title"><span>${ch.title}:</span> ${ch.subtitle}</div>`;
   sentences.forEach((sent,si)=>{
-    const words=sent.trim().split(/\s+/);
-    const wHTML=words.map(w=>{
+    const wHTML=sent.trim().split(/\s+/).map(w=>{
       const clean=w.replace(/[^a-zA-Z]/g,'').toLowerCase();
-      const isNew=wordTranslations[clean]&&!savedVocab.find(v=>v.word===clean);
+      const isNew=!!wordTranslations[clean]&&!savedVocab.find(v=>v.word===clean);
       return`<span class="word${isNew?' new-word':''}" data-word="${clean}" data-si="${si}" onclick="showTranslation(this,event)">${w}</span> `;
     }).join('');
-    html+=`<span class="sentence" data-si="${si}">${wHTML}</span><span class="sent-btn" onclick="speakSentence(${si})">🔊</span> `;
+    html+=`<span data-si="${si}">${wHTML}</span><span class="sent-btn" onclick="speakSentence(${si})">🔊</span> `;
   });
   document.getElementById('chapterContent').innerHTML=html;
-  currentSentence=0;elapsedTime=0;
-  updateProgress();
+  currentSentence=0;elapsedTime=0;updateProgress();
 }
 
-// ===== RESPONSIVEVOICE AUDIO =====
+// ===== SPEECH =====
+function speakText(text,onEnd){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='en-GB';
+  u.rate=playSpeed;
+  u.pitch=1;
+  const v=getBritishVoice();
+  if(v)u.voice=v;
+  if(onEnd)u.onend=onEnd;
+  speechSynthesis.speak(u);
+  return u;
+}
+
+function speakWord(word){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(word);
+  u.lang='en-GB';u.rate=0.8;
+  const v=getBritishVoice();
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+
+function speakSentence(si){
+  stopAudio();
+  speakText(sentences[si]);
+  highlightSentence(si);
+}
+
 function togglePlay(){
-  if(isPlaying){pauseAudio();}else{playAudio();}
+  if(isPlaying)pauseAudio();else playAudio();
 }
 
 function playAudio(){
@@ -506,42 +471,37 @@ function playAudio(){
 
 function pauseAudio(){
   isPlaying=false;
-  responsiveVoice.cancel();
-  document.getElementById('playMain').textContent='▶';
+  speechSynthesis.cancel();
   clearInterval(progressTimer);
+  document.getElementById('playMain').textContent='▶';
 }
 
 function stopAudio(){
   isPlaying=false;
-  if(typeof responsiveVoice!=='undefined')responsiveVoice.cancel();
+  speechSynthesis.cancel();
   clearInterval(progressTimer);
   document.getElementById('playMain').textContent='▶';
 }
 
 function speakFromSentence(si){
-  if(!isPlaying||si>=sentences.length)return;
+  if(!isPlaying||si>=sentences.length){
+    if(si>=sentences.length){stopAudio();currentSentence=0;updateProgress();}
+    return;
+  }
   currentSentence=si;
   highlightSentence(si);
-  elapsedTime=si*(totalTime/sentences.length);
+  elapsedTime=si*(totalTime/Math.max(sentences.length,1));
 
-  responsiveVoice.speak(sentences[si],"UK English Female",{
-    rate:playSpeed,
-    pitch:1,
-    onend:()=>{
-      if(isPlaying){
-        currentSentence++;
-        if(currentSentence<sentences.length){speakFromSentence(currentSentence);}
-        else{stopAudio();currentSentence=0;}
-      }
-    }
+  speakText(sentences[si],()=>{
+    if(isPlaying){speakFromSentence(currentSentence+1);}
   });
 
   clearInterval(progressTimer);
-  const start=Date.now()-elapsedTime*1000;
+  const startAt=Date.now()-elapsedTime*1000;
   progressTimer=setInterval(()=>{
     if(isPlaying){
-      const e=(Date.now()-start)/1000;
-      const pct=Math.min(e/totalTime*100,100);
+      const e=Math.min((Date.now()-startAt)/1000,totalTime);
+      const pct=e/totalTime*100;
       document.getElementById('progressFill').style.width=pct+'%';
       document.getElementById('progressDot').style.left=pct+'%';
       document.getElementById('timeNow').textContent=formatTime(e);
@@ -549,42 +509,35 @@ function speakFromSentence(si){
   },200);
 }
 
-function speakSentence(si){
-  responsiveVoice.cancel();
-  responsiveVoice.speak(sentences[si],"UK English Female",{rate:playSpeed});
-  highlightSentence(si);
-}
-
-function speakWord(word){
-  responsiveVoice.speak(word,"UK English Female",{rate:0.8});
-}
-
 function cycleSpeed(){
-  const speeds=[0.5,0.75,1.0,1.25,1.5,2.0];
-  const i=speeds.indexOf(playSpeed);
-  playSpeed=speeds[(i+1)%speeds.length];
+  const sp=[0.5,0.75,1.0,1.25,1.5,2.0];
+  playSpeed=sp[(sp.indexOf(playSpeed)+1)%sp.length];
   document.getElementById('speedBtn').textContent=playSpeed+'x';
-  if(isPlaying){responsiveVoice.cancel();speakFromSentence(currentSentence);}
+  if(isPlaying){speechSynthesis.cancel();speakFromSentence(currentSentence);}
 }
 
 function skipBack(){
   currentSentence=Math.max(0,currentSentence-1);
-  if(isPlaying){responsiveVoice.cancel();speakFromSentence(currentSentence);}
+  elapsedTime=currentSentence*(totalTime/Math.max(sentences.length,1));
+  if(isPlaying){speechSynthesis.cancel();speakFromSentence(currentSentence);}
   else highlightSentence(currentSentence);
+  updateProgress();
 }
 
 function skipFwd(){
   currentSentence=Math.min(sentences.length-1,currentSentence+1);
-  if(isPlaying){responsiveVoice.cancel();speakFromSentence(currentSentence);}
+  elapsedTime=currentSentence*(totalTime/Math.max(sentences.length,1));
+  if(isPlaying){speechSynthesis.cancel();speakFromSentence(currentSentence);}
   else highlightSentence(currentSentence);
+  updateProgress();
 }
 
 function seekProgress(e){
   const rect=e.currentTarget.getBoundingClientRect();
-  const pct=(e.clientX-rect.left)/rect.width;
+  const pct=Math.max(0,Math.min((e.clientX-rect.left)/rect.width,1));
   currentSentence=Math.floor(pct*sentences.length);
-  elapsedTime=currentSentence*(totalTime/sentences.length);
-  if(isPlaying){responsiveVoice.cancel();speakFromSentence(currentSentence);}
+  elapsedTime=pct*totalTime;
+  if(isPlaying){speechSynthesis.cancel();speakFromSentence(currentSentence);}
   updateProgress();
 }
 
@@ -603,7 +556,7 @@ function updateProgress(){
 }
 
 function formatTime(s){
-  s=Math.max(0,s);
+  s=Math.max(0,s||0);
   const m=Math.floor(s/60),sec=Math.floor(s%60);
   return`${m<10?'0'+m:m}:${sec<10?'0'+sec:sec}`;
 }
@@ -620,28 +573,23 @@ function showTranslation(el,e){
   if(!word)return;
   const arabic=wordTranslations[word];
   if(!arabic)return;
-
   document.getElementById('tWord').textContent=word;
-  document.getElementById('tPhonetic').textContent='';
   document.getElementById('tArabic').textContent=arabic;
-
   const popup=document.getElementById('transPopup');
   popup.classList.add('show');
   const rect=el.getBoundingClientRect();
-  let top=rect.top-110;
-  let left=rect.left;
+  let top=rect.top-100,left=rect.left;
   if(top<60)top=rect.bottom+8;
-  if(left+190>window.innerWidth)left=window.innerWidth-200;
-  if(left<8)left=8;
+  if(left+190>window.innerWidth)left=window.innerWidth-195;
+  if(left<5)left=5;
   popup.style.top=top+'px';
   popup.style.left=left+'px';
   popup.style.right='auto';
-
   if(!savedVocab.find(v=>v.word===word)){
     savedVocab.push({word,arabic,book:currentBook?.title||''});
-    localStorage.setItem('vocab',JSON.stringify(savedVocab));
+    localStorage.setItem('eng_vocab',JSON.stringify(savedVocab));
     sessionWords++;
-    document.getElementById('newWordsBadge').textContent=`✅ ${sessionWords} كلمة`;
+    document.getElementById('newWordsBadge').textContent=`✅ ${sessionWords}`;
     renderVocab();updateStats();
   }
   speakWord(word);
@@ -656,13 +604,13 @@ document.addEventListener('click',e=>{
 let quizQ=0,quizScore=0,quizAnswered=false;
 
 function showQuiz(){
-  if(!currentBook||!currentBook.quiz)return;
+  if(!currentBook?.quiz?.length){alert('لا يوجد اختبار لهذا الكتاب');return;}
   quizQ=0;quizScore=0;
-  renderQuizQuestion();
+  renderQuizQ();
   document.getElementById('quizOverlay').classList.add('show');
 }
 
-function renderQuizQuestion(){
+function renderQuizQ(){
   const quiz=currentBook.quiz;
   if(quizQ>=quiz.length){showQuizResult();return;}
   const q=quiz[quizQ];
@@ -670,44 +618,34 @@ function renderQuizQuestion(){
   document.getElementById('quizCard').innerHTML=`
     <div class="quiz-progress">سؤال ${quizQ+1} من ${quiz.length}</div>
     <div style="width:100%;height:4px;background:var(--border);border-radius:4px;margin-bottom:16px">
-      <div style="width:${(quizQ/quiz.length)*100}%;height:100%;background:var(--blue);border-radius:4px"></div>
+      <div style="width:${quizQ/quiz.length*100}%;height:100%;background:var(--blue);border-radius:4px;transition:width .3s"></div>
     </div>
     <div class="quiz-q">${q.q}</div>
-    <div class="quiz-opts">
-      ${q.opts.map((o,i)=>`<div class="quiz-opt" onclick="answerQuiz(${i},${q.ans},this)">${o}</div>`).join('')}
-    </div>`;
+    <div class="quiz-opts">${q.opts.map((o,i)=>`<div class="quiz-opt" onclick="answerQuiz(${i},${q.ans},this)">${o}</div>`).join('')}</div>`;
 }
 
 function answerQuiz(chosen,correct,el){
   if(quizAnswered)return;
   quizAnswered=true;
-  const opts=document.querySelectorAll('.quiz-opt');
-  opts.forEach(o=>o.style.pointerEvents='none');
-  if(chosen===correct){
-    el.classList.add('correct');
-    quizScore++;
-    speakWord('Correct');
-  }else{
-    el.classList.add('wrong');
-    opts[correct].classList.add('correct');
-  }
-  setTimeout(()=>{quizQ++;renderQuizQuestion();},1200);
+  document.querySelectorAll('.quiz-opt').forEach(o=>o.style.pointerEvents='none');
+  if(chosen===correct){el.classList.add('correct');quizScore++;speakWord('Correct');}
+  else{el.classList.add('wrong');document.querySelectorAll('.quiz-opt')[correct].classList.add('correct');}
+  setTimeout(()=>{quizQ++;renderQuizQ();},1300);
 }
 
 function showQuizResult(){
   const total=currentBook.quiz.length;
   const pct=Math.round(quizScore/total*100);
-  const msg=pct>=80?'🎉 ممتاز! أتقنت الفصل':pct>=60?'👍 جيد! يمكنك المراجعة':'💪 حاول مرة أخرى';
-  quizScores.push({book:currentBook.title,score:quizScore,total,pct,date:new Date().toLocaleDateString('ar')});
-  localStorage.setItem('quizScores',JSON.stringify(quizScores));
+  const msg=pct>=80?'🎉 ممتاز!':pct>=60?'👍 جيد!':'💪 حاول مرة أخرى';
+  quizScores.push({book:currentBook.title,score:quizScore,total,pct});
+  localStorage.setItem('eng_quiz',JSON.stringify(quizScores));
   updateStats();
-
   document.getElementById('quizCard').innerHTML=`
-    <div class="quiz-result">
+    <div style="text-align:center;padding:10px">
       <div class="quiz-score">${quizScore}/${total}</div>
-      <div style="font-size:1.5rem;margin:8px 0">${pct>=80?'🌟':pct>=60?'✅':'🔄'}</div>
-      <div class="quiz-msg">${msg}</div>
-      <div style="color:var(--muted);font-size:.8rem;margin-top:6px">${pct}% صحيح</div>
+      <div style="font-size:1.8rem;margin:8px 0">${pct>=80?'🌟':pct>=60?'✅':'🔄'}</div>
+      <div style="color:var(--muted);font-size:.9rem">${msg}</div>
+      <div style="color:var(--muted);font-size:.8rem;margin-top:4px">${pct}% إجابات صحيحة</div>
       <button class="quiz-btn" onclick="document.getElementById('quizOverlay').classList.remove('show')">إغلاق</button>
     </div>`;
 }
@@ -720,29 +658,26 @@ function renderVocab(){
         <div>
           <div class="vocab-en">${v.word}</div>
           <div class="vocab-ar">${v.arabic}</div>
-          ${v.book?`<div style="font-size:.68rem;color:var(--blue);margin-top:2px">${v.book}</div>`:''}
+          ${v.book?`<div style="font-size:.68rem;color:var(--blue);margin-top:2px">${v.book.split(' ').slice(0,3).join(' ')}</div>`:''}
         </div>
-        <button class="speak-word" onclick="speakWord('${v.word}')">🔊</button>
+        <button class="speak-word-btn" onclick="speakWord('${v.word}')">🔊</button>
       </div>`).join(''):
-    '<div class="empty-state">📝 اضغط على الكلمات الذهبية أثناء القراءة لحفظها هنا</div>';
+    '<div style="text-align:center;padding:40px;color:var(--muted)">📝 اضغط على الكلمات الذهبية في القراءة لحفظها هنا</div>';
 }
 
-// ===== STATS =====
 function updateStats(){
   const vc=savedVocab.length;
   document.getElementById('vocabCountProg').textContent=vc+' كلمة';
   document.getElementById('vocabProg').style.width=Math.min(vc,100)+'%';
-
   if(quizScores.length){
     document.getElementById('quizResults').innerHTML=quizScores.slice(-3).reverse().map(s=>
-      `<div style="display:flex;justify-content:space-between;margin-bottom:6px">
-        <span style="font-size:.8rem;color:var(--text)">${s.book.split(' ').slice(0,3).join(' ')}</span>
-        <span style="color:${s.pct>=80?'var(--green)':s.pct>=60?'var(--gold)':'var(--red)'};font-weight:700">${s.pct}%</span>
+      `<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)">
+        <span style="font-size:.8rem">${s.book.split(' ').slice(0,3).join(' ')}...</span>
+        <span style="font-weight:700;color:${s.pct>=80?'var(--green)':s.pct>=60?'var(--gold)':'var(--red)'}">${s.pct}%</span>
       </div>`).join('');
   }
 }
 
-// ===== NAVIGATION =====
 function showMainPage(id,nav){
   ['libPage','vocabPage','progressPage'].forEach(p=>document.getElementById(p).classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -758,8 +693,4 @@ renderVocab();
 updateStats();
 </script>
 </body>
-</html>
-    
-  </body>
-  
 </html>
