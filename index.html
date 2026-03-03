@@ -6,107 +6,141 @@
 <title>ReadEnglish - تعلم الإنجليزية</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0f0f0f;--card:#1a1a1a;--card2:#222;--blue:#4A90E2;--gold:#f5a623;--text:#f0f0f0;--muted:#888;--border:#333;--green:#4CAF50;--red:#f44336}
+:root{--bg:#0a0a0f;--card:#13131a;--card2:#1e1e28;--blue:#5b9bd5;--gold:#f0b429;--text:#f0f0f0;--muted:#777;--border:#2a2a3a;--green:#4CAF50;--red:#f44336;--purple:#8b5cf6}
 body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 .page{display:none;min-height:100vh;padding-bottom:80px}
 .page.active{display:block}
-.topbar{padding:16px 16px 8px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg);z-index:50;border-bottom:1px solid var(--border)}
-.topbar-title{font-size:1.3rem;font-weight:800}
-.icon-btn{background:var(--card2);border:none;color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.topbar{padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
+.topbar-title{font-size:1.3rem;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.icon-btn{background:var(--card2);border:none;color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.icon-btn:hover{background:var(--blue);color:white}
 .level-tabs{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;scrollbar-width:none}
 .level-tabs::-webkit-scrollbar{display:none}
 .ltab{padding:6px 18px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;white-space:nowrap;transition:all .2s;font-weight:600}
-.ltab.active{background:var(--blue);color:white;border-color:var(--blue)}
+.ltab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border-color:transparent}
 .section{padding:0 16px 16px}
-.section-title{font-size:1rem;font-weight:700;margin-bottom:12px}
+.section-title{font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px}
 .cat-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .cat-scroll::-webkit-scrollbar{display:none}
 .cat-chip{padding:8px 16px;border-radius:12px;background:var(--card2);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:.82rem;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:all .2s}
-.cat-chip.active{background:var(--blue);border-color:var(--blue)}
+.cat-chip.active{background:linear-gradient(135deg,var(--blue),var(--purple));border-color:transparent;color:white}
 .books-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
 .books-scroll::-webkit-scrollbar{display:none}
 .book-card{flex-shrink:0;width:130px;cursor:pointer;transition:transform .2s}
-.book-card:hover{transform:translateY(-3px)}
-.book-cover{width:130px;height:180px;border-radius:12px;position:relative;overflow:hidden;margin-bottom:8px;box-shadow:0 8px 20px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
-.book-emoji{font-size:4rem}
-.book-title-cover{font-size:.6rem;color:white;text-align:center;padding:0 6px;font-weight:700;direction:ltr;line-height:1.3}
-.book-level-badge{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:20px;font-size:.68rem;font-weight:700}
-.badge-a1{background:rgba(76,175,80,.95);color:white}
-.badge-a2{background:rgba(74,144,226,.95);color:white}
-.badge-b1{background:rgba(255,152,0,.95);color:white}
-.badge-b2{background:rgba(244,67,54,.95);color:white}
-.book-name{font-size:.78rem;font-weight:700;text-align:center;line-height:1.3;direction:ltr}
-.book-author{font-size:.68rem;color:var(--muted);text-align:center;margin-top:2px}
+.book-card:hover{transform:translateY(-4px)}
+.book-cover{width:130px;height:180px;border-radius:14px;position:relative;overflow:hidden;margin-bottom:8px;box-shadow:0 8px 24px rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.book-emoji{font-size:3.8rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.book-title-cover{font-size:.58rem;color:rgba(255,255,255,.9);text-align:center;padding:0 6px;font-weight:700;direction:ltr;line-height:1.3}
+.book-level-badge{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:20px;font-size:.65rem;font-weight:700;backdrop-filter:blur(4px)}
+.badge-a1{background:rgba(76,175,80,.9);color:white}
+.badge-a2{background:rgba(91,155,213,.9);color:white}
+.badge-b1{background:rgba(255,152,0,.9);color:white}
+.book-name{font-size:.76rem;font-weight:700;text-align:center;line-height:1.3;direction:ltr;color:var(--text)}
+.book-author{font-size:.66rem;color:var(--muted);text-align:center;margin-top:2px}
 .featured{padding:0 16px 16px}
-.featured-card{border-radius:16px;overflow:hidden;position:relative;height:200px;cursor:pointer;display:flex;align-items:flex-end}
-.featured-overlay{position:absolute;inset:0;background:linear-gradient(transparent 20%,rgba(0,0,0,.92))}
-.featured-emoji{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:5rem}
+.featured-card{border-radius:18px;overflow:hidden;position:relative;height:210px;cursor:pointer;display:flex;align-items:flex-end;transition:transform .2s}
+.featured-card:hover{transform:translateY(-2px)}
+.featured-overlay{position:absolute;inset:0;background:linear-gradient(transparent 15%,rgba(0,0,0,.95))}
+.featured-emoji{position:absolute;top:50%;left:50%;transform:translate(-50%,-65%);font-size:5.5rem;filter:drop-shadow(0 8px 16px rgba(0,0,0,.6))}
 .featured-info{position:relative;z-index:2;padding:16px;width:100%}
-.featured-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.75rem;font-weight:700;margin-bottom:6px}
-.featured-title{font-size:1.05rem;font-weight:800;direction:ltr}
-.featured-sub{font-size:.8rem;color:#ccc;margin-top:4px}
-.reader-topbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:50;gap:8px}
-.reader-title{font-size:.85rem;font-weight:700;flex:1;text-align:center;direction:ltr;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.new-words-badge{background:var(--green);color:white;padding:3px 8px;border-radius:20px;font-size:.7rem;white-space:nowrap}
-.chapter-content{padding:16px 16px 230px;line-height:2.4;font-size:1.05rem;direction:ltr;text-align:left}
-.chapter-title{font-size:1.1rem;font-weight:800;margin-bottom:16px;direction:rtl;text-align:right}
+.featured-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;margin-bottom:6px}
+.featured-title{font-size:1.05rem;font-weight:800;direction:ltr;color:white}
+.featured-sub{font-size:.78rem;color:#aaa;margin-top:4px}
+
+/* VIDEO PAGE */
+.video-grid{padding:12px 16px;display:flex;flex-direction:column;gap:12px}
+.video-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .2s}
+.video-card:hover{transform:translateY(-2px)}
+.video-thumb{position:relative;width:100%;height:180px;background:var(--card2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.video-thumb img{width:100%;height:100%;object-fit:cover}
+.video-play-btn{position:absolute;width:54px;height:54px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.video-info{padding:12px}
+.video-title{font-size:.9rem;font-weight:700;margin-bottom:4px}
+.video-meta{display:flex;gap:8px;align-items:center}
+.video-level{padding:2px 10px;border-radius:20px;font-size:.7rem;font-weight:700}
+.video-channel{font-size:.75rem;color:var(--muted)}
+.video-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:500;flex-direction:column;align-items:center;justify-content:center}
+.video-overlay.show{display:flex}
+.video-close{position:absolute;top:16px;right:16px;background:var(--card2);border:none;color:white;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center}
+.video-frame{width:100%;max-width:600px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:none}
+
+/* READER */
+.reader-topbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;gap:8px;backdrop-filter:blur(10px)}
+.reader-title{font-size:.82rem;font-weight:700;flex:1;text-align:center;direction:ltr;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--text)}
+.new-words-badge{background:var(--green);color:white;padding:3px 8px;border-radius:20px;font-size:.7rem;white-space:nowrap;font-weight:600}
+.chapter-content{padding:16px 16px 230px;line-height:2.5;font-size:1.08rem;direction:ltr;text-align:left}
+.chapter-title{font-size:1.1rem;font-weight:800;margin-bottom:18px;direction:rtl;text-align:right;padding:12px;background:var(--card);border-radius:12px;border-right:3px solid var(--blue)}
 .chapter-title span{color:var(--blue)}
-.word{cursor:pointer;border-radius:3px;padding:0 1px;transition:background .1s;display:inline}
-.word:hover{background:rgba(74,144,226,.25)}
-.word.highlighted{background:rgba(245,166,35,.35);color:var(--gold)}
-.word.new-word{color:var(--gold);border-bottom:1.5px dashed var(--gold)}
-.sent-btn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:var(--card2);border-radius:50%;cursor:pointer;font-size:.6rem;border:1px solid var(--border);vertical-align:middle;color:var(--muted);margin:0 3px}
-.sent-btn:hover{background:var(--blue);color:white}
-.audio-panel{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:10px 14px 14px;z-index:100}
-.audio-tabs{display:flex;gap:0;margin-bottom:10px;background:var(--bg);border-radius:10px;padding:3px}
-.audio-tab{flex:1;padding:7px;text-align:center;border-radius:8px;cursor:pointer;font-size:.82rem;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}
-.audio-tab.active{background:var(--card2);color:var(--text);font-weight:700}
-.progress-bar{width:100%;height:5px;background:var(--border);border-radius:4px;cursor:pointer;position:relative;margin-bottom:6px}
-.progress-fill{height:100%;background:var(--blue);border-radius:4px;transition:width .2s}
-.progress-dot{position:absolute;top:50%;transform:translateY(-50%);width:13px;height:13px;background:var(--blue);border-radius:50%;margin-left:-6px;box-shadow:0 2px 6px rgba(74,144,226,.5)}
-.time-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.word{cursor:pointer;border-radius:4px;padding:1px 2px;transition:all .15s;display:inline}
+.word:hover{background:rgba(91,155,213,.3)}
+.word.highlighted{background:rgba(240,180,41,.3);color:var(--gold);border-radius:4px}
+.word.new-word{color:var(--gold);border-bottom:2px dashed var(--gold)}
+.sent-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--card2);border-radius:50%;cursor:pointer;font-size:.6rem;border:1px solid var(--border);vertical-align:middle;color:var(--muted);margin:0 3px;transition:all .2s}
+.sent-btn:hover{background:var(--blue);color:white;border-color:var(--blue)}
+.audio-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);padding:10px 14px 14px;z-index:100;backdrop-filter:blur(10px)}
+.audio-tabs{display:flex;margin-bottom:10px;background:var(--card2);border-radius:12px;padding:3px;gap:3px}
+.audio-tab{flex:1;padding:7px;text-align:center;border-radius:9px;cursor:pointer;font-size:.82rem;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}
+.audio-tab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;font-weight:700}
+.progress-bar{width:100%;height:5px;background:var(--border);border-radius:4px;cursor:pointer;position:relative;margin-bottom:8px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:4px;transition:width .1s}
+.progress-dot{position:absolute;top:50%;transform:translateY(-50%);width:14px;height:14px;background:white;border-radius:50%;margin-left:-7px;box-shadow:0 2px 8px rgba(91,155,213,.6)}
+.time-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .time-txt{font-size:.72rem;color:var(--muted)}
-.speed-btn{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:4px 14px;border-radius:20px;font-size:.82rem;cursor:pointer;font-weight:700}
-.controls{display:flex;align-items:center;justify-content:center;gap:20px}
-.skip-btn{background:var(--card2);border:none;color:var(--text);width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.speed-btn{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:5px 14px;border-radius:20px;font-size:.82rem;cursor:pointer;font-weight:700;transition:all .2s}
+.speed-btn:active{transform:scale(.95)}
+.controls{display:flex;align-items:center;justify-content:center;gap:22px}
+.skip-btn{background:var(--card2);border:none;color:var(--text);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .2s}
+.skip-btn:hover{background:var(--card)}
 .skip-lbl{font-size:.5rem;color:var(--muted)}
-.play-main{width:56px;height:56px;border-radius:50%;background:var(--blue);border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(74,144,226,.4);transition:transform .1s}
+.play-main{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(91,155,213,.5);transition:transform .1s}
 .play-main:active{transform:scale(.93)}
-.status-bar{text-align:center;font-size:.75rem;color:var(--muted);margin-top:4px;min-height:16px}
-.trans-popup{position:fixed;z-index:300;background:#1a1a2e;border:1.5px solid var(--blue);border-radius:14px;padding:14px;max-width:185px;box-shadow:0 8px 28px rgba(0,0,0,.8);display:none}
+.status-bar{text-align:center;font-size:.72rem;color:var(--muted);margin-top:6px;min-height:16px}
+
+/* TRANSLATION POPUP */
+.trans-popup{position:fixed;z-index:300;background:#13131a;border:1.5px solid var(--blue);border-radius:16px;padding:14px;max-width:190px;box-shadow:0 8px 32px rgba(0,0,0,.9);display:none}
 .trans-popup.show{display:block}
-.trans-word{font-size:1.1rem;font-weight:700;color:var(--blue);direction:ltr}
-.trans-arabic{font-size:.95rem;color:var(--text);margin:6px 0}
-.trans-speak{background:var(--blue);border:none;color:white;padding:6px 10px;border-radius:8px;font-size:.78rem;cursor:pointer;width:100%;font-weight:600}
-.quiz-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:400;align-items:center;justify-content:center;padding:20px}
+.trans-word{font-size:1.15rem;font-weight:700;color:var(--blue);direction:ltr}
+.trans-arabic{font-size:.95rem;color:var(--text);margin:6px 0 8px}
+.trans-speak{background:linear-gradient(135deg,var(--blue),var(--purple));border:none;color:white;padding:6px 10px;border-radius:10px;font-size:.78rem;cursor:pointer;width:100%;font-weight:600}
+
+/* QUIZ */
+.quiz-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:400;align-items:center;justify-content:center;padding:20px}
 .quiz-overlay.show{display:flex}
-.quiz-card{background:var(--card);border-radius:20px;padding:24px;width:100%;max-width:400px;border:1px solid var(--border)}
+.quiz-card{background:var(--card);border-radius:22px;padding:24px;width:100%;max-width:400px;border:1px solid var(--border)}
 .quiz-progress{font-size:.78rem;color:var(--muted);margin-bottom:4px;text-align:center}
-.quiz-q{font-size:1rem;font-weight:700;text-align:center;margin-bottom:20px;direction:ltr;line-height:1.6}
+.quiz-q{font-size:1rem;font-weight:700;text-align:center;margin-bottom:20px;direction:ltr;line-height:1.6;color:var(--text)}
 .quiz-opts{display:flex;flex-direction:column;gap:10px}
-.quiz-opt{background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-size:.9rem;direction:ltr;transition:all .2s}
-.quiz-opt:hover{border-color:var(--blue)}
-.quiz-opt.correct{background:rgba(76,175,80,.2);border-color:var(--green);color:var(--green)}
-.quiz-opt.wrong{background:rgba(244,67,54,.2);border-color:var(--red);color:var(--red)}
+.quiz-opt{background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-size:.9rem;direction:ltr;transition:all .2s;color:var(--text)}
+.quiz-opt:hover{border-color:var(--blue);background:rgba(91,155,213,.1)}
+.quiz-opt.correct{background:rgba(76,175,80,.15);border-color:var(--green);color:var(--green)}
+.quiz-opt.wrong{background:rgba(244,67,54,.15);border-color:var(--red);color:var(--red)}
 .quiz-score{font-size:2.8rem;font-weight:900;color:var(--gold);text-align:center}
-.quiz-btn{background:var(--blue);color:white;border:none;padding:12px 28px;border-radius:12px;font-size:.95rem;cursor:pointer;margin-top:16px;width:100%;font-weight:700}
+.quiz-btn{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border:none;padding:13px 28px;border-radius:12px;font-size:.95rem;cursor:pointer;margin-top:16px;width:100%;font-weight:700}
+
+/* VOCAB */
 .vocab-list{padding:12px}
-.vocab-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
-.vocab-en{font-size:.95rem;font-weight:700;direction:ltr}
+.vocab-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;transition:all .2s}
+.vocab-card:hover{border-color:var(--blue)}
+.vocab-en{font-size:.95rem;font-weight:700;direction:ltr;color:var(--text)}
 .vocab-ar{font-size:.82rem;color:var(--muted)}
-.speak-word-btn{background:var(--card2);border:1px solid var(--border);color:var(--blue);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.speak-word-btn{background:var(--card2);border:1px solid var(--border);color:var(--blue);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.speak-word-btn:hover{background:var(--blue);color:white}
+
+/* PROGRESS */
 .progress-page{padding:16px}
-.prog-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px}
+.prog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:12px}
 .prog-title{font-size:.92rem;font-weight:700;margin-bottom:10px}
-.prog-bar-wrap{background:var(--card2);border-radius:8px;height:9px;overflow:hidden;margin-bottom:6px}
-.prog-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--blue),#66b3ff);transition:width .5s}
+.prog-bar-wrap{background:var(--card2);border-radius:8px;height:10px;overflow:hidden;margin-bottom:6px}
+.prog-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .5s}
 .prog-info{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
-.streak-num{font-size:2.8rem;font-weight:900;color:var(--gold);text-align:center}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);display:flex;z-index:60;padding:8px 0 12px}
-.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px}
-.nav-icon{font-size:1.25rem}
-.nav-label{font-size:.63rem;color:var(--muted)}
-.nav-item.active .nav-label{color:var(--blue)}
+.streak-num{font-size:3rem;font-weight:900;color:var(--gold);text-align:center}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);display:flex;z-index:60;padding:8px 0 14px;backdrop-filter:blur(10px)}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px;transition:all .2s}
+.nav-icon{font-size:1.3rem}
+.nav-label{font-size:.62rem;color:var(--muted)}
+.nav-item.active .nav-label{color:var(--blue);font-weight:700}
 </style>
 </head>
 <body>
@@ -121,9 +155,14 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="quiz-card" id="quizCard"></div>
 </div>
 
+<div class="video-overlay" id="videoOverlay">
+  <button class="video-close" onclick="closeVideo()">✕</button>
+  <iframe id="videoFrame" class="video-frame" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope" allowfullscreen></iframe>
+</div>
+
 <!-- LIBRARY -->
 <div class="page active" id="libPage">
-  <div class="topbar"><div class="topbar-title">المكتبة 📚</div></div>
+  <div class="topbar"><div class="topbar-title">📚 ReadEnglish</div></div>
   <div class="level-tabs">
     <button class="ltab active" onclick="filterLevel('all',this)">الكل</button>
     <button class="ltab" onclick="filterLevel('A1',this)">🟢 A1</button>
@@ -141,7 +180,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   </div>
   <div class="featured" id="featuredDiv"></div>
   <div class="section"><div class="section-title">🟢 مبتدئ A1</div><div class="books-scroll" id="a1Grid"></div></div>
-  <div class="section"><div class="section-title">✨ فانتازي</div><div class="books-scroll" id="fantasyGrid"></div></div>
+  <div class="section"><div class="section-title">✨ فانتازي وخيال</div><div class="books-scroll" id="fantasyGrid"></div></div>
   <div class="section"><div class="section-title">🔍 غموض وإثارة</div><div class="books-scroll" id="mysteryGrid"></div></div>
   <div class="section"><div class="section-title">🗺️ مغامرة وكلاسيكي</div><div class="books-scroll" id="classicGrid"></div></div>
 </div>
@@ -157,8 +196,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="chapter-content" id="chapterContent"></div>
   <div class="audio-panel">
     <div class="audio-tabs">
-      <div class="audio-tab active" onclick="setMode('listen')">🎧 استماع</div>
-      <div class="audio-tab" onclick="setMode('read')">📖 قراءة</div>
+      <div class="audio-tab active" onclick="setMode('listen',this)">🎧 استماع</div>
+      <div class="audio-tab" onclick="setMode('read',this)">📖 قراءة</div>
     </div>
     <div class="progress-bar" onclick="seekProgress(event)">
       <div class="progress-fill" id="progressFill" style="width:0%"></div>
@@ -174,26 +213,38 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
       <button class="play-main" id="playMain" onclick="togglePlay()">▶</button>
       <button class="skip-btn" onclick="skipFwd()">⏩<span class="skip-lbl">أمام</span></button>
     </div>
-    <div class="status-bar" id="statusBar"></div>
+    <div class="status-bar" id="statusBar">اضغط ▶ للاستماع بصوت بشري</div>
   </div>
+</div>
+
+<!-- VIDEOS -->
+<div class="page" id="videoPage">
+  <div class="topbar"><div class="topbar-title">🎬 فيديوهات تعليمية</div></div>
+  <div class="level-tabs">
+    <button class="ltab active" onclick="filterVideo('all',this)">الكل</button>
+    <button class="ltab" onclick="filterVideo('A1',this)">🟢 A1</button>
+    <button class="ltab" onclick="filterVideo('A2',this)">🔵 A2</button>
+    <button class="ltab" onclick="filterVideo('B1',this)">🟠 B1</button>
+  </div>
+  <div class="video-grid" id="videoGrid"></div>
 </div>
 
 <!-- VOCAB -->
 <div class="page" id="vocabPage">
-  <div class="topbar"><div class="topbar-title">المفردات 📝</div></div>
+  <div class="topbar"><div class="topbar-title">📝 المفردات</div></div>
   <div class="vocab-list" id="vocabList"></div>
 </div>
 
 <!-- PROGRESS -->
 <div class="page" id="progressPage">
-  <div class="topbar"><div class="topbar-title">النشاط 🏆</div></div>
+  <div class="topbar"><div class="topbar-title">🏆 النشاط</div></div>
   <div class="progress-page">
     <div class="prog-card" style="text-align:center">
       <div class="streak-num">🔥 1</div>
       <div style="color:var(--muted);font-size:.85rem">أيام متواصلة</div>
     </div>
     <div class="prog-card">
-      <div class="prog-title">📝 المفردات</div>
+      <div class="prog-title">📝 المفردات المحفوظة</div>
       <div class="prog-bar-wrap"><div class="prog-bar-fill" id="vocabProg" style="width:0%"></div></div>
       <div class="prog-info"><span id="vocabCountProg">0 كلمة</span><span>الهدف: 100</span></div>
     </div>
@@ -208,10 +259,58 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 <div class="bottom-nav" id="bottomNav">
   <div class="nav-item" onclick="showMainPage('progressPage',this)"><div class="nav-icon">🏆</div><div class="nav-label">النشاط</div></div>
   <div class="nav-item active" onclick="showMainPage('libPage',this)"><div class="nav-icon">📚</div><div class="nav-label">المكتبة</div></div>
-  <div class="nav-item" onclick="showMainPage('vocabPage',this)"><div class="nav-icon">📝</div><div class="nav-label">المفردات</div></div>
+  <div class="nav-item" onclick="showMainPage('videoPage',this)"><div class="nav-icon">🎬</div><div class="nav-label">فيديوهات</div></div>
+  <div class="nav-item" onclick="showMainPage('vocabPage',this)"><div class="nav-icon">📝</div><div class="nav-label">مفردات</div></div>
 </div>
 
 <script>
+const VOICE_KEY='973dcf818d50455ab578ba27e964642e';
+
+const videos=[
+  {id:0,title:"English for Complete Beginners",channel:"BBC Learning English",level:"A1",thumb:"https://img.youtube.com/vi/bnIgSame8GE/mqdefault.jpg",yt:"bnIgSame8GE",desc:"تعلم الإنجليزية من الصفر مع BBC"},
+  {id:1,title:"Simple English Stories - Level 1",channel:"English Singsing",level:"A1",thumb:"https://img.youtube.com/vi/ZMYxXBMnqqc/mqdefault.jpg",yt:"ZMYxXBMnqqc",desc:"قصص بسيطة للمبتدئين"},
+  {id:2,title:"Learn English with Stories",channel:"Oxford Online English",level:"A2",thumb:"https://img.youtube.com/vi/9FXzFKgf4WA/mqdefault.jpg",yt:"9FXzFKgf4WA",desc:"قصص إنجليزية للمستوى الابتدائي"},
+  {id:3,title:"English Conversation Practice",channel:"English with Lucy",level:"A2",thumb:"https://img.youtube.com/vi/4_YHBr1sMgA/mqdefault.jpg",yt:"4_YHBr1sMgA",desc:"تدريب على المحادثة اليومية"},
+  {id:4,title:"British English Pronunciation",channel:"BBC Learning English",level:"B1",thumb:"https://img.youtube.com/vi/RMlGHvGMGXM/mqdefault.jpg",yt:"RMlGHvGMGXM",desc:"نطق اللغة الإنجليزية البريطانية"},
+  {id:5,title:"Advanced English Vocabulary",channel:"English with Lucy",level:"B1",thumb:"https://img.youtube.com/vi/SKfPGHGQi3w/mqdefault.jpg",yt:"SKfPGHGQi3w",desc:"مفردات إنجليزية متقدمة"},
+];
+
+let videoLevel='all';
+function renderVideos(){
+  const list=videos.filter(v=>videoLevel==='all'||v.level===videoLevel);
+  document.getElementById('videoGrid').innerHTML=list.map(v=>`
+    <div class="video-card" onclick="openVideo('${v.yt}')">
+      <div class="video-thumb">
+        <img src="${v.thumb}" onerror="this.style.display='none'" alt="${v.title}">
+        <div class="video-play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">${v.title}</div>
+        <div class="video-meta">
+          <span class="video-level badge-${v.level.toLowerCase()}" style="padding:2px 8px;border-radius:20px;font-size:.68rem;font-weight:700">${v.level}</span>
+          <span class="video-channel">📺 ${v.channel}</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function filterVideo(l,btn){
+  videoLevel=l;
+  document.querySelectorAll('#videoPage .ltab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderVideos();
+}
+
+function openVideo(id){
+  document.getElementById('videoFrame').src=`https://www.youtube.com/embed/${id}?autoplay=1`;
+  document.getElementById('videoOverlay').classList.add('show');
+}
+
+function closeVideo(){
+  document.getElementById('videoFrame').src='';
+  document.getElementById('videoOverlay').classList.remove('show');
+}
+
 const books=[
   {id:0,title:"Harry Potter and the Philosopher's Stone",author:"J.K. Rowling",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#1a237e,#3949ab)",emoji:"⚡",
   quiz:[
@@ -246,11 +345,11 @@ const books=[
     {q:"Who was the last to help pull?",opts:["The dog","The cat","The mouse","The girl"],ans:2},
   ],
   chapters:[
-    {title:"Chapter 1",subtitle:"اللفت العملاق",text:"One day an old man planted a turnip seed. The turnip grew and grew and became enormous. The old man tried to pull it out. He pulled and pulled but it did not come out. He called his wife. They pulled together but it did not come out. They called their granddaughter. They all pulled but the turnip stayed in the ground. They called the dog. They called the cat. Finally the cat called a little mouse. They all pulled together. Suddenly the enormous turnip came out of the ground. Everyone fell down and laughed. That night they had a very good dinner."},
+    {title:"Chapter 1",subtitle:"اللفت العملاق",text:"One day an old man planted a turnip seed. The turnip grew and grew and became enormous. The old man tried to pull it out. He pulled and pulled but it did not come out. He called his wife. They pulled together but it did not come out. They called their granddaughter. They called the dog. They called the cat. Finally the cat called a little mouse. They all pulled together. Suddenly the enormous turnip came out of the ground. Everyone fell down and laughed. That night they had a very good dinner."},
   ]},
   {id:4,title:"The Three Little Pigs",author:"Traditional Story",level:"A1",cat:"classic",color:"linear-gradient(135deg,#c62828,#e53935)",emoji:"🐷",
   quiz:[
-    {q:"What did the first pig build his house from?",opts:["Bricks","Wood","Straw","Mud"],ans:2},
+    {q:"What did the first pig build from?",opts:["Bricks","Wood","Straw","Mud"],ans:2},
     {q:"Which house did the wolf NOT destroy?",opts:["The straw house","The wood house","The brick house","All houses"],ans:2},
   ],
   chapters:[
@@ -280,34 +379,26 @@ const books=[
   chapters:[
     {title:"Chapter 1",subtitle:"الأمير الصغير",text:"When I was six years old I saw a picture of a boa constrictor eating an animal. I drew my own picture and showed it to adults. They said it was just a hat. I became a pilot and flew around the world. One day my engine broke over the Sahara desert. I was alone with very little water. When I woke up the next morning a small boy was standing in front of me. He had golden hair and a wonderful laugh. He asked me to draw him a sheep. I was very surprised to see anyone in the middle of the desert."},
   ]},
-  {id:8,title:"The Jungle Book",author:"Rudyard Kipling",level:"A2",cat:"adventure",color:"linear-gradient(135deg,#33691e,#558b2f)",emoji:"🐯",
+  {id:8,title:"A Study in Scarlet",author:"Arthur Conan Doyle",level:"B1",cat:"mystery",color:"linear-gradient(135deg,#4a148c,#7b1fa2)",emoji:"🔍",
   quiz:[
-    {q:"What is the boy's name?",opts:["Shere Khan","Baloo","Mowgli","Bagheera"],ans:2},
-    {q:"Who teaches Mowgli the law of the jungle?",opts:["Baloo","Bagheera","Kaa","Rikki"],ans:0},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"طفل الغابة",text:"Mowgli is a boy who grows up in the jungle. When he is a baby a tiger named Shere Khan tries to kill him. Baby Mowgli crawls into the jungle and finds a wolf family. The wolves take care of him like their own child. They call him Mowgli which means little frog. Mowgli grows up with the wolf cubs. A bear named Baloo teaches him the law of the jungle. A black panther named Bagheera keeps him safe. But Shere Khan never forgets about Mowgli."},
-  ]},
-  {id:9,title:"A Study in Scarlet",author:"Arthur Conan Doyle",level:"B1",cat:"mystery",color:"linear-gradient(135deg,#4a148c,#7b1fa2)",emoji:"🔍",
-  quiz:[
-    {q:"How does Holmes know Watson was in Afghanistan?",opts:["Watson told him","A friend said so","Holmes deduced it","He read it"],ans:2},
+    {q:"How does Holmes know Watson was in Afghanistan?",opts:["Watson told him","A friend said","Holmes deduced it","He read it"],ans:2},
     {q:"What is Holmes's job?",opts:["Police officer","Consulting detective","Soldier","Professor"],ans:1},
   ],
   chapters:[
     {title:"Chapter 1",subtitle:"اللقاء الأول",text:"In 1878 I became a doctor. I went to serve in Afghanistan and was wounded in battle. After months in hospital I returned to England with no money and no home. A friend named Stamford said he knew someone looking to share rooms. His name was Sherlock Holmes. I met Holmes at a laboratory. He was tall and thin with very sharp eyes. When he saw me he said something surprising. He said he could see I had been in Afghanistan. I had no idea how he knew that. Holmes just smiled. I knew my life was about to become very interesting."},
   ]},
-  {id:10,title:"Treasure Island",author:"Robert Louis Stevenson",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#bf360c,#e64a19)",emoji:"🏴‍☠️",
+  {id:9,title:"Treasure Island",author:"Robert Louis Stevenson",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#bf360c,#e64a19)",emoji:"🏴‍☠️",
   quiz:[
-    {q:"What is in the old sailor's chest?",opts:["Gold coins","A treasure map","A sword","A compass"],ans:1},
-    {q:"What is the one-legged pirate's name?",opts:["Captain Smollett","Ben Gunn","Long John Silver","Billy Bones"],ans:2},
+    {q:"What is in Billy Bones's chest?",opts:["Gold coins","A treasure map","A sword","A compass"],ans:1},
+    {q:"What is the pirate's name?",opts:["Captain Smollett","Ben Gunn","Long John Silver","Billy Bones"],ans:2},
   ],
   chapters:[
     {title:"Chapter 1",subtitle:"الخريطة الغامضة",text:"My name is Jim Hawkins and I live at an inn by the sea. One evening a strange old sailor comes to stay. His name is Billy Bones. He asks me to watch for a one-legged man. Later a blind man gives Billy a black spot which is a death warning from pirates. Billy dies of fright. I open his chest and find gold coins and a sealed packet. Inside the packet is a map of an island where a pirate named Captain Flint buried his treasure. Our adventure is about to begin."},
   ]},
-  {id:11,title:"Around the World in 80 Days",author:"Jules Verne",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#0277bd,#0288d1)",emoji:"🌍",
+  {id:10,title:"Around the World in 80 Days",author:"Jules Verne",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#0277bd,#0288d1)",emoji:"🌍",
   quiz:[
     {q:"How much does Fogg bet?",opts:["Ten thousand","Twenty thousand","Five thousand","Fifty thousand"],ans:1},
-    {q:"What is his servant's name?",opts:["Passepartout","Fix","Aouda","James"],ans:0},
+    {q:"What is the servant's name?",opts:["Passepartout","Fix","Aouda","James"],ans:0},
   ],
   chapters:[
     {title:"Chapter 1",subtitle:"الرهان الكبير",text:"Phileas Fogg is a very precise English gentleman. He does exactly the same things every day. One evening at his club the men talk about whether someone could travel around the world in eighty days. The others say it is impossible. Fogg says it is possible and bets twenty thousand pounds to prove it. That same night he packs a bag, takes his servant Passepartout, and leaves London. They must return in exactly eighty days or Fogg will lose everything."},
@@ -315,7 +406,7 @@ const books=[
 ];
 
 const wordTranslations={
-  "harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","belong":"ينتمي","strange":"غريب","surprised":"متفاجئ","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","stronger":"أقوى","voice":"صوت","wise":"حكيم","desert":"صحراء","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","comfortable":"مريح","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","turnip":"لفت","pulled":"سحب","ground":"أرض","mouse":"فأر","straw":"قش","bricks":"طوب","wolf":"ذئب","pig":"خنزير","chimney":"مدخنة","lazy":"كسول","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","rabbit":"أرنب","fell":"سقط","watered":"سقى","grew":"نما","called":"نادى","planted":"زرع","built":"بنى","blew":"نفخ","laughed":"ضحك","seed":"بذرة","found":"وجد","warned":"حذّر","saved":"أنقذ"
+  "harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","belong":"ينتمي","strange":"غريب","surprised":"متفاجئ","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","stronger":"أقوى","voice":"صوت","wise":"حكيم","desert":"صحراء","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","comfortable":"مريح","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","turnip":"لفت","pulled":"سحب","ground":"أرض","mouse":"فأر","straw":"قش","bricks":"طوب","wolf":"ذئب","pig":"خنزير","chimney":"مدخنة","lazy":"كسول","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","rabbit":"أرنب","fell":"سقط","seed":"بذرة","grew":"نما","called":"نادى","planted":"زرع","built":"بنى","blew":"نفخ","laughed":"ضحك","found":"وجد","saved":"أنقذ","warned":"حذّر","bottle":"زجاجة","garden":"حديقة","label":"ملصق"
 };
 
 // ===== STATE =====
@@ -327,123 +418,111 @@ let sentences=[],currentSentence=0;
 let progressTimer=null;
 let currentLevel='all',currentCat='all';
 let sessionWords=0;
-let playbackId=0; // مهم جداً لمنع التداخل
+let playbackId=0;
+let currentAudio=null;
 
-// ===== SPEECH - Web Speech API الصحيح =====
-function stopSpeech(){
-  playbackId++; // يلغي أي جلسة قديمة
-  window.speechSynthesis.cancel();
-  clearInterval(progressTimer);
-}
+// ===== VOICERSS - صوت بشري حقيقي =====
+function speakWithVoiceRSS(text, myId, onDone){
+  if(currentAudio){
+    currentAudio.pause();
+    currentAudio.onended=null;
+    currentAudio=null;
+  }
 
-function speakSentenceText(text, myId, onDone){
-  window.speechSynthesis.cancel();
-  
-  setTimeout(()=>{
-    if(myId!==playbackId)return; // إذا تغير الـ id معناه طلب جديد
-    
-    const u=new SpeechSynthesisUtterance(text);
-    u.lang='en-GB';
-    u.rate=playSpeed;
-    u.pitch=1.0;
-    
-    // اختيار أفضل صوت
-    const voices=window.speechSynthesis.getVoices();
-    const pick=voices.find(v=>v.lang==='en-GB'&&v.name.toLowerCase().includes('female'))
-      ||voices.find(v=>v.lang==='en-GB')
-      ||voices.find(v=>v.lang==='en-AU')
-      ||voices.find(v=>v.lang.startsWith('en'));
-    if(pick)u.voice=pick;
-    
-    u.onend=()=>{
-      if(myId===playbackId&&onDone)onDone();
-    };
-    u.onerror=()=>{
-      if(myId===playbackId&&onDone)onDone();
-    };
-    
-    window.speechSynthesis.speak(u);
-  },100);
+  const url='https://api.voicerss.org/?' + new URLSearchParams({
+    key: VOICE_KEY,
+    hl: 'en-gb',
+    v: 'Alice',
+    r: '0',
+    c: 'mp3',
+    f: '44khz_16bit_stereo',
+    src: text
+  });
+
+  const audio=new Audio(url);
+  audio.playbackRate=playSpeed;
+  currentAudio=audio;
+
+  audio.oncanplaythrough=()=>{
+    document.getElementById('statusBar').textContent='🔊 يقرأ...';
+  };
+
+  audio.onended=()=>{
+    if(myId===playbackId&&onDone){
+      document.getElementById('statusBar').textContent='';
+      onDone();
+    }
+  };
+
+  audio.onerror=()=>{
+    document.getElementById('statusBar').textContent='⚠️ خطأ في الصوت';
+    if(myId===playbackId&&onDone)onDone();
+  };
+
+  document.getElementById('statusBar').textContent='⏳ جاري التحميل...';
+  audio.play().catch(err=>{
+    document.getElementById('statusBar').textContent='⚠️ '+err.message;
+    if(onDone)onDone();
+  });
 }
 
 function speakWord(word){
-  stopSpeech();
-  const myId=playbackId;
-  setTimeout(()=>{
-    if(myId!==playbackId)return;
-    const u=new SpeechSynthesisUtterance(word);
-    u.lang='en-GB';u.rate=0.85;
-    const voices=window.speechSynthesis.getVoices();
-    const pick=voices.find(v=>v.lang==='en-GB')||voices.find(v=>v.lang.startsWith('en'));
-    if(pick)u.voice=pick;
-    window.speechSynthesis.speak(u);
-  },80);
+  playbackId++;
+  if(currentAudio){currentAudio.pause();currentAudio=null;}
+
+  const url='https://api.voicerss.org/?'+new URLSearchParams({
+    key:VOICE_KEY,hl:'en-gb',v:'Alice',r:'-2',c:'mp3',f:'44khz_16bit_stereo',src:word
+  });
+  const a=new Audio(url);
+  a.play().catch(()=>{});
 }
 
-// ===== PLAY LOGIC =====
+function stopAudio(){
+  playbackId++;
+  isPlaying=false;
+  if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}
+  clearInterval(progressTimer);
+  document.getElementById('playMain').textContent='▶';
+  document.getElementById('statusBar').textContent='';
+}
+
+// ===== PLAY =====
 function togglePlay(){
-  if(isPlaying)pausePlay();
+  if(isPlaying)stopAudio();
   else startPlay();
 }
 
 function startPlay(){
   isPlaying=true;
   document.getElementById('playMain').textContent='⏸';
-  document.getElementById('statusBar').textContent='';
   playNext(currentSentence);
-}
-
-function pausePlay(){
-  isPlaying=false;
-  stopSpeech();
-  document.getElementById('playMain').textContent='▶';
-  document.getElementById('statusBar').textContent='متوقف';
-}
-
-function stopPlay(){
-  isPlaying=false;
-  stopSpeech();
-  document.getElementById('playMain').textContent='▶';
-  document.getElementById('statusBar').textContent='';
 }
 
 function playNext(si){
   if(!isPlaying||si>=sentences.length){
-    if(si>=sentences.length){
-      stopPlay();
-      currentSentence=0;
-      updateProgressBar(0);
-      document.getElementById('statusBar').textContent='✅ انتهى';
-    }
+    if(si>=sentences.length){stopAudio();currentSentence=0;updateProgressBar(0);document.getElementById('statusBar').textContent='✅ انتهى';}
     return;
   }
-
   currentSentence=si;
   highlightSentence(si);
   updateProgressBar(si/sentences.length*100);
-  document.getElementById('timeNow').textContent=formatTime(si*(sentences.length>0?parseInt(document.getElementById('timeTot').textContent.split(':')[0])*60/sentences.length:0));
 
   const myId=playbackId;
-  speakSentenceText(sentences[si], myId, ()=>{
-    if(myId===playbackId&&isPlaying){
-      playNext(si+1);
-    }
+  speakWithVoiceRSS(sentences[si], myId, ()=>{
+    if(myId===playbackId&&isPlaying)playNext(si+1);
   });
 
-  // تحديث شريط التقدم
   clearInterval(progressTimer);
-  const totalSecs=sentences.length*5/playSpeed;
+  const sentDur=sentences[si].split(' ').length*0.4/playSpeed;
+  const startT=Date.now();
   const startPct=si/sentences.length*100;
-  const startTime=Date.now();
   progressTimer=setInterval(()=>{
     if(!isPlaying){clearInterval(progressTimer);return;}
-    const elapsed=(Date.now()-startTime)/1000;
-    const sentDur=5/playSpeed;
+    const elapsed=(Date.now()-startT)/1000;
     const pct=Math.min(startPct+(elapsed/sentDur/sentences.length*100),100);
     updateProgressBar(pct);
-    const totalElapsed=si*sentDur+elapsed;
-    document.getElementById('timeNow').textContent=formatTime(totalElapsed);
-  },200);
+    document.getElementById('timeNow').textContent=formatTime(si*sentDur+elapsed);
+  },300);
 }
 
 function updateProgressBar(pct){
@@ -453,38 +532,39 @@ function updateProgressBar(pct){
 }
 
 function speakOneSentence(si){
-  stopPlay();
+  stopAudio();
   currentSentence=si;
   highlightSentence(si);
   const myId=playbackId;
-  speakSentenceText(sentences[si],myId,null);
+  speakWithVoiceRSS(sentences[si],myId,null);
 }
 
 function cycleSpeed(){
-  const sp=[0.5,0.75,1.0,1.25,1.5];
+  const sp=[0.75,1.0,1.25,1.5];
   playSpeed=sp[(sp.indexOf(playSpeed)+1)%sp.length];
   document.getElementById('speedBtn').textContent=playSpeed+'x';
-  if(isPlaying){stopSpeech();playbackId++;const myId=playbackId;isPlaying=true;document.getElementById('playMain').textContent='⏸';setTimeout(()=>playNext(currentSentence),150);}
+  if(currentAudio)currentAudio.playbackRate=playSpeed;
 }
 
 function skipBack(){
   const si=Math.max(0,currentSentence-1);
-  if(isPlaying){stopSpeech();playbackId++;currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';setTimeout(()=>playNext(si),150);}
-  else{currentSentence=si;highlightSentence(si);updateProgressBar(si/sentences.length*100);}
+  stopAudio();currentSentence=si;
+  if(isPlaying||true){isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
+  else{highlightSentence(si);updateProgressBar(si/sentences.length*100);}
 }
 
 function skipFwd(){
   const si=Math.min(sentences.length-1,currentSentence+1);
-  if(isPlaying){stopSpeech();playbackId++;currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';setTimeout(()=>playNext(si),150);}
-  else{currentSentence=si;highlightSentence(si);updateProgressBar(si/sentences.length*100);}
+  stopAudio();currentSentence=si;
+  isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);
 }
 
 function seekProgress(e){
   const rect=e.currentTarget.getBoundingClientRect();
   const pct=Math.max(0,Math.min((e.clientX-rect.left)/rect.width,1));
   const si=Math.floor(pct*sentences.length);
-  if(isPlaying){stopSpeech();playbackId++;currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';setTimeout(()=>playNext(si),150);}
-  else{currentSentence=si;highlightSentence(si);updateProgressBar(pct*100);}
+  stopAudio();currentSentence=si;
+  isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);
 }
 
 function highlightSentence(si){
@@ -500,9 +580,9 @@ function formatTime(s){
   return`${m<10?'0'+m:m}:${sec<10?'0'+sec:sec}`;
 }
 
-function setMode(m){
+function setMode(m,btn){
   document.querySelectorAll('.audio-tab').forEach(t=>t.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
 }
 
 // ===== LIBRARY =====
@@ -545,13 +625,13 @@ function renderLibrary(){
 }
 
 function levelName(l){return{A1:'مبتدئ',A2:'ابتدائي',B1:'متوسط'}[l]||'';}
-function filterLevel(l,btn){currentLevel=l;document.querySelectorAll('.ltab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderLibrary();}
+function filterLevel(l,btn){currentLevel=l;document.querySelectorAll('#libPage .ltab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderLibrary();}
 function filterCat(c,btn){currentCat=c;document.querySelectorAll('.cat-chip').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderLibrary();}
 
 // ===== READER =====
 function openBook(id){
   currentBook=books.find(b=>b.id===id);
-  currentChapter=0;stopPlay();sessionWords=0;
+  currentChapter=0;stopAudio();sessionWords=0;
   renderChapter();
   document.getElementById('libPage').classList.remove('active');
   document.getElementById('readerPage').classList.add('active');
@@ -559,7 +639,7 @@ function openBook(id){
 }
 
 function closeReader(){
-  stopPlay();
+  stopAudio();
   document.getElementById('readerPage').classList.remove('active');
   document.getElementById('libPage').classList.add('active');
   document.getElementById('bottomNav').style.display='flex';
@@ -569,11 +649,10 @@ function renderChapter(){
   const ch=currentBook.chapters[currentChapter]||currentBook.chapters[0];
   document.getElementById('readerTitle').textContent=currentBook.title;
   sentences=ch.text.match(/[^.!?]+[.!?]+/g)||[ch.text];
-  const total=sentences.length*5;
-  document.getElementById('timeTot').textContent=formatTime(total);
+  const totalSecs=sentences.reduce((a,s)=>a+s.split(' ').length*0.4,0);
+  document.getElementById('timeTot').textContent=formatTime(totalSecs);
   document.getElementById('timeNow').textContent='00:00';
-  updateProgressBar(0);
-  currentSentence=0;
+  updateProgressBar(0);currentSentence=0;
 
   let html=`<div class="chapter-title"><span>${ch.title}:</span> ${ch.subtitle}</div>`;
   sentences.forEach((sent,si)=>{
@@ -599,7 +678,7 @@ function showTranslation(el,e){
   const popup=document.getElementById('transPopup');
   popup.classList.add('show');
   const rect=el.getBoundingClientRect();
-  let top=rect.top-100,left=rect.left;
+  let top=rect.top-105,left=rect.left;
   if(top<60)top=rect.bottom+8;
   if(left+190>window.innerWidth)left=window.innerWidth-195;
   if(left<5)left=5;
@@ -623,13 +702,11 @@ document.addEventListener('click',e=>{
 
 // ===== QUIZ =====
 let quizQ=0,quizScore=0,quizAnswered=false;
-
 function showQuiz(){
   if(!currentBook?.quiz?.length){alert('لا يوجد اختبار');return;}
   quizQ=0;quizScore=0;renderQuizQ();
   document.getElementById('quizOverlay').classList.add('show');
 }
-
 function renderQuizQ(){
   const quiz=currentBook.quiz;
   if(quizQ>=quiz.length){showQuizResult();return;}
@@ -637,12 +714,11 @@ function renderQuizQ(){
   document.getElementById('quizCard').innerHTML=`
     <div class="quiz-progress">سؤال ${quizQ+1} من ${quiz.length}</div>
     <div style="width:100%;height:4px;background:var(--border);border-radius:4px;margin-bottom:16px">
-      <div style="width:${quizQ/quiz.length*100}%;height:100%;background:var(--blue);border-radius:4px"></div>
+      <div style="width:${quizQ/quiz.length*100}%;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:4px"></div>
     </div>
     <div class="quiz-q">${q.q}</div>
     <div class="quiz-opts">${q.opts.map((o,i)=>`<div class="quiz-opt" onclick="answerQuiz(${i},${q.ans},this)">${o}</div>`).join('')}</div>`;
 }
-
 function answerQuiz(chosen,correct,el){
   if(quizAnswered)return;quizAnswered=true;
   document.querySelectorAll('.quiz-opt').forEach(o=>o.style.pointerEvents='none');
@@ -650,7 +726,6 @@ function answerQuiz(chosen,correct,el){
   else{el.classList.add('wrong');document.querySelectorAll('.quiz-opt')[correct].classList.add('correct');}
   setTimeout(()=>{quizQ++;renderQuizQ();},1300);
 }
-
 function showQuizResult(){
   const total=currentBook.quiz.length;
   const pct=Math.round(quizScore/total*100);
@@ -660,8 +735,9 @@ function showQuizResult(){
   document.getElementById('quizCard').innerHTML=`
     <div style="text-align:center;padding:10px">
       <div class="quiz-score">${quizScore}/${total}</div>
-      <div style="font-size:1.8rem;margin:8px 0">${pct>=80?'🌟':pct>=60?'✅':'🔄'}</div>
-      <div style="color:var(--muted)">${pct>=80?'ممتاز!':pct>=60?'جيد!':'حاول مرة أخرى'}</div>
+      <div style="font-size:2rem;margin:8px 0">${pct>=80?'🌟':pct>=60?'✅':'🔄'}</div>
+      <div style="color:var(--muted);font-size:.95rem;font-weight:700">${pct>=80?'🎉 ممتاز!':pct>=60?'👍 جيد!':'💪 حاول مرة أخرى'}</div>
+      <div style="color:var(--muted);font-size:.8rem;margin-top:6px">${pct}% إجابات صحيحة</div>
       <button class="quiz-btn" onclick="document.getElementById('quizOverlay').classList.remove('show')">إغلاق</button>
     </div>`;
 }
@@ -674,6 +750,7 @@ function renderVocab(){
         <div>
           <div class="vocab-en">${v.word}</div>
           <div class="vocab-ar">${v.arabic}</div>
+          ${v.book?`<div style="font-size:.65rem;color:var(--blue);margin-top:2px">${v.book.split(' ').slice(0,3).join(' ')}</div>`:''}
         </div>
         <button class="speak-word-btn" onclick="speakWord('${v.word}')">🔊</button>
       </div>`).join(''):
@@ -686,7 +763,7 @@ function updateStats(){
   document.getElementById('vocabProg').style.width=Math.min(vc,100)+'%';
   if(quizScores.length){
     document.getElementById('quizResults').innerHTML=quizScores.slice(-3).reverse().map(s=>
-      `<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)">
+      `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)">
         <span style="font-size:.8rem">${s.book.split(' ').slice(0,3).join(' ')}...</span>
         <span style="font-weight:700;color:${s.pct>=80?'var(--green)':s.pct>=60?'var(--gold)':'var(--red)'}">${s.pct}%</span>
       </div>`).join('');
@@ -694,19 +771,16 @@ function updateStats(){
 }
 
 function showMainPage(id,nav){
-  ['libPage','vocabPage','progressPage'].forEach(p=>document.getElementById(p).classList.remove('active'));
+  ['libPage','vocabPage','progressPage','videoPage'].forEach(p=>document.getElementById(p).classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   nav.classList.add('active');
   if(id==='vocabPage')renderVocab();
   if(id==='progressPage')updateStats();
+  if(id==='videoPage')renderVideos();
 }
 
-// تحميل الأصوات مسبقاً
-window.speechSynthesis.getVoices();
-setTimeout(()=>window.speechSynthesis.getVoices(),500);
-
-renderLibrary();renderVocab();updateStats();
+renderLibrary();renderVocab();updateStats();renderVideos();
 </script>
 </body>
 </html>
