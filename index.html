@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReadEnglish - تعلم الإنجليزية</title>
+<title>ReadEnglish</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0a0a0f;--card:#13131a;--card2:#1e1e28;--blue:#5b9bd5;--gold:#f0b429;--text:#f0f0f0;--muted:#777;--border:#2a2a3a;--green:#4CAF50;--red:#f44336;--purple:#8b5cf6}
@@ -19,7 +19,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .ltab{padding:6px 18px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;white-space:nowrap;transition:all .2s;font-weight:600}
 .ltab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border-color:transparent}
 .section{padding:0 16px 16px}
-.section-title{font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.section-title{font-size:1rem;font-weight:700;margin-bottom:12px}
 .cat-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .cat-scroll::-webkit-scrollbar{display:none}
 .cat-chip{padding:8px 16px;border-radius:12px;background:var(--card2);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:.82rem;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:all .2s}
@@ -29,104 +29,77 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .book-card{flex-shrink:0;width:130px;cursor:pointer;transition:transform .2s}
 .book-card:hover{transform:translateY(-4px)}
 .book-cover{width:130px;height:180px;border-radius:14px;position:relative;overflow:hidden;margin-bottom:8px;box-shadow:0 8px 24px rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
-.book-emoji{font-size:3.8rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.5))}
+.book-emoji{font-size:3.8rem}
 .book-title-cover{font-size:.58rem;color:rgba(255,255,255,.9);text-align:center;padding:0 6px;font-weight:700;direction:ltr;line-height:1.3}
-.book-level-badge{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:20px;font-size:.65rem;font-weight:700;backdrop-filter:blur(4px)}
+.book-level-badge{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:20px;font-size:.65rem;font-weight:700}
 .badge-a1{background:rgba(76,175,80,.9);color:white}
 .badge-a2{background:rgba(91,155,213,.9);color:white}
 .badge-b1{background:rgba(255,152,0,.9);color:white}
-.book-name{font-size:.76rem;font-weight:700;text-align:center;line-height:1.3;direction:ltr;color:var(--text)}
+.book-name{font-size:.76rem;font-weight:700;text-align:center;line-height:1.3;direction:ltr}
 .book-author{font-size:.66rem;color:var(--muted);text-align:center;margin-top:2px}
 .featured{padding:0 16px 16px}
-.featured-card{border-radius:18px;overflow:hidden;position:relative;height:210px;cursor:pointer;display:flex;align-items:flex-end;transition:transform .2s}
-.featured-card:hover{transform:translateY(-2px)}
+.featured-card{border-radius:18px;overflow:hidden;position:relative;height:210px;cursor:pointer;display:flex;align-items:flex-end}
 .featured-overlay{position:absolute;inset:0;background:linear-gradient(transparent 15%,rgba(0,0,0,.95))}
-.featured-emoji{position:absolute;top:50%;left:50%;transform:translate(-50%,-65%);font-size:5.5rem;filter:drop-shadow(0 8px 16px rgba(0,0,0,.6))}
+.featured-emoji{position:absolute;top:50%;left:50%;transform:translate(-50%,-65%);font-size:5.5rem}
 .featured-info{position:relative;z-index:2;padding:16px;width:100%}
 .featured-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;margin-bottom:6px}
 .featured-title{font-size:1.05rem;font-weight:800;direction:ltr;color:white}
 .featured-sub{font-size:.78rem;color:#aaa;margin-top:4px}
-
-/* VIDEO PAGE */
-.video-grid{padding:12px 16px;display:flex;flex-direction:column;gap:12px}
-.video-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .2s}
-.video-card:hover{transform:translateY(-2px)}
-.video-thumb{position:relative;width:100%;height:180px;background:var(--card2);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.video-thumb img{width:100%;height:100%;object-fit:cover}
-.video-play-btn{position:absolute;width:54px;height:54px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 4px 16px rgba(0,0,0,.4)}
-.video-info{padding:12px}
-.video-title{font-size:.9rem;font-weight:700;margin-bottom:4px}
-.video-meta{display:flex;gap:8px;align-items:center}
-.video-level{padding:2px 10px;border-radius:20px;font-size:.7rem;font-weight:700}
-.video-channel{font-size:.75rem;color:var(--muted)}
-.video-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:500;flex-direction:column;align-items:center;justify-content:center}
-.video-overlay.show{display:flex}
-.video-close{position:absolute;top:16px;right:16px;background:var(--card2);border:none;color:white;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center}
-.video-frame{width:100%;max-width:600px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:none}
-
-/* READER */
-.reader-topbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;gap:8px;backdrop-filter:blur(10px)}
-.reader-title{font-size:.82rem;font-weight:700;flex:1;text-align:center;direction:ltr;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--text)}
+.chapter-nav{display:flex;gap:8px;padding:0 16px 8px;overflow-x:auto;scrollbar-width:none;position:sticky;top:57px;background:rgba(10,10,15,.97);z-index:40;padding-top:8px}
+.chapter-nav::-webkit-scrollbar{display:none}
+.ch-btn{padding:5px 14px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.78rem;white-space:nowrap;transition:all .2s}
+.ch-btn.active{background:var(--blue);color:white;border-color:var(--blue)}
+.reader-topbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;gap:8px}
+.reader-title{font-size:.82rem;font-weight:700;flex:1;text-align:center;direction:ltr;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .new-words-badge{background:var(--green);color:white;padding:3px 8px;border-radius:20px;font-size:.7rem;white-space:nowrap;font-weight:600}
-.chapter-content{padding:16px 16px 230px;line-height:2.5;font-size:1.08rem;direction:ltr;text-align:left}
+.chapter-content{padding:16px 16px 230px;line-height:2.6;font-size:1.08rem;direction:ltr;text-align:left}
 .chapter-title{font-size:1.1rem;font-weight:800;margin-bottom:18px;direction:rtl;text-align:right;padding:12px;background:var(--card);border-radius:12px;border-right:3px solid var(--blue)}
 .chapter-title span{color:var(--blue)}
 .word{cursor:pointer;border-radius:4px;padding:1px 2px;transition:all .15s;display:inline}
 .word:hover{background:rgba(91,155,213,.3)}
-.word.highlighted{background:rgba(240,180,41,.3);color:var(--gold);border-radius:4px}
+.word.highlighted{background:rgba(240,180,41,.3);color:var(--gold)}
 .word.new-word{color:var(--gold);border-bottom:2px dashed var(--gold)}
 .sent-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--card2);border-radius:50%;cursor:pointer;font-size:.6rem;border:1px solid var(--border);vertical-align:middle;color:var(--muted);margin:0 3px;transition:all .2s}
-.sent-btn:hover{background:var(--blue);color:white;border-color:var(--blue)}
+.sent-btn:hover{background:var(--blue);color:white}
 .audio-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);padding:10px 14px 14px;z-index:100;backdrop-filter:blur(10px)}
 .audio-tabs{display:flex;margin-bottom:10px;background:var(--card2);border-radius:12px;padding:3px;gap:3px}
 .audio-tab{flex:1;padding:7px;text-align:center;border-radius:9px;cursor:pointer;font-size:.82rem;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}
 .audio-tab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;font-weight:700}
 .progress-bar{width:100%;height:5px;background:var(--border);border-radius:4px;cursor:pointer;position:relative;margin-bottom:8px}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:4px;transition:width .1s}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:4px}
 .progress-dot{position:absolute;top:50%;transform:translateY(-50%);width:14px;height:14px;background:white;border-radius:50%;margin-left:-7px;box-shadow:0 2px 8px rgba(91,155,213,.6)}
 .time-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .time-txt{font-size:.72rem;color:var(--muted)}
-.speed-btn{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:5px 14px;border-radius:20px;font-size:.82rem;cursor:pointer;font-weight:700;transition:all .2s}
-.speed-btn:active{transform:scale(.95)}
+.speed-btn{background:var(--card2);border:1px solid var(--border);color:var(--text);padding:5px 14px;border-radius:20px;font-size:.82rem;cursor:pointer;font-weight:700}
 .controls{display:flex;align-items:center;justify-content:center;gap:22px}
-.skip-btn{background:var(--card2);border:none;color:var(--text);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .2s}
-.skip-btn:hover{background:var(--card)}
+.skip-btn{background:var(--card2);border:none;color:var(--text);width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .skip-lbl{font-size:.5rem;color:var(--muted)}
 .play-main{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(91,155,213,.5);transition:transform .1s}
 .play-main:active{transform:scale(.93)}
 .status-bar{text-align:center;font-size:.72rem;color:var(--muted);margin-top:6px;min-height:16px}
-
-/* TRANSLATION POPUP */
 .trans-popup{position:fixed;z-index:300;background:#13131a;border:1.5px solid var(--blue);border-radius:16px;padding:14px;max-width:190px;box-shadow:0 8px 32px rgba(0,0,0,.9);display:none}
 .trans-popup.show{display:block}
 .trans-word{font-size:1.15rem;font-weight:700;color:var(--blue);direction:ltr}
 .trans-arabic{font-size:.95rem;color:var(--text);margin:6px 0 8px}
 .trans-speak{background:linear-gradient(135deg,var(--blue),var(--purple));border:none;color:white;padding:6px 10px;border-radius:10px;font-size:.78rem;cursor:pointer;width:100%;font-weight:600}
-
-/* QUIZ */
 .quiz-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:400;align-items:center;justify-content:center;padding:20px}
 .quiz-overlay.show{display:flex}
 .quiz-card{background:var(--card);border-radius:22px;padding:24px;width:100%;max-width:400px;border:1px solid var(--border)}
 .quiz-progress{font-size:.78rem;color:var(--muted);margin-bottom:4px;text-align:center}
-.quiz-q{font-size:1rem;font-weight:700;text-align:center;margin-bottom:20px;direction:ltr;line-height:1.6;color:var(--text)}
+.quiz-q{font-size:1rem;font-weight:700;text-align:center;margin-bottom:20px;direction:ltr;line-height:1.6}
 .quiz-opts{display:flex;flex-direction:column;gap:10px}
-.quiz-opt{background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-size:.9rem;direction:ltr;transition:all .2s;color:var(--text)}
-.quiz-opt:hover{border-color:var(--blue);background:rgba(91,155,213,.1)}
+.quiz-opt{background:var(--card2);border:1.5px solid var(--border);border-radius:12px;padding:12px 16px;cursor:pointer;font-size:.9rem;direction:ltr;transition:all .2s}
+.quiz-opt:hover{border-color:var(--blue)}
 .quiz-opt.correct{background:rgba(76,175,80,.15);border-color:var(--green);color:var(--green)}
 .quiz-opt.wrong{background:rgba(244,67,54,.15);border-color:var(--red);color:var(--red)}
 .quiz-score{font-size:2.8rem;font-weight:900;color:var(--gold);text-align:center}
 .quiz-btn{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border:none;padding:13px 28px;border-radius:12px;font-size:.95rem;cursor:pointer;margin-top:16px;width:100%;font-weight:700}
-
-/* VOCAB */
 .vocab-list{padding:12px}
-.vocab-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;transition:all .2s}
-.vocab-card:hover{border-color:var(--blue)}
-.vocab-en{font-size:.95rem;font-weight:700;direction:ltr;color:var(--text)}
+.vocab-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.vocab-en{font-size:.95rem;font-weight:700;direction:ltr}
 .vocab-ar{font-size:.82rem;color:var(--muted)}
-.speak-word-btn{background:var(--card2);border:1px solid var(--border);color:var(--blue);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.speak-word-btn{background:var(--card2);border:1px solid var(--border);color:var(--blue);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
 .speak-word-btn:hover{background:var(--blue);color:white}
-
-/* PROGRESS */
 .progress-page{padding:16px}
 .prog-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin-bottom:12px}
 .prog-title{font-size:.92rem;font-weight:700;margin-bottom:10px}
@@ -134,13 +107,21 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .prog-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .5s}
 .prog-info{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
 .streak-num{font-size:3rem;font-weight:900;color:var(--gold);text-align:center}
-
-/* BOTTOM NAV */
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);display:flex;z-index:60;padding:8px 0 14px;backdrop-filter:blur(10px)}
-.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px;transition:all .2s}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px}
 .nav-icon{font-size:1.3rem}
 .nav-label{font-size:.62rem;color:var(--muted)}
 .nav-item.active .nav-label{color:var(--blue);font-weight:700}
+.video-grid{padding:12px 16px;display:flex;flex-direction:column;gap:12px}
+.video-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .2s}
+.video-card:hover{transform:translateY(-2px)}
+.video-thumb{position:relative;width:100%;height:180px;background:var(--card2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.video-thumb img{width:100%;height:100%;object-fit:cover}
+.video-play-btn{position:absolute;width:54px;height:54px;background:rgba(255,255,255,.9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.video-info{padding:12px}
+.video-title{font-size:.9rem;font-weight:700;margin-bottom:4px}
+.video-meta{display:flex;gap:8px;align-items:center}
+.video-channel{font-size:.75rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -150,14 +131,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="trans-arabic" id="tArabic"></div>
   <button class="trans-speak" onclick="speakWord(document.getElementById('tWord').textContent)">🔊 استمع</button>
 </div>
-
 <div class="quiz-overlay" id="quizOverlay">
   <div class="quiz-card" id="quizCard"></div>
-</div>
-
-<div class="video-overlay" id="videoOverlay">
-  <button class="video-close" onclick="closeVideo()">✕</button>
-  <iframe id="videoFrame" class="video-frame" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope" allowfullscreen></iframe>
 </div>
 
 <!-- LIBRARY -->
@@ -180,9 +155,9 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   </div>
   <div class="featured" id="featuredDiv"></div>
   <div class="section"><div class="section-title">🟢 مبتدئ A1</div><div class="books-scroll" id="a1Grid"></div></div>
-  <div class="section"><div class="section-title">✨ فانتازي وخيال</div><div class="books-scroll" id="fantasyGrid"></div></div>
-  <div class="section"><div class="section-title">🔍 غموض وإثارة</div><div class="books-scroll" id="mysteryGrid"></div></div>
-  <div class="section"><div class="section-title">🗺️ مغامرة وكلاسيكي</div><div class="books-scroll" id="classicGrid"></div></div>
+  <div class="section"><div class="section-title">✨ فانتازي</div><div class="books-scroll" id="fantasyGrid"></div></div>
+  <div class="section"><div class="section-title">🔍 غموض</div><div class="books-scroll" id="mysteryGrid"></div></div>
+  <div class="section"><div class="section-title">🗺️ مغامرة</div><div class="books-scroll" id="classicGrid"></div></div>
 </div>
 
 <!-- READER -->
@@ -193,6 +168,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
     <div class="new-words-badge" id="newWordsBadge">✅ 0</div>
     <button class="icon-btn" onclick="showQuiz()">🧪</button>
   </div>
+  <div class="chapter-nav" id="chapterNav"></div>
   <div class="chapter-content" id="chapterContent"></div>
   <div class="audio-panel">
     <div class="audio-tabs">
@@ -213,13 +189,13 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
       <button class="play-main" id="playMain" onclick="togglePlay()">▶</button>
       <button class="skip-btn" onclick="skipFwd()">⏩<span class="skip-lbl">أمام</span></button>
     </div>
-    <div class="status-bar" id="statusBar">اضغط ▶ للاستماع بصوت بشري</div>
+    <div class="status-bar" id="statusBar">اضغط ▶ للاستماع بصوت بشري 🎙️</div>
   </div>
 </div>
 
 <!-- VIDEOS -->
 <div class="page" id="videoPage">
-  <div class="topbar"><div class="topbar-title">🎬 فيديوهات تعليمية</div></div>
+  <div class="topbar"><div class="topbar-title">🎬 فيديوهات</div></div>
   <div class="level-tabs">
     <button class="ltab active" onclick="filterVideo('all',this)">الكل</button>
     <button class="ltab" onclick="filterVideo('A1',this)">🟢 A1</button>
@@ -244,12 +220,12 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
       <div style="color:var(--muted);font-size:.85rem">أيام متواصلة</div>
     </div>
     <div class="prog-card">
-      <div class="prog-title">📝 المفردات المحفوظة</div>
+      <div class="prog-title">📝 المفردات</div>
       <div class="prog-bar-wrap"><div class="prog-bar-fill" id="vocabProg" style="width:0%"></div></div>
       <div class="prog-info"><span id="vocabCountProg">0 كلمة</span><span>الهدف: 100</span></div>
     </div>
     <div class="prog-card">
-      <div class="prog-title">🧪 نتائج الاختبارات</div>
+      <div class="prog-title">🧪 الاختبارات</div>
       <div id="quizResults" style="color:var(--muted);font-size:.85rem;padding:8px 0">لم تجري اختبارات بعد</div>
     </div>
   </div>
@@ -267,149 +243,117 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 const VOICE_KEY='973dcf818d50455ab578ba27e964642e';
 
 const videos=[
-  {id:0,title:"English for Complete Beginners",channel:"BBC Learning English",level:"A1",thumb:"https://img.youtube.com/vi/bnIgSame8GE/mqdefault.jpg",yt:"bnIgSame8GE",desc:"تعلم الإنجليزية من الصفر مع BBC"},
-  {id:1,title:"Simple English Stories - Level 1",channel:"English Singsing",level:"A1",thumb:"https://img.youtube.com/vi/ZMYxXBMnqqc/mqdefault.jpg",yt:"ZMYxXBMnqqc",desc:"قصص بسيطة للمبتدئين"},
-  {id:2,title:"Learn English with Stories",channel:"Oxford Online English",level:"A2",thumb:"https://img.youtube.com/vi/9FXzFKgf4WA/mqdefault.jpg",yt:"9FXzFKgf4WA",desc:"قصص إنجليزية للمستوى الابتدائي"},
-  {id:3,title:"English Conversation Practice",channel:"English with Lucy",level:"A2",thumb:"https://img.youtube.com/vi/4_YHBr1sMgA/mqdefault.jpg",yt:"4_YHBr1sMgA",desc:"تدريب على المحادثة اليومية"},
-  {id:4,title:"British English Pronunciation",channel:"BBC Learning English",level:"B1",thumb:"https://img.youtube.com/vi/RMlGHvGMGXM/mqdefault.jpg",yt:"RMlGHvGMGXM",desc:"نطق اللغة الإنجليزية البريطانية"},
-  {id:5,title:"Advanced English Vocabulary",channel:"English with Lucy",level:"B1",thumb:"https://img.youtube.com/vi/SKfPGHGQi3w/mqdefault.jpg",yt:"SKfPGHGQi3w",desc:"مفردات إنجليزية متقدمة"},
+  {id:0,title:"English for Beginners - BBC",channel:"BBC Learning English",level:"A1",thumb:"https://img.youtube.com/vi/HtHsHugmhAw/mqdefault.jpg",yt:"HtHsHugmhAw"},
+  {id:1,title:"Simple English Conversations",channel:"English with Lucy",level:"A1",thumb:"https://img.youtube.com/vi/rJUOsJxPMgE/mqdefault.jpg",yt:"rJUOsJxPMgE"},
+  {id:2,title:"English Conversation Practice",channel:"Oxford Online English",level:"A2",thumb:"https://img.youtube.com/vi/GT-sGB8LHKU/mqdefault.jpg",yt:"GT-sGB8LHKU"},
+  {id:3,title:"British Pronunciation Guide",channel:"English with Lucy",level:"A2",thumb:"https://img.youtube.com/vi/HCa7YLelDHA/mqdefault.jpg",yt:"HCa7YLelDHA"},
+  {id:4,title:"Improve Your Vocabulary",channel:"BBC Learning English",level:"B1",thumb:"https://img.youtube.com/vi/6Af6b_wyiwI/mqdefault.jpg",yt:"6Af6b_wyiwI"},
+  {id:5,title:"Advanced English Listening",channel:"Oxford Online English",level:"B1",thumb:"https://img.youtube.com/vi/rbgaHJcCyJ4/mqdefault.jpg",yt:"rbgaHJcCyJ4"},
 ];
 
-let videoLevel='all';
-function renderVideos(){
-  const list=videos.filter(v=>videoLevel==='all'||v.level===videoLevel);
-  document.getElementById('videoGrid').innerHTML=list.map(v=>`
-    <div class="video-card" onclick="openVideo('${v.yt}')">
-      <div class="video-thumb">
-        <img src="${v.thumb}" onerror="this.style.display='none'" alt="${v.title}">
-        <div class="video-play-btn">▶</div>
-      </div>
-      <div class="video-info">
-        <div class="video-title">${v.title}</div>
-        <div class="video-meta">
-          <span class="video-level badge-${v.level.toLowerCase()}" style="padding:2px 8px;border-radius:20px;font-size:.68rem;font-weight:700">${v.level}</span>
-          <span class="video-channel">📺 ${v.channel}</span>
-        </div>
-      </div>
-    </div>`).join('');
-}
-
-function filterVideo(l,btn){
-  videoLevel=l;
-  document.querySelectorAll('#videoPage .ltab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');
-  renderVideos();
-}
-
-function openVideo(id){
-  document.getElementById('videoFrame').src=`https://www.youtube.com/embed/${id}?autoplay=1`;
-  document.getElementById('videoOverlay').classList.add('show');
-}
-
-function closeVideo(){
-  document.getElementById('videoFrame').src='';
-  document.getElementById('videoOverlay').classList.remove('show');
-}
-
 const books=[
-  {id:0,title:"Harry Potter and the Philosopher's Stone",author:"J.K. Rowling",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#1a237e,#3949ab)",emoji:"⚡",
-  quiz:[
-    {q:"Where does Harry sleep at the Dursley house?",opts:["In a bedroom","Under the stairs","In the garden","In the attic"],ans:1},
-    {q:"What is Harry's owl called?",opts:["Snowball","Hedwig","Luna","Pearl"],ans:1},
-    {q:"What does Hagrid give Harry on his birthday?",opts:["A wand","A broomstick","A birthday cake","A cat"],ans:2},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"حياة هاري الحزينة",text:"Harry Potter is a small boy who lives with the Dursley family. His aunt and uncle are not kind to him. They make him sleep in a small space under the stairs. Dudley is Harry's cousin. Dudley has many toys but he is rude and tries to hurt Harry. The Dursleys never say anything nice to Harry. They do not tell him the truth about his parents. Harry feels sad and lonely. He never gets gifts or love. He just wants to belong somewhere."},
-    {title:"Chapter 2",subtitle:"الرسائل الغامضة",text:"One morning many letters arrive at the house. They are for Harry. Uncle Vernon takes the letters away. More letters come every day. Uncle Vernon takes the family to a small house near the sea. But on Harry's birthday a very big man breaks down the door. His name is Hagrid. He gives Harry a birthday cake. It is Harry's first birthday cake. Hagrid tells Harry the truth. Harry is a wizard. A bad wizard named Voldemort killed his parents."},
-    {title:"Chapter 3",subtitle:"عالم السحر",text:"Hagrid takes Harry to a secret street called Diagon Alley. It is a magical place full of witches and wizards. Harry buys robes and books and a wand. His wand chooses him. Then Hagrid buys Harry a white owl. Harry names her Hedwig. He has never had a pet before. He is very happy."},
-  ]},
-  {id:1,title:"Charlotte's Web",author:"E.B. White",level:"A1",cat:"classic",color:"linear-gradient(135deg,#e65100,#f57c00)",emoji:"🕷️",
-  quiz:[
-    {q:"What animal is Wilbur?",opts:["A horse","A pig","A spider","A dog"],ans:1},
-    {q:"Who saves Wilbur's life?",opts:["Fern","Mr Zuckerman","Charlotte","Templeton"],ans:2},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"خنزير صغير",text:"Wilbur is a small pig who lives on a farm. When he is born he is very small and weak. Fern cries and begs her father to let Wilbur live. Fern feeds him milk from a bottle. Wilbur grows bigger every day. When he is older he goes to live in the barn. In the barn Wilbur is lonely. He wants a friend. One morning he hears a small voice that says it will be his friend. That night he sees a spider named Charlotte. She lives in the corner and she is wise and kind."},
-  ]},
-  {id:2,title:"The Lion, the Witch and the Wardrobe",author:"C.S. Lewis",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#004d40,#00796b)",emoji:"🦁",
-  quiz:[
-    {q:"What does Lucy find at the back of the wardrobe?",opts:["A hidden room","Snow and a forest","A treasure","A door"],ans:1},
-    {q:"What is the faun's name?",opts:["Mr Beaver","Aslan","Mr Tumnus","Jadis"],ans:2},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"الخزانة السحرية",text:"Four children go to live in a big old house. Their names are Peter, Susan, Edmund, and Lucy. One day Lucy finds a big wooden wardrobe. She goes inside and pushes past the coats. At the back she feels something cold and wet. She sees snow. She walks into a forest. She sees a lamp post. A creature walks toward her. He has the legs of a goat and the body of a man. His name is Mr Tumnus. He is a faun. He is very surprised to see Lucy."},
-  ]},
-  {id:3,title:"The Enormous Turnip",author:"Traditional Story",level:"A1",cat:"classic",color:"linear-gradient(135deg,#f57f17,#f9a825)",emoji:"🌱",
-  quiz:[
-    {q:"What did the old man plant?",opts:["A carrot","A potato","A turnip","A tree"],ans:2},
-    {q:"Who was the last to help pull?",opts:["The dog","The cat","The mouse","The girl"],ans:2},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"اللفت العملاق",text:"One day an old man planted a turnip seed. The turnip grew and grew and became enormous. The old man tried to pull it out. He pulled and pulled but it did not come out. He called his wife. They pulled together but it did not come out. They called their granddaughter. They called the dog. They called the cat. Finally the cat called a little mouse. They all pulled together. Suddenly the enormous turnip came out of the ground. Everyone fell down and laughed. That night they had a very good dinner."},
-  ]},
-  {id:4,title:"The Three Little Pigs",author:"Traditional Story",level:"A1",cat:"classic",color:"linear-gradient(135deg,#c62828,#e53935)",emoji:"🐷",
-  quiz:[
-    {q:"What did the first pig build from?",opts:["Bricks","Wood","Straw","Mud"],ans:2},
-    {q:"Which house did the wolf NOT destroy?",opts:["The straw house","The wood house","The brick house","All houses"],ans:2},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"الخنازير الثلاثة",text:"Three little pigs left their mother to build their own homes. The first pig built his house from straw very quickly. The second pig built his house from wood. The third pig was hardworking and built his house from bricks. One day a big bad wolf came. He blew down the straw house. He blew down the wood house. The two pigs ran to the brick house. The wolf blew and blew but the brick house did not fall. The wolf tried to come down the chimney but the pigs had a pot of hot water waiting. The wolf ran away and never came back."},
-  ]},
-  {id:5,title:"Harry Potter and the Chamber of Secrets",author:"J.K. Rowling",level:"A2",cat:"fantasy",color:"linear-gradient(135deg,#1b5e20,#388e3c)",emoji:"🐍",
-  quiz:[
-    {q:"What is the house elf's name?",opts:["Kreacher","Dobby","Winky","Griphook"],ans:1},
-    {q:"Where is the Chamber of Secrets?",opts:["In the library","Under the lake","Beneath the girls bathroom","In the forest"],ans:2},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"تحذير دوبي",text:"Harry is spending the summer with the Dursleys. He misses his friends at Hogwarts. One evening he finds a small creature in his room. It has big green eyes and large ears. It is a house elf named Dobby. Dobby says Harry must not go back to Hogwarts. He says terrible things will happen. Harry says he must go back because his friends are there. That night Harry's friends arrive in a flying car to take him away from the Dursleys."},
-  ]},
-  {id:6,title:"Alice's Adventures in Wonderland",author:"Lewis Carroll",level:"A2",cat:"fantasy",color:"linear-gradient(135deg,#6a1b9a,#8e24aa)",emoji:"🐰",
-  quiz:[
-    {q:"What does Alice follow?",opts:["A cat","A white rabbit","A queen","A hatter"],ans:1},
-    {q:"What does the bottle say?",opts:["Drink me","Magic","Shrink","Alice"],ans:0},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"أليس في بلاد العجائب",text:"Alice is sitting by the river feeling very bored. A white rabbit runs past. It takes a watch from its pocket and says it is very late. Alice follows it down a rabbit hole. She falls for a long time. She lands in a hall with many locked doors. She finds a tiny golden key on a table. She finds a small door and the key fits. Through the door she can see a beautiful garden. But she is too big to get through. Then she finds a bottle on the table. The label says drink me."},
-  ]},
-  {id:7,title:"The Little Prince",author:"Antoine de Saint-Exupery",level:"A2",cat:"classic",color:"linear-gradient(135deg,#006064,#0097a7)",emoji:"👑",
-  quiz:[
-    {q:"Where does the Little Prince come from?",opts:["Earth","A small asteroid","The moon","Mars"],ans:1},
-    {q:"What does the pilot draw?",opts:["A flower","A sheep","A snake","A house"],ans:1},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"الأمير الصغير",text:"When I was six years old I saw a picture of a boa constrictor eating an animal. I drew my own picture and showed it to adults. They said it was just a hat. I became a pilot and flew around the world. One day my engine broke over the Sahara desert. I was alone with very little water. When I woke up the next morning a small boy was standing in front of me. He had golden hair and a wonderful laugh. He asked me to draw him a sheep. I was very surprised to see anyone in the middle of the desert."},
-  ]},
-  {id:8,title:"A Study in Scarlet",author:"Arthur Conan Doyle",level:"B1",cat:"mystery",color:"linear-gradient(135deg,#4a148c,#7b1fa2)",emoji:"🔍",
-  quiz:[
-    {q:"How does Holmes know Watson was in Afghanistan?",opts:["Watson told him","A friend said","Holmes deduced it","He read it"],ans:2},
-    {q:"What is Holmes's job?",opts:["Police officer","Consulting detective","Soldier","Professor"],ans:1},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"اللقاء الأول",text:"In 1878 I became a doctor. I went to serve in Afghanistan and was wounded in battle. After months in hospital I returned to England with no money and no home. A friend named Stamford said he knew someone looking to share rooms. His name was Sherlock Holmes. I met Holmes at a laboratory. He was tall and thin with very sharp eyes. When he saw me he said something surprising. He said he could see I had been in Afghanistan. I had no idea how he knew that. Holmes just smiled. I knew my life was about to become very interesting."},
-  ]},
-  {id:9,title:"Treasure Island",author:"Robert Louis Stevenson",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#bf360c,#e64a19)",emoji:"🏴‍☠️",
-  quiz:[
-    {q:"What is in Billy Bones's chest?",opts:["Gold coins","A treasure map","A sword","A compass"],ans:1},
-    {q:"What is the pirate's name?",opts:["Captain Smollett","Ben Gunn","Long John Silver","Billy Bones"],ans:2},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"الخريطة الغامضة",text:"My name is Jim Hawkins and I live at an inn by the sea. One evening a strange old sailor comes to stay. His name is Billy Bones. He asks me to watch for a one-legged man. Later a blind man gives Billy a black spot which is a death warning from pirates. Billy dies of fright. I open his chest and find gold coins and a sealed packet. Inside the packet is a map of an island where a pirate named Captain Flint buried his treasure. Our adventure is about to begin."},
-  ]},
-  {id:10,title:"Around the World in 80 Days",author:"Jules Verne",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#0277bd,#0288d1)",emoji:"🌍",
-  quiz:[
-    {q:"How much does Fogg bet?",opts:["Ten thousand","Twenty thousand","Five thousand","Fifty thousand"],ans:1},
-    {q:"What is the servant's name?",opts:["Passepartout","Fix","Aouda","James"],ans:0},
-  ],
-  chapters:[
-    {title:"Chapter 1",subtitle:"الرهان الكبير",text:"Phileas Fogg is a very precise English gentleman. He does exactly the same things every day. One evening at his club the men talk about whether someone could travel around the world in eighty days. The others say it is impossible. Fogg says it is possible and bets twenty thousand pounds to prove it. That same night he packs a bag, takes his servant Passepartout, and leaves London. They must return in exactly eighty days or Fogg will lose everything."},
-  ]},
+{id:0,title:"Harry Potter and the Philosopher's Stone",author:"J.K. Rowling",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#1a237e,#3949ab)",emoji:"⚡",
+quiz:[
+  {q:"Where does Harry sleep at the Dursley house?",opts:["In a bedroom","Under the stairs","In the garden","In the attic"],ans:1},
+  {q:"What is Harry's owl called?",opts:["Snowball","Hedwig","Luna","Pearl"],ans:1},
+  {q:"What does Hagrid give Harry on his birthday?",opts:["A wand","A broomstick","A birthday cake","A cat"],ans:2},
+  {q:"What is the name of the secret street?",opts:["Knockturn Alley","Diagon Alley","Dragon Street","Magic Lane"],ans:1},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"حياة هاري الحزينة",text:"Harry Potter is a small boy who lives with the Dursley family at number four Privet Drive. His aunt Petunia and uncle Vernon are not kind to him at all. They give him old clothes that are too big and make him sleep in a very small dark space under the stairs. It is cold and uncomfortable but Harry has no choice. Dudley is Harry's cousin. Dudley is fat and rude and has everything he wants. He has many toys and sweets and a big bedroom. But Dudley is always mean to Harry. He tries to hurt Harry whenever he can. The Dursleys never say anything nice to Harry. They do not tell him the truth about his parents. They say that his parents died in a car crash. Harry feels very sad and very lonely every single day. He never gets gifts or love or kindness. He does not feel like part of the family at all. He just wants to belong somewhere. He wants someone to care about him. One day at the zoo something very strange happens. A big snake in the glass tank starts to talk to Harry. Harry can understand it perfectly. The snake winks at him and says thank you when the glass disappears. The Dursleys are furious and terrified. Harry does not understand what is happening to him but he knows he is different from other boys."},
+  {title:"Chapter 2",subtitle:"الرسائل الغامضة",text:"One ordinary morning many letters arrive at number four Privet Drive. They are all addressed to Harry Potter in green ink. Uncle Vernon grabs them all before Harry can read even one. The next day more letters come. Then even more. Uncle Vernon nails the letter slot shut. But the letters keep coming in every possible way through the windows and down the chimney. Uncle Vernon becomes more and more frightened and angry. He packs the whole family into the car and drives them away from the house. He takes them to a cold dark hut on a rock in the middle of the sea. He thinks nobody can find them there. But on the stroke of midnight on Harry's birthday the door of the hut smashes open. A very big man with a wild black beard and kind eyes fills the doorway. His name is Hagrid and he is a gamekeeper at Hogwarts School of Witchcraft and Wizardry. Hagrid gives Harry a birthday cake with pink icing. It is the very first birthday cake Harry has ever had in his whole life. Harry stares at it with wonder and happiness. Then Hagrid sits down and tells Harry the most incredible truth. Harry James Potter is a wizard. His mother and father were a witch and a wizard and they were wonderful and brave people. They did not die in a stupid car crash. A very powerful and terrifying dark wizard named Voldemort murdered them. But when Voldemort tried to kill baby Harry too something extraordinary happened. The killing curse bounced back off Harry and destroyed Voldemort instead. Harry survived because his mother sacrificed herself for him and her love created a powerful magical protection. Harry cannot believe what he is hearing. He is famous in the whole wizarding world and he did not even know it."},
+  {title:"Chapter 3",subtitle:"ديجون ألي",text:"The next morning Hagrid takes Harry to London on the underground train. Harry stares at everything with wide eyes because he has never really been anywhere before. They stop in front of a small grubby pub called the Leaky Cauldron. Inside everyone recognizes Harry and wants to shake his hand. Harry feels very embarrassed but also secretly pleased. Behind the pub Hagrid taps a certain brick in the wall with his pink umbrella. The wall slowly opens to reveal a long winding cobblestone street full of magical shops and hundreds of witches and wizards in robes. This is Diagon Alley and it is the most amazing place Harry has ever seen. First they go to Gringotts bank which is run by small clever goblins. Deep underground in a little cart they find Harry's vault which is full of gold and silver coins his parents left him. Harry is not poor at all. He can buy everything he needs. He buys his school robes and a cauldron and spell books and a telescope and scales. The most exciting moment is choosing his wand at Ollivanders wand shop. Many wands reject Harry until one special wand chooses him. The wand maker Ollivander says this wand is unusual because its core is a feather from the same phoenix who gave a feather to the wand that gave Harry his scar. Then Hagrid surprises Harry with a wonderful gift. It is a beautiful snowy white owl in a cage. Harry names her Hedwig immediately. He has never had a real friend or a pet before and his heart is full of joy."},
+  {title:"Chapter 4",subtitle:"هوجوارتس",text:"On the first of September Harry goes to Kings Cross station to catch the Hogwarts Express. But he cannot find platform nine and three quarters anywhere. It does not seem to exist between platforms nine and ten. Harry is starting to panic when he hears a round red-haired woman talking about Muggles. Her children show Harry how to walk straight through the apparently solid barrier between platforms nine and ten. Harry takes a deep breath and runs at the wall and suddenly he is on a completely different platform. The scarlet steam engine is waiting and students and parents are saying their goodbyes all around him. Harry finds a compartment and is soon joined by a red-haired boy named Ron Weasley who becomes his first real friend. Ron has five older brothers and one younger sister and his family has very little money but they are warm and funny and kind. On the train a girl named Hermione Granger comes into their compartment. She has bushy brown hair and speaks very fast and knows an enormous amount about magic already. Harry also meets a pale blond boy named Draco Malfoy who immediately seems arrogant and unpleasant. When the Hogwarts Express finally arrives at Hogsmeade station the students travel across the dark lake in small boats and Harry gets his first breathtaking view of Hogwarts castle rising up against the starry sky. It is enormous and magnificent and Harry feels that he has finally come home."},
+]},
+
+{id:1,title:"Charlotte's Web",author:"E.B. White",level:"A1",cat:"classic",color:"linear-gradient(135deg,#e65100,#f57c00)",emoji:"🕷️",
+quiz:[
+  {q:"What animal is Wilbur?",opts:["A horse","A pig","A spider","A dog"],ans:1},
+  {q:"Who saves Wilbur's life?",opts:["Fern","Mr Zuckerman","Charlotte","Templeton"],ans:2},
+  {q:"What does Charlotte write in her web?",opts:["Save him","Some Pig","Help me","Wilbur"],ans:1},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"خنزير صغير",text:"Wilbur is a small pig who is born on a cold spring morning on the Arable farm. He is the runt of the litter which means he is the smallest and weakest of all the piglets. When Fern Arable sees her father walking toward the barn with an axe she runs after him and cries and begs him to let the small pig live. She argues that it is unfair to kill something just because it is small. Her father looks at her for a long moment and then agrees. He gives the pig to Fern to take care of. Fern is only eight years old but she is very responsible. She feeds Wilbur warm milk from a baby bottle every few hours just like a real mother. She pushes him in her doll carriage and carries him everywhere. Wilbur sleeps in a box near the stove in the kitchen and grows bigger and stronger every single day on Fern's good care and love. When Wilbur is five weeks old Fern's father says he is too big to live in the house anymore. He must go to the barn. Fern's uncle Mr Homer Zuckerman buys Wilbur for six dollars. Fern visits him every single day after school and sits quietly on a wooden stool watching him and listening to all the wonderful sounds of the barn. In the barn Wilbur meets a horse named Templeton who is a selfish rat and does not want a new friend. Wilbur is very lonely. He wants a true friend more than anything in the world."},
+  {title:"Chapter 2",subtitle:"شارلوت",text:"One night when the barn is dark and all the animals are quiet Wilbur hears a small thin voice speaking to him from somewhere above his head. The voice says that it will be his friend. But no matter where Wilbur looks he cannot see anyone at all. He is very confused and a little frightened. Then in the morning when the first light comes through the barn door Wilbur finally sees who has been speaking to him. In the upper corner of his pen a large grey spider sits in the middle of a magnificent web covered in shining dewdrops. Her name is Charlotte and she is the most beautiful and clever spider Wilbur has ever seen. Charlotte and Wilbur spend their days talking and laughing and sharing secrets. Charlotte teaches Wilbur about her web and how she catches flies and bugs for her food. Wilbur thinks this is rather disgusting but he loves Charlotte too much to say so. One terrible day Wilbur overhears the farmer talking about killing him before Christmas to make ham and bacon. Wilbur screams with horror and runs around his pen crying. Charlotte tells him to calm down. She says she has a plan to save his life and he must trust her completely. Wilbur trusts Charlotte with all his heart because she is the best friend he has ever had."},
+  {title:"Chapter 3",subtitle:"بعض الخنزير",text:"Charlotte thinks very carefully about her plan to save Wilbur's life. She has noticed that people believe whatever they see written down. So she decides to write words in her web about how special and wonderful Wilbur is. She works through the whole night making her letters perfectly. In the morning when the farmer and his wife come to feed Wilbur they stop and stare at the web in complete amazement. Written clearly in the web in beautiful letters are the words SOME PIG. The Arables and the Zuckermans cannot believe their eyes. They think Wilbur must be a truly extraordinary pig if a spider has written about him. Word spreads quickly through the whole county. Hundreds of people come to see the miraculous pig and the wonderful web. Mr Zuckerman feels very proud and he would never think of killing such a famous and special pig now. Charlotte writes more words in her web. She writes TERRIFIC and then RADIANT and then HUMBLE. Each time people are astonished and Wilbur becomes more and more famous. But Charlotte is working very hard and getting very tired. Writing all these words is taking all her strength and energy. Wilbur watches her with deep love and concern in his eyes."},
+]},
+
+{id:2,title:"The Lion the Witch and the Wardrobe",author:"C.S. Lewis",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#004d40,#00796b)",emoji:"🦁",
+quiz:[
+  {q:"What does Lucy find at the back of the wardrobe?",opts:["A hidden room","Snow and a forest","A treasure","A door"],ans:1},
+  {q:"What is the faun's name?",opts:["Mr Beaver","Aslan","Mr Tumnus","The White Witch"],ans:2},
+  {q:"Who is the ruler of Narnia?",opts:["The White Witch","Aslan","Mr Tumnus","Father Christmas"],ans:1},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"الخزانة السحرية",text:"During the Second World War four children are sent away from London to stay in the large old house of an elderly professor in the countryside far from the bombing. Their names are Peter who is the oldest and most responsible, Susan who is sensible and caring, Edmund who is clever but sometimes selfish and mean, and Lucy who is the youngest and the most imaginative and brave of all of them. The house is enormous with many mysterious rooms and long dark corridors and a wonderful smell of old wood and rain. On a rainy day when they cannot go outside the children explore the house room by room. In one empty room Lucy finds a very large wooden wardrobe with a carved door. She opens it and steps inside between the rows of long fur coats. She pushes further and further in expecting to feel the back of the wardrobe at any moment. But instead of wood her fingers touch something soft and cold. She looks down in amazement and sees that she is standing in snow. Behind her the coats hang in the air but ahead of her is a forest of pine trees in a winter night. A lamp post stands alone in the middle of the snow casting orange light on the branches. Lucy steps forward into the most impossible and magical adventure of her life."},
+  {title:"Chapter 2",subtitle:"مستر تومنس",text:"Lucy walks through the cold forest feeling the snow crunch under her feet and the pine branches brush against her face. The air is sharp and clean and full of frost. Then around a corner she nearly bumps into a very strange creature who drops all the packages he was carrying in surprise. He has the legs and hooves of a goat but the upper body of a man with a little red scarf and curly horns and a small neat beard. He is a Faun and his name is Mr Tumnus. He is just as surprised to see Lucy as she is to see him because in all his life he has never met a Son of Adam or Daughter of Eve before. He invites her to his cave for tea and to get warm. Lucy follows him gladly because he seems very kind and friendly. The cave is warm and cozy with a fire burning cheerfully and bookshelves on the walls and a picture of an old Faun who must be Mr Tumnus's father. They have tea and toast and sardines and cake and Mr Tumnus plays his little flute and tells Lucy stories about Narnia. But then his face becomes very sad and ashamed. He confesses that he is actually an agent of the White Witch who rules all Narnia and has made it always winter and never Christmas. He was supposed to capture any human he found. But he cannot bring himself to do it to such a nice girl. He walks her safely back to the lamp post so she can go home."},
+  {title:"Chapter 3",subtitle:"الساحرة البيضاء",text:"When Lucy rushes back through the wardrobe she discovers that no time at all has passed in the real world even though she spent a long time in Narnia. She tries to tell the others about her adventure but nobody believes her. Edmund is especially unkind and laughs at her and calls her a liar. A few days later Lucy goes back into the wardrobe and this time Edmund follows her. Lucy runs ahead into the trees looking for Mr Tumnus. Edmund finds himself alone in the cold forest. Then a magnificent sledge drawn by two white reindeer appears. A tall and terrifying beautiful woman sits in it wearing a white fur cloak and a golden crown. This is the White Witch Jadis who calls herself Queen of Narnia. She speaks very sweetly to Edmund and gives him enchanted Turkish Delight which makes him want more and more and think of nothing else. She tells him to bring his brother and sisters to her house and she will give him a whole room full of Turkish Delight and make him a prince and then a king. Edmund agrees without really thinking what this means for his siblings. The Turkish Delight has made him foolish and greedy. This is the worst decision he has ever made and it will put everyone he loves in terrible danger."},
+]},
+
+{id:3,title:"The Enormous Turnip",author:"Traditional Story",level:"A1",cat:"classic",color:"linear-gradient(135deg,#f57f17,#f9a825)",emoji:"🌱",
+quiz:[
+  {q:"What did the old man plant?",opts:["A carrot","A potato","A turnip","A pumpkin"],ans:2},
+  {q:"Who came after the cat?",opts:["The dog","The mouse","The granddaughter","The wife"],ans:1},
+  {q:"What happened when the turnip came out?",opts:["It broke","Everyone fell down","It rolled away","It disappeared"],ans:1},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"اللفت العملاق",text:"Once upon a time a kind old man lived with his wife in a small house with a garden. Every spring the old man planted vegetables in his garden. He planted carrots and cabbages and onions and potatoes. But this spring he also planted one special turnip seed in the very best spot in the garden where the soil was deep and rich and the sunshine was warm. Every single morning the old man went out to water his vegetables and check on his turnip seed. He sprinkled the water carefully and pulled out any weeds that dared to grow nearby. He talked to the seed encouragingly and told it what a fine turnip it was going to be. Days passed and then weeks. The other vegetables grew steadily but the turnip grew faster than anything the old man had ever seen in his long life. It grew and grew and grew until it was as big as a watermelon and then as big as a barrel and then as big as a small car. The old man had never seen anything like it in all his years of gardening. One sunny morning he decided the time had come to pull the enormous turnip out of the ground and cook it for supper. He grabbed hold of the thick green leaves and pulled with all his strength. He pulled and pulled and huffed and puffed and went red in the face. But the enormous turnip did not move even one single centimetre. It was simply too big and too deep in the ground for one old man to pull out alone. The old man straightened up and scratched his head. He was going to need some help."},
+  {title:"Chapter 2",subtitle:"سحب معاً",text:"The old man called his wife from the kitchen. His wife wiped her hands on her apron and came running out to the garden. She grabbed hold of the old man around his waist and he grabbed the turnip leaves. Together they pulled and pulled as hard as they possibly could. They pulled until their arms ached and their backs hurt and their faces turned bright red. But the enormous turnip still did not come out of the ground. So the old woman called their granddaughter who was playing in the yard. The granddaughter held onto the old woman and they all pulled together with all their might. Still the turnip did not move. The granddaughter called the dog who was sleeping under the apple tree. The dog grabbed the granddaughter's skirt and they all pulled. Nothing happened. The dog called the cat who was sitting on the fence washing her paws. The cat grabbed the dog's tail and they all pulled together as hard as they could. Still the enormous turnip refused to come out of the ground. Last of all the cat called the little brown mouse who lived in a hole in the barn wall. The mouse was so small that everyone thought it could not possibly make any difference. But the mouse grabbed the cat's tail and they all took a deep breath and pulled together one final time with every bit of strength they had. Suddenly with a great tearing sound the enormous turnip flew out of the ground. Everyone tumbled over backwards in a big laughing heap. That evening they all sat together around the table and ate the most delicious turnip soup they had ever tasted in their lives."},
+]},
+
+{id:4,title:"The Three Little Pigs",author:"Traditional Story",level:"A1",cat:"classic",color:"linear-gradient(135deg,#c62828,#e53935)",emoji:"🐷",
+quiz:[
+  {q:"What did the third pig build with?",opts:["Straw","Wood","Bricks","Stone"],ans:2},
+  {q:"How did the wolf try to get in the brick house?",opts:["He broke the door","He dug under","He came down the chimney","He broke the windows"],ans:2},
+  {q:"What stopped the wolf at the end?",opts:["A gun","A pot of boiling water","A fence","The police"],ans:1},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"بناء المنازل",text:"Once upon a time a mother pig decided that her three sons were old enough to go out into the world and build their own homes. She hugged them all tightly and warned them to watch out for the big bad wolf who lived in the dark forest. The first little pig was very lazy and wanted to finish as quickly as possible so he could play and eat and sleep. He gathered a big bundle of straw from the field and built himself a small round house in just a few hours. It was not very sturdy but the lazy pig did not care. He danced around it happily. The second little pig worked a little harder. He chopped down some branches and made himself a neat little house from wood. It took him most of the day but then he too went off to play. The third little pig was the wisest and most hardworking of the three brothers. He went to the brickyard and bought heavy red bricks and cement. He worked for many days in the hot sun laying brick after brick carefully and steadily. His brothers laughed at him for working so hard and invited him to come and play. But the third pig shook his head and kept working. When at last his house was finished it was solid and strong with proper windows and a sturdy chimney. That night all three pigs slept soundly in their new homes. But in the dark forest the big bad wolf was hungry and watching with his yellow eyes."},
+  {title:"Chapter 2",subtitle:"الذئب الكبير",text:"The very next morning the big bad wolf went first to the straw house of the first little pig. He knocked on the door very politely and called out little pig little pig please let me come in. The frightened pig squeaked no no no not by the hair of my chinny chin chin. The wolf smiled nastily and said then I will huff and I will puff and I will blow your house in. And he took the biggest deepest breath he could and blew with tremendous force. The straw house flew apart in an instant and scattered across the field. The first pig ran as fast as his little legs could carry him to his brother's wood house. The wolf followed slowly because he was not worried at all. He knocked politely at the wood house door and called out the same words. Both pigs cried no no no not by the hair of our chinny chin chins. The wolf huffed and puffed even harder than before and blew the wood house to pieces. The two pigs ran screaming to their brother's brick house and slammed the door shut behind them. The wolf tried to huff and puff the brick house down with his most enormous breath. But the bricks did not even shake. He tried again and again until he was completely exhausted and dizzy. Then he had a cunning idea. He would climb up onto the roof and come down the chimney."},
+  {title:"Chapter 3",subtitle:"النهاية",text:"The three little pigs heard the wolf climbing up onto the roof with his heavy claws scraping on the tiles. The third pig was very clever. He immediately hung a big pot of water over the fire in the fireplace and made the flames burn as hot as possible. The wolf squeezed himself into the chimney and slid down. Just as he came out at the bottom he landed right in the pot of boiling water with a tremendous splash and a terrible howl of pain. He leaped straight back up the chimney and ran away through the forest yelping and crying. He never ever came back to bother the three little pigs again. The lazy pig and the somewhat lazy pig had learned a very important lesson that day. They thanked their brother gratefully and decided to work hard from that day forward. They helped him build two more strong brick houses right next to his. All three pigs lived safely and happily together for many years, always watching out for each other and never forgetting the day the wolf came to their doors."},
+]},
+
+{id:5,title:"Harry Potter and the Chamber of Secrets",author:"J.K. Rowling",level:"A2",cat:"fantasy",color:"linear-gradient(135deg,#1b5e20,#388e3c)",emoji:"🐍",
+quiz:[
+  {q:"What is the house elf's name?",opts:["Kreacher","Dobby","Winky","Griphook"],ans:1},
+  {q:"Who opened the Chamber of Secrets fifty years ago?",opts:["Voldemort","Snape","Lucius Malfoy","Hagrid"],ans:0},
+  {q:"What creature lives in the Chamber?",opts:["A dragon","A basilisk","A giant spider","A dementor"],ans:1},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"تحذير دوبي",text:"Harry Potter is spending the summer holidays at number four Privet Drive and it is absolutely miserable. The Dursleys have locked all his school books and supplies in the cupboard under the stairs and they will not let him use his owl Hedwig except at night so the neighbours cannot see. Harry misses Ron and Hermione terribly but neither of them has written to him all summer which makes him feel lonely and confused and a little hurt. One evening Uncle Vernon has his important business client Mr Mason coming to dinner and Harry has been strictly ordered to stay in his room all evening and make no noise and pretend he does not exist. When Harry goes up to his room he finds a small creature sitting on his bed. The creature has enormous green eyes like tennis balls and huge bat-like ears and is wearing what looks like a very old and dirty pillowcase. This is Dobby the house elf and he has come with an urgent warning. He tells Harry earnestly that Harry Potter must not return to Hogwarts School this year. Terrible things are going to happen at Hogwarts and if Harry goes back he will be in grave danger. Harry says firmly that he has to go back because Hogwarts is his home and his friends are there. Dobby then runs downstairs and uses magic to hover the Masons' pudding over the dining room table and drops it with a crash ruining everything. A Ministry of Magic warning arrives immediately and Uncle Vernon is absolutely furious."},
+  {title:"Chapter 2",subtitle:"صوت في الجدران",text:"Back at Hogwarts for his second year Harry begins to hear a strange whispering voice that seems to come from inside the walls of the castle. Nobody else can hear it. The voice sounds cold and dangerous and hungry. Then on Halloween evening Harry Ron and Hermione find Mrs Norris the caretaker Filch's cat hanging stiff and petrified from a torch bracket on the wall. On the wall in large red letters someone has written THE CHAMBER OF SECRETS HAS BEEN OPENED. ENEMIES OF THE HEIR BEWARE. Many students are very frightened and some of the pure-blood students begin to say that the heir of Slytherin has returned to purge the school of all Muggle-born students. Harry becomes a suspect when people discover he can speak Parseltongue which is snake language. This is a very dark ability that is associated with Dark wizards throughout history. Ron and Hermione want to help Harry find out who the heir of Slytherin is. Hermione suggests brewing a potion called Polyjuice Potion which will allow them to transform into other people for one hour so they can investigate without being suspected. It will take a whole month to brew and the ingredients are very difficult to obtain."},
+  {title:"Chapter 3",subtitle:"غرفة الأسرار",text:"One by one students and the ghost Nearly Headless Nick are found petrified around the castle. Everyone is terrified and parents are threatening to take their children home. Hagrid is taken to Azkaban prison as a precaution even though Harry is sure he is innocent. Then Hermione herself is petrified but before she is attacked she manages to tear a page from a library book and clutch it in her hand. Harry and Ron find the page and read about a creature called a Basilisk which is a giant serpent that kills with its gaze but the victims so far have only been petrified because none of them looked directly into its eyes. They realise the Basilisk has been moving through the school by travelling in the pipes and that Harry can hear it because he is a Parselmouth. Then Ginny Weasley is taken into the Chamber of Secrets and a message on the wall says her skeleton will lie there forever. Harry and Ron go with Professor Lockhart to the entrance to the Chamber under the girls bathroom. They go down into the depths of the school and Harry faces Tom Riddle who is the memory of the young Voldemort preserved in an old diary. Harry fights the enormous Basilisk with the sword of Godric Gryffindor pulled from the Sorting Hat and with the help of Dumbledore's loyal phoenix Fawkes. It is the most terrifying and heroic battle Harry has ever fought."},
+]},
+
+{id:6,title:"A Study in Scarlet",author:"Arthur Conan Doyle",level:"B1",cat:"mystery",color:"linear-gradient(135deg,#4a148c,#7b1fa2)",emoji:"🔍",
+quiz:[
+  {q:"How does Holmes know Watson was in Afghanistan?",opts:["Watson told him","A friend said so","Holmes deduced it from clues","He read it in a letter"],ans:2},
+  {q:"What does Holmes call himself?",opts:["A police detective","A consulting detective","A private eye","An inspector"],ans:1},
+  {q:"What is strange about the murder victim?",opts:["He has no wounds","There is a word written in blood","He has two knives","He is very old"],ans:1},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"اللقاء الأول",text:"In the year 1878 I took my degree of Doctor of Medicine from the University of London and then immediately went to serve as an army surgeon in the campaign in Afghanistan. At the Battle of Maiwand I was struck by a bullet from a Jezail musket which shattered the bone and grazed the subclavian artery. I was saved from death by the devoted courage of Murray my orderly who threw me across a pack horse and brought me back to the British lines. I spent many painful months in the base hospital at Peshawar recovering from my wound and the enteric fever that followed. I was sent back to England on a troopship to recover my health. I had no friends and no family and very little money and the bleak damp English weather made my wound ache constantly. One day I met my old friend young Stamford in the Criterion bar. Over lunch I mentioned that I needed to find somewhere cheap to live. Stamford looked thoughtful and said he knew a man called Sherlock Holmes who was looking for someone to share lodgings at two hundred and twenty one B Baker Street. He warned me that Holmes was a very unusual and eccentric individual. He was brilliant at some things and completely ignorant of others. He described him as conducting experiments in the hospital laboratory at that very moment. I said I would like to meet him immediately and we went there together."},
+  {title:"Chapter 2",subtitle:"المحقق العبقري",text:"At the hospital laboratory I met Sherlock Holmes for the first time. He was a very tall and thin man with piercing grey eyes and a long hawk-like nose and an air of intense energy and concentration. Before I could open my mouth he looked at me sharply and said You have been in Afghanistan I perceive. I was completely astonished. How on earth could he have known that? He smiled at my expression and explained his reasoning later at Baker Street. He had seen my tan which stopped sharply at my wrist showing I had worn long sleeves in a hot country. He had noticed my military bearing and my injured arm which I held stiffly. He had observed that I carried myself with the confidence of a man who had seen active service. He put all these clues together instantly and Afghanistan was the only place that explained all of them simultaneously. I was deeply impressed. I had never met anyone who thought like this before. Holmes and I moved into the Baker Street rooms and I quickly discovered that my new companion was remarkable in many ways. He could identify over a hundred different kinds of tobacco ash. He played the violin beautifully but also terribly at all hours of the night. He received a stream of strange visitors at all hours. And he would suddenly leap up full of energy having solved some problem that had been occupying his mind."},
+  {title:"Chapter 3",subtitle:"الجريمة الغامضة",text:"One morning Holmes receives a note from Tobias Gregson of Scotland Yard asking for help with a puzzling murder case. A man named Enoch Drebber from America has been found dead in an empty house in Brixton. There is no sign of any wound but his face is distorted with terror and on the wall above the body someone has written the word RACHE in blood red letters. The police think RACHE is an unfinished attempt to write RACHEL but Holmes immediately disagrees. He says RACHE is the German word for revenge and this tells us something important about the killer. Holmes examines the body and the room with extraordinary care using a magnifying glass and tape measure. He finds footprints in the dust and measures them precisely. He finds traces of a second person in the room and deduces their exact height and age and the type of boots they wore. He finds cigar ash of a particular type and a woman's wedding ring on the floor. Holmes tells Watson and the two police inspectors Gregson and Lestrade everything he has deduced but refuses to reveal how he did it. Within hours Holmes announces that he knows exactly who committed the murder and within days he sets an elaborate trap to catch the killer. The answer turns out to be connected to a tragic love story that took place years ago in the wilds of America."},
+]},
+
+{id:7,title:"Treasure Island",author:"Robert Louis Stevenson",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#bf360c,#e64a19)",emoji:"🏴‍☠️",
+quiz:[
+  {q:"What is in Billy Bones's chest?",opts:["Gold coins only","A treasure map","An old sword","A compass"],ans:1},
+  {q:"What is Long John Silver's job on the ship?",opts:["Captain","First mate","Cook","Navigator"],ans:2},
+  {q:"Where is the treasure buried?",opts:["Under a tree","Near a stream","Under a skeleton","Near the north point"],ans:0},
+],
+chapters:[
+  {title:"Chapter 1",subtitle:"الملاح العجوز",text:"My name is Jim Hawkins and I am going to tell you the whole story of Treasure Island from the very beginning just as it happened. My father owned the Admiral Benbow inn near the sea in Bristol and I helped him run it. One cold autumn morning a strange old sailor with a tarry pigtail and dirty blue coat and sabre scar across his cheek came trudging up the road pulling a large battered sea chest behind him on a barrow. His voice was rough as gravel and his hands were cracked and scarred. He looked the inn up and down with his sharp blue eyes and said it looked like a handy place for a man of his sort. He paid for a week in advance and took the smallest room we had. He called himself the Captain. Every day he walked along the headland looking through a long brass telescope and every evening he sat in the corner of the bar drinking rum and singing his horrible old sea song. He paid me a silver fourpenny piece every month to keep a lookout for a one-legged man and warn him if I ever saw such a person coming. I was afraid of the Captain but I was also fascinated by him. He told me later that he had sailed with the most terrible pirate that ever lived a man called Captain Flint."},
+  {title:"Chapter 2",subtitle:"الخريطة",text:"A blind beggar called Pew came to the inn one freezing night tapping his stick on the road and asking to be led inside. He thrust a piece of paper into the Captain's hand and the Captain looked at it and cried out and fell down dead of an apoplectic stroke brought on by terror and too much rum. I grabbed the key from around his neck and opened the sea chest before the pirates who had sent Pew could come back and search it. Inside I found many strange things. Old clothes and old trinkets and a sealed oilskin packet. I ran home with the packet just as the sound of horses came galloping down the road. Later in safety I opened the packet with trembling hands. Inside was a map of an island with longitude and latitude clearly marked. On the map were three crosses drawn in red ink and a note in the Captain's shaky handwriting saying that the crosses showed where Captain Flint buried his treasure amounting to seven hundred thousand pounds in gold coins and ingots. I showed it to my mother and then we went immediately to see Dr Livesey and Squire Trelawney. The Squire's eyes lit up with excitement. He said he would outfit a ship himself and we would sail to find Captain Flint's treasure within three weeks. I could hardly believe what was happening. I was going to sea on a real treasure hunt."},
+  {title:"Chapter 3",subtitle:"لونج جون سيلفر",text:"In Bristol the Squire had already hired a ship called the Hispaniola and a captain named Smollett who was a careful serious man. He did not fully trust the crew that had been assembled and he had a bad feeling about the voyage. He warned the Squire that too many people seemed to know about the treasure hunt already. The most important crew member was the ship's cook a large cheerful one-legged man named Long John Silver who had a parrot called Captain Flint sitting on his shoulder. Silver was immensely popular with everyone. He laughed and joked and seemed to know everything about everything. I liked him enormously at first. But one terrible day hiding in an apple barrel I overheard Silver talking quietly to some of the other sailors. I heard him tell them about his real plan. He and most of the crew were former pirates who had sailed with the original Captain Flint. They planned to let us find the treasure and then murder every one of us and take it for themselves. Silver was their leader. The warm friendly man I had admired was a cold calculating pirate who would kill without hesitation. I sat frozen in the barrel hardly daring to breathe as Silver outlined the whole murderous plan. That night I told the Captain and the Doctor and the Squire everything I had heard. The voyage had just become extremely dangerous."},
+]},
 ];
 
 const wordTranslations={
-  "harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","belong":"ينتمي","strange":"غريب","surprised":"متفاجئ","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","stronger":"أقوى","voice":"صوت","wise":"حكيم","desert":"صحراء","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","comfortable":"مريح","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","turnip":"لفت","pulled":"سحب","ground":"أرض","mouse":"فأر","straw":"قش","bricks":"طوب","wolf":"ذئب","pig":"خنزير","chimney":"مدخنة","lazy":"كسول","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","rabbit":"أرنب","fell":"سقط","seed":"بذرة","grew":"نما","called":"نادى","planted":"زرع","built":"بنى","blew":"نفخ","laughed":"ضحك","found":"وجد","saved":"أنقذ","warned":"حذّر","bottle":"زجاجة","garden":"حديقة","label":"ملصق"
+  "harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","belong":"ينتمي","strange":"غريب","surprised":"متفاجئ","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","voice":"صوت","wise":"حكيم","desert":"صحراء","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","comfortable":"مريح","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","turnip":"لفت","pulled":"سحب","ground":"أرض","mouse":"فأر","straw":"قش","bricks":"طوب","wolf":"ذئب","pig":"خنزير","chimney":"مدخنة","lazy":"كسول","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","rabbit":"أرنب","fell":"سقط","seed":"بذرة","grew":"نما","called":"نادى","planted":"زرع","built":"بنى","blew":"نفخ","laughed":"ضحك","found":"وجد","saved":"أنقذ","warned":"حذّر","bottle":"زجاجة","label":"ملصق","clever":"ذكي","frightened":"خائف","enormous":"ضخم","whispered":"همس","grabbed":"أمسك","immediately":"فوراً","extraordinary":"غير عادي","magnificent":"رائع","treasure":"كنز","island":"جزيرة","pirate":"قرصان","sailor":"بحار","ship":"سفينة","captain":"قبطان","map":"خريطة","gold":"ذهب","silver":"فضة","buried":"مدفون","murder":"قتل","victim":"ضحية","clue":"دليل","evidence":"دليل","deduced":"استنتج","brilliant":"عبقري","chamber":"غرفة","secret":"سر","opened":"فُتح","heir":"وارث","blood":"دم","danger":"خطر","petrified":"مشلول","serpent":"ثعبان","sword":"سيف"
 };
 
-// ===== STATE =====
 let savedVocab=JSON.parse(localStorage.getItem('eng_vocab')||'[]');
 let quizScores=JSON.parse(localStorage.getItem('eng_quiz')||'[]');
 let currentBook=null,currentChapter=0;
@@ -420,77 +364,38 @@ let currentLevel='all',currentCat='all';
 let sessionWords=0;
 let playbackId=0;
 let currentAudio=null;
+let videoLevel='all';
 
-// ===== VOICERSS - صوت بشري حقيقي =====
-function speakWithVoiceRSS(text, myId, onDone){
-  if(currentAudio){
-    currentAudio.pause();
-    currentAudio.onended=null;
-    currentAudio=null;
-  }
-
-  const url='https://api.voicerss.org/?' + new URLSearchParams({
-    key: VOICE_KEY,
-    hl: 'en-gb',
-    v: 'Alice',
-    r: '0',
-    c: 'mp3',
-    f: '44khz_16bit_stereo',
-    src: text
-  });
-
-  const audio=new Audio(url);
+// ===== VOICERSS صوت Harry البريطاني =====
+function speakWithVoiceRSS(text,myId,onDone){
+  if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}
+  const params=new URLSearchParams({key:VOICE_KEY,hl:'en-gb',v:'Harry',r:'0',c:'mp3',f:'44khz_16bit_stereo',src:text});
+  const audio=new Audio('https://api.voicerss.org/?'+params);
   audio.playbackRate=playSpeed;
   currentAudio=audio;
-
-  audio.oncanplaythrough=()=>{
-    document.getElementById('statusBar').textContent='🔊 يقرأ...';
-  };
-
-  audio.onended=()=>{
-    if(myId===playbackId&&onDone){
-      document.getElementById('statusBar').textContent='';
-      onDone();
-    }
-  };
-
-  audio.onerror=()=>{
-    document.getElementById('statusBar').textContent='⚠️ خطأ في الصوت';
-    if(myId===playbackId&&onDone)onDone();
-  };
-
+  audio.oncanplaythrough=()=>{document.getElementById('statusBar').textContent='🔊 يقرأ...';};
+  audio.onended=()=>{if(myId===playbackId&&onDone){document.getElementById('statusBar').textContent='';onDone();}};
+  audio.onerror=()=>{document.getElementById('statusBar').textContent='';if(myId===playbackId&&onDone)onDone();};
   document.getElementById('statusBar').textContent='⏳ جاري التحميل...';
-  audio.play().catch(err=>{
-    document.getElementById('statusBar').textContent='⚠️ '+err.message;
-    if(onDone)onDone();
-  });
+  audio.play().catch(err=>{document.getElementById('statusBar').textContent='';if(onDone)onDone();});
 }
 
 function speakWord(word){
   playbackId++;
   if(currentAudio){currentAudio.pause();currentAudio=null;}
-
-  const url='https://api.voicerss.org/?'+new URLSearchParams({
-    key:VOICE_KEY,hl:'en-gb',v:'Alice',r:'-2',c:'mp3',f:'44khz_16bit_stereo',src:word
-  });
-  const a=new Audio(url);
-  a.play().catch(()=>{});
+  const params=new URLSearchParams({key:VOICE_KEY,hl:'en-gb',v:'Harry',r:'-2',c:'mp3',f:'44khz_16bit_stereo',src:word});
+  new Audio('https://api.voicerss.org/?'+params).play().catch(()=>{});
 }
 
 function stopAudio(){
-  playbackId++;
-  isPlaying=false;
+  playbackId++;isPlaying=false;
   if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}
   clearInterval(progressTimer);
   document.getElementById('playMain').textContent='▶';
   document.getElementById('statusBar').textContent='';
 }
 
-// ===== PLAY =====
-function togglePlay(){
-  if(isPlaying)stopAudio();
-  else startPlay();
-}
+function togglePlay(){if(isPlaying)stopAudio();else startPlay();}
 
 function startPlay(){
   isPlaying=true;
@@ -506,14 +411,10 @@ function playNext(si){
   currentSentence=si;
   highlightSentence(si);
   updateProgressBar(si/sentences.length*100);
-
   const myId=playbackId;
-  speakWithVoiceRSS(sentences[si], myId, ()=>{
-    if(myId===playbackId&&isPlaying)playNext(si+1);
-  });
-
+  speakWithVoiceRSS(sentences[si],myId,()=>{if(myId===playbackId&&isPlaying)playNext(si+1);});
   clearInterval(progressTimer);
-  const sentDur=sentences[si].split(' ').length*0.4/playSpeed;
+  const sentDur=sentences[si].split(' ').length*0.38/playSpeed;
   const startT=Date.now();
   const startPct=si/sentences.length*100;
   progressTimer=setInterval(()=>{
@@ -532,9 +433,7 @@ function updateProgressBar(pct){
 }
 
 function speakOneSentence(si){
-  stopAudio();
-  currentSentence=si;
-  highlightSentence(si);
+  stopAudio();currentSentence=si;highlightSentence(si);
   const myId=playbackId;
   speakWithVoiceRSS(sentences[si],myId,null);
 }
@@ -548,23 +447,25 @@ function cycleSpeed(){
 
 function skipBack(){
   const si=Math.max(0,currentSentence-1);
-  stopAudio();currentSentence=si;
-  if(isPlaying||true){isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
-  else{highlightSentence(si);updateProgressBar(si/sentences.length*100);}
+  stopAudio();currentSentence=si;isPlaying=true;
+  document.getElementById('playMain').textContent='⏸';
+  playbackId++;playNext(si);
 }
 
 function skipFwd(){
   const si=Math.min(sentences.length-1,currentSentence+1);
-  stopAudio();currentSentence=si;
-  isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);
+  stopAudio();currentSentence=si;isPlaying=true;
+  document.getElementById('playMain').textContent='⏸';
+  playbackId++;playNext(si);
 }
 
 function seekProgress(e){
   const rect=e.currentTarget.getBoundingClientRect();
   const pct=Math.max(0,Math.min((e.clientX-rect.left)/rect.width,1));
   const si=Math.floor(pct*sentences.length);
-  stopAudio();currentSentence=si;
-  isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);
+  stopAudio();currentSentence=si;isPlaying=true;
+  document.getElementById('playMain').textContent='⏸';
+  playbackId++;playNext(si);
 }
 
 function highlightSentence(si){
@@ -585,7 +486,6 @@ function setMode(m,btn){
   btn.classList.add('active');
 }
 
-// ===== LIBRARY =====
 function renderLibrary(){
   const f=b=>(currentLevel==='all'||b.level===currentLevel)&&(currentCat==='all'||b.cat===currentCat);
   const all=books.filter(f);
@@ -594,7 +494,6 @@ function renderLibrary(){
   const mystery=all.filter(b=>b.cat==='mystery');
   const classic=all.filter(b=>b.cat==='classic'||b.cat==='adventure');
   const feat=all[0]||books[0];
-
   document.getElementById('featuredDiv').innerHTML=`
     <div class="section-title">⭐ مميز لك</div>
     <div class="featured-card" style="background:${feat.color}" onclick="openBook(${feat.id})">
@@ -606,7 +505,6 @@ function renderLibrary(){
         <div class="featured-sub">${feat.author}</div>
       </div>
     </div>`;
-
   const rg=(list,fb)=>(list.length?list:fb).map(b=>`
     <div class="book-card" onclick="openBook(${b.id})">
       <div class="book-cover" style="background:${b.color}">
@@ -617,7 +515,6 @@ function renderLibrary(){
       <div class="book-name">${b.title}</div>
       <div class="book-author">${b.author}</div>
     </div>`).join('');
-
   document.getElementById('a1Grid').innerHTML=rg(a1,all.slice(0,5));
   document.getElementById('fantasyGrid').innerHTML=rg(fantasy,all.slice(0,4));
   document.getElementById('mysteryGrid').innerHTML=rg(mystery,all.slice(0,3));
@@ -628,11 +525,10 @@ function levelName(l){return{A1:'مبتدئ',A2:'ابتدائي',B1:'متوسط'
 function filterLevel(l,btn){currentLevel=l;document.querySelectorAll('#libPage .ltab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderLibrary();}
 function filterCat(c,btn){currentCat=c;document.querySelectorAll('.cat-chip').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderLibrary();}
 
-// ===== READER =====
 function openBook(id){
   currentBook=books.find(b=>b.id===id);
   currentChapter=0;stopAudio();sessionWords=0;
-  renderChapter();
+  renderChapter();renderChapterNav();
   document.getElementById('libPage').classList.remove('active');
   document.getElementById('readerPage').classList.add('active');
   document.getElementById('bottomNav').style.display='none';
@@ -645,15 +541,24 @@ function closeReader(){
   document.getElementById('bottomNav').style.display='flex';
 }
 
+function renderChapterNav(){
+  document.getElementById('chapterNav').innerHTML=currentBook.chapters.map((ch,i)=>`
+    <button class="ch-btn${i===currentChapter?' active':''}" onclick="switchChapter(${i})">${ch.title}</button>`).join('');
+}
+
+function switchChapter(i){
+  stopAudio();currentChapter=i;currentSentence=0;
+  renderChapter();renderChapterNav();
+}
+
 function renderChapter(){
-  const ch=currentBook.chapters[currentChapter]||currentBook.chapters[0];
+  const ch=currentBook.chapters[currentChapter];
   document.getElementById('readerTitle').textContent=currentBook.title;
   sentences=ch.text.match(/[^.!?]+[.!?]+/g)||[ch.text];
-  const totalSecs=sentences.reduce((a,s)=>a+s.split(' ').length*0.4,0);
+  const totalSecs=sentences.reduce((a,s)=>a+s.split(' ').length*0.38,0);
   document.getElementById('timeTot').textContent=formatTime(totalSecs);
   document.getElementById('timeNow').textContent='00:00';
   updateProgressBar(0);currentSentence=0;
-
   let html=`<div class="chapter-title"><span>${ch.title}:</span> ${ch.subtitle}</div>`;
   sentences.forEach((sent,si)=>{
     const wHTML=sent.trim().split(/\s+/).map(w=>{
@@ -666,13 +571,10 @@ function renderChapter(){
   document.getElementById('chapterContent').innerHTML=html;
 }
 
-// ===== TRANSLATION =====
 function showTranslation(el,e){
   e.stopPropagation();
-  const word=el.dataset.word;
-  if(!word)return;
-  const arabic=wordTranslations[word];
-  if(!arabic)return;
+  const word=el.dataset.word;if(!word)return;
+  const arabic=wordTranslations[word];if(!arabic)return;
   document.getElementById('tWord').textContent=word;
   document.getElementById('tArabic').textContent=arabic;
   const popup=document.getElementById('transPopup');
@@ -682,9 +584,7 @@ function showTranslation(el,e){
   if(top<60)top=rect.bottom+8;
   if(left+190>window.innerWidth)left=window.innerWidth-195;
   if(left<5)left=5;
-  popup.style.top=top+'px';
-  popup.style.left=left+'px';
-  popup.style.right='auto';
+  popup.style.top=top+'px';popup.style.left=left+'px';popup.style.right='auto';
   if(!savedVocab.find(v=>v.word===word)){
     savedVocab.push({word,arabic,book:currentBook?.title||''});
     localStorage.setItem('eng_vocab',JSON.stringify(savedVocab));
@@ -700,7 +600,6 @@ document.addEventListener('click',e=>{
     document.getElementById('transPopup').classList.remove('show');
 });
 
-// ===== QUIZ =====
 let quizQ=0,quizScore=0,quizAnswered=false;
 function showQuiz(){
   if(!currentBook?.quiz?.length){alert('لا يوجد اختبار');return;}
@@ -736,13 +635,11 @@ function showQuizResult(){
     <div style="text-align:center;padding:10px">
       <div class="quiz-score">${quizScore}/${total}</div>
       <div style="font-size:2rem;margin:8px 0">${pct>=80?'🌟':pct>=60?'✅':'🔄'}</div>
-      <div style="color:var(--muted);font-size:.95rem;font-weight:700">${pct>=80?'🎉 ممتاز!':pct>=60?'👍 جيد!':'💪 حاول مرة أخرى'}</div>
-      <div style="color:var(--muted);font-size:.8rem;margin-top:6px">${pct}% إجابات صحيحة</div>
+      <div style="color:var(--muted);font-weight:700">${pct>=80?'ممتاز!':pct>=60?'جيد!':'حاول مرة أخرى'}</div>
       <button class="quiz-btn" onclick="document.getElementById('quizOverlay').classList.remove('show')">إغلاق</button>
     </div>`;
 }
 
-// ===== VOCAB =====
 function renderVocab(){
   document.getElementById('vocabList').innerHTML=savedVocab.length?
     [...savedVocab].reverse().map(v=>`
@@ -768,6 +665,31 @@ function updateStats(){
         <span style="font-weight:700;color:${s.pct>=80?'var(--green)':s.pct>=60?'var(--gold)':'var(--red)'}">${s.pct}%</span>
       </div>`).join('');
   }
+}
+
+function renderVideos(){
+  const list=videos.filter(v=>videoLevel==='all'||v.level===videoLevel);
+  document.getElementById('videoGrid').innerHTML=list.map(v=>`
+    <div class="video-card" onclick="window.open('https://www.youtube.com/watch?v=${v.yt}','_blank')">
+      <div class="video-thumb">
+        <img src="${v.thumb}" onerror="this.style.background='var(--card2)'" alt="${v.title}">
+        <div class="video-play-btn">▶</div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">${v.title}</div>
+        <div class="video-meta">
+          <span class="badge-${v.level.toLowerCase()}" style="padding:2px 8px;border-radius:20px;font-size:.68rem;font-weight:700">${v.level}</span>
+          <span class="video-channel">📺 ${v.channel}</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function filterVideo(l,btn){
+  videoLevel=l;
+  document.querySelectorAll('#videoPage .ltab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderVideos();
 }
 
 function showMainPage(id,nav){
