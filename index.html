@@ -10,8 +10,6 @@
 body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 .page{display:none;min-height:100vh;padding-bottom:80px}
 .page.active{display:block}
-
-/* SPLASH */
 #splashPage{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px;background:linear-gradient(135deg,#0a0a0f,#0d1a2e);position:fixed;inset:0;z-index:999}
 .splash-logo{font-size:5rem;margin-bottom:16px;animation:floatAnim 2s ease-in-out infinite}
 @keyframes floatAnim{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
@@ -27,14 +25,10 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .splash-name-input::placeholder{color:var(--muted)}
 .splash-start-btn{background:linear-gradient(135deg,var(--blue),var(--purple));border:none;color:white;padding:16px 40px;border-radius:20px;font-size:1.1rem;font-weight:800;cursor:pointer;width:100%;max-width:320px;box-shadow:0 8px 24px rgba(91,155,213,.3);font-family:inherit}
 .splash-start-btn:active{transform:scale(.97)}
-
-/* TOPBAR */
 .topbar{padding:14px 16px 10px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
 .topbar-title{font-size:1.2rem;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .icon-btn{background:var(--card2);border:none;color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .icon-btn:hover{background:var(--blue);color:white}
-
-/* WELCOME CARD */
 .welcome-card{margin:14px 16px;background:linear-gradient(135deg,rgba(91,155,213,.12),rgba(139,92,246,.12));border:1px solid rgba(91,155,213,.25);border-radius:20px;padding:18px;display:flex;align-items:center;gap:14px}
 .welcome-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:900;color:white;flex-shrink:0}
 .welcome-text{flex:1}
@@ -43,30 +37,20 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .welcome-streak{background:rgba(240,180,41,.12);border:1px solid rgba(240,180,41,.25);border-radius:12px;padding:6px 12px;text-align:center;flex-shrink:0}
 .welcome-streak-num{font-size:1.3rem;font-weight:900;color:var(--gold);display:block}
 .welcome-streak-lbl{font-size:.6rem;color:var(--muted)}
-
-/* QUICK STATS */
 .quick-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 16px 16px}
 .qstat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
 .qstat-num{font-size:1.4rem;font-weight:900;color:var(--blue)}
 .qstat-lbl{font-size:.65rem;color:var(--muted);margin-top:2px}
-
-/* CONTINUE BANNER */
-.continue-banner{margin:0 16px 14px;background:linear-gradient(135deg,rgba(76,175,80,.1),rgba(91,155,213,.1));border:1px solid rgba(76,175,80,.25);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer}
-.continue-banner:active{transform:scale(.98)}
-.continue-info{flex:1}
-.continue-title{font-size:.88rem;font-weight:700;margin-bottom:3px}
-.continue-sub{font-size:.72rem;color:var(--muted)}
-.continue-prog{width:100%;height:4px;background:var(--border);border-radius:4px;margin-top:8px;overflow:hidden}
-.continue-prog-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:4px}
-
-/* LEVEL TABS */
+.daily-tip{margin:0 16px 14px;background:rgba(240,180,41,.06);border:1px solid rgba(240,180,41,.2);border-radius:14px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+.tip-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.tip-text{font-size:.78rem;color:var(--text);line-height:1.6}
+.tip-label{font-size:.65rem;color:var(--gold);font-weight:700;margin-bottom:3px}
 .level-tabs{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;scrollbar-width:none}
 .level-tabs::-webkit-scrollbar{display:none}
 .ltab{padding:6px 18px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;white-space:nowrap;transition:all .2s;font-weight:600}
 .ltab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border-color:transparent}
 .section{padding:0 16px 16px}
-.section-title{font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
-.section-title span{font-size:.75rem;color:var(--blue);cursor:pointer}
+.section-title{font-size:1rem;font-weight:700;margin-bottom:12px}
 .cat-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .cat-scroll::-webkit-scrollbar{display:none}
 .cat-chip{padding:8px 16px;border-radius:12px;background:var(--card2);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:.82rem;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:all .2s}
@@ -92,13 +76,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .featured-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;margin-bottom:6px}
 .featured-title{font-size:1.05rem;font-weight:800;direction:ltr;color:white}
 .featured-sub{font-size:.78rem;color:#aaa;margin-top:4px}
-
-/* READER */
 .conv-reader{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column}
 .conv-reader.show{display:flex}
 .conv-reader-top{padding:12px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);background:rgba(10,10,15,.97)}
 .conv-reader-title{flex:1;font-size:.9rem;font-weight:700;direction:ltr}
-.conv-body{flex:1;overflow-y:auto;padding:16px;padding-bottom:100px}
+.conv-body{flex:1;overflow-y:auto;padding:16px;padding-bottom:120px}
 .conv-line{margin-bottom:16px;display:flex;flex-direction:column;gap:4px}
 .conv-line.person-a .bubble{background:var(--card2);border-radius:16px 16px 16px 4px;align-self:flex-start;max-width:85%}
 .conv-line.person-b .bubble{background:linear-gradient(135deg,rgba(91,155,213,.25),rgba(139,92,246,.25));border:1px solid rgba(91,155,213,.3);border-radius:16px 16px 4px 16px;align-self:flex-end;max-width:85%}
@@ -107,11 +89,11 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .bubble-en{font-size:.95rem;direction:ltr;line-height:1.5;color:var(--text)}
 .bubble-ar{font-size:.82rem;color:var(--gold);margin-top:4px;direction:rtl;text-align:right}
 .bubble-play{background:none;border:none;color:var(--blue);cursor:pointer;font-size:.85rem;padding:4px 0;direction:ltr;display:flex;align-items:center;gap:4px}
-.conv-audio-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);padding:12px 16px 16px;z-index:300}
+.conv-audio-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);padding:12px 16px 20px;z-index:300}
 .conv-play-row{display:flex;align-items:center;justify-content:center;gap:16px}
 .conv-play-btn{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));border:none;cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(91,155,213,.4)}
 .conv-skip{background:var(--card2);border:none;color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:.9rem}
-.conv-status{text-align:center;font-size:.72rem;color:var(--muted);margin-top:8px;min-height:16px}
+.conv-status{text-align:center;font-size:.75rem;color:var(--muted);margin-top:8px;min-height:18px}
 .chapter-nav{display:flex;gap:8px;padding:8px 16px;overflow-x:auto;scrollbar-width:none;position:sticky;top:57px;background:rgba(10,10,15,.97);z-index:40}
 .chapter-nav::-webkit-scrollbar{display:none}
 .ch-btn{padding:5px 14px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.78rem;white-space:nowrap;transition:all .2s}
@@ -119,7 +101,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .reader-topbar{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;gap:8px}
 .reader-title{font-size:.82rem;font-weight:700;flex:1;text-align:center;direction:ltr;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .new-words-badge{background:var(--green);color:white;padding:3px 8px;border-radius:20px;font-size:.7rem;white-space:nowrap;font-weight:600}
-.chapter-content{padding:16px 16px 230px;line-height:2.6;font-size:1.08rem;direction:ltr;text-align:left}
+.chapter-content{padding:16px 16px 260px;line-height:2.6;font-size:1.08rem;direction:ltr;text-align:left}
 .chapter-title{font-size:1.1rem;font-weight:800;margin-bottom:18px;direction:rtl;text-align:right;padding:12px;background:var(--card);border-radius:12px;border-right:3px solid var(--blue)}
 .chapter-title span{color:var(--blue)}
 .word{cursor:pointer;border-radius:4px;padding:1px 2px;transition:all .15s;display:inline}
@@ -128,7 +110,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .word.new-word{color:var(--gold);border-bottom:2px dashed var(--gold)}
 .sent-btn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--card2);border-radius:50%;cursor:pointer;font-size:.6rem;border:1px solid var(--border);vertical-align:middle;color:var(--muted);margin:0 3px}
 .sent-btn:hover{background:var(--blue);color:white}
-.audio-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);padding:10px 14px 14px;z-index:100;backdrop-filter:blur(10px)}
+.audio-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);padding:10px 14px 16px;z-index:100;backdrop-filter:blur(10px)}
 .audio-tabs{display:flex;margin-bottom:10px;background:var(--card2);border-radius:12px;padding:3px;gap:3px}
 .audio-tab{flex:1;padding:7px;text-align:center;border-radius:9px;cursor:pointer;font-size:.82rem;color:var(--muted);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}
 .audio-tab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;font-weight:700}
@@ -143,7 +125,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .skip-lbl{font-size:.5rem;color:var(--muted)}
 .play-main{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));border:none;cursor:pointer;font-size:1.4rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(91,155,213,.5);transition:transform .1s}
 .play-main:active{transform:scale(.93)}
-.status-bar{text-align:center;font-size:.72rem;color:var(--muted);margin-top:6px;min-height:16px}
+.status-bar{text-align:center;font-size:.75rem;color:var(--muted);margin-top:6px;min-height:18px}
 .trans-popup{position:fixed;z-index:500;background:#13131a;border:1.5px solid var(--blue);border-radius:16px;padding:14px;max-width:190px;box-shadow:0 8px 32px rgba(0,0,0,.9);display:none}
 .trans-popup.show{display:block}
 .trans-word{font-size:1.15rem;font-weight:700;color:var(--blue);direction:ltr}
@@ -184,54 +166,27 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .conv-meta{font-size:.72rem;color:var(--muted);margin-top:2px;direction:ltr}
 .conv-level{padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700}
 .conv-preview{font-size:.8rem;color:var(--muted);padding:0 16px 14px;direction:ltr;font-style:italic}
+.empty-state{text-align:center;padding:50px 20px;color:var(--muted)}
+.empty-state-icon{font-size:3.5rem;margin-bottom:12px}
+.empty-state-title{font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--text)}
+.empty-state-sub{font-size:.82rem;line-height:1.6}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);display:flex;z-index:60;padding:8px 0 14px;backdrop-filter:blur(10px)}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px}
 .nav-icon{font-size:1.3rem}
 .nav-label{font-size:.62rem;color:var(--muted)}
 .nav-item.active .nav-label{color:var(--blue);font-weight:700}
-
-/* EMPTY STATE */
-.empty-state{text-align:center;padding:50px 20px;color:var(--muted)}
-.empty-state-icon{font-size:3.5rem;margin-bottom:12px}
-.empty-state-title{font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--text)}
-.empty-state-sub{font-size:.82rem;line-height:1.6}
-
-/* DAILY TIP */
-.daily-tip{margin:0 16px 14px;background:rgba(240,180,41,.06);border:1px solid rgba(240,180,41,.2);border-radius:14px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
-.tip-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
-.tip-text{font-size:.78rem;color:var(--text);line-height:1.6}
-.tip-label{font-size:.65rem;color:var(--gold);font-weight:700;margin-bottom:3px}
 </style>
 </head>
 <body>
 
-<!-- SPLASH / ONBOARDING -->
 <div id="splashPage">
   <div class="splash-logo">📚</div>
   <div class="splash-title">ReadEnglish</div>
   <div class="splash-sub">تعلم الإنجليزية من خلال القراءة والاستماع<br>بأسلوب ممتع وفعّال</div>
   <div class="splash-features">
-    <div class="splash-feat">
-      <div class="splash-feat-icon">🎧</div>
-      <div>
-        <div class="splash-feat-text">استماع بصوت حقيقي</div>
-        <div class="splash-feat-sub">بصوت Linda البريطانية</div>
-      </div>
-    </div>
-    <div class="splash-feat">
-      <div class="splash-feat-icon">📖</div>
-      <div>
-        <div class="splash-feat-text">5 كتب و10 محادثات</div>
-        <div class="splash-feat-sub">من مستوى A1 حتى B1</div>
-      </div>
-    </div>
-    <div class="splash-feat">
-      <div class="splash-feat-icon">💡</div>
-      <div>
-        <div class="splash-feat-text">ترجمة فورية للكلمات</div>
-        <div class="splash-feat-sub">اضغط على أي كلمة لترجمتها</div>
-      </div>
-    </div>
+    <div class="splash-feat"><div class="splash-feat-icon">🎧</div><div><div class="splash-feat-text">استماع واضح بدون تقطع</div><div class="splash-feat-sub">صوت مدمج في المتصفح — فوري وسلس</div></div></div>
+    <div class="splash-feat"><div class="splash-feat-icon">📖</div><div><div class="splash-feat-text">5 كتب و10 محادثات</div><div class="splash-feat-sub">من مستوى A1 حتى B1</div></div></div>
+    <div class="splash-feat"><div class="splash-feat-icon">💡</div><div><div class="splash-feat-text">ترجمة فورية للكلمات</div><div class="splash-feat-sub">اضغط على أي كلمة لترجمتها</div></div></div>
   </div>
   <input class="splash-name-input" id="splashName" type="text" placeholder="اكتب اسمك هنا..." maxlength="15">
   <button class="splash-start-btn" onclick="startApp()">🚀 ابدأ التعلم الآن!</button>
@@ -263,22 +218,15 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   </div>
 </div>
 
-<!-- LIBRARY PAGE -->
 <div class="page active" id="libPage">
-  <div class="topbar">
-    <div class="topbar-title">📚 ReadEnglish</div>
-    <button class="icon-btn" onclick="showMainPage('progressPage',document.querySelectorAll('.nav-item')[0])">📊</button>
-  </div>
+  <div class="topbar"><div class="topbar-title">📚 ReadEnglish</div></div>
   <div class="welcome-card" id="welcomeCard">
     <div class="welcome-avatar" id="welcomeAvatar">؟</div>
     <div class="welcome-text">
       <div class="welcome-name" id="welcomeName">مرحباً!</div>
       <div class="welcome-sub" id="welcomeSub">استمر في التعلم اليوم 💪</div>
     </div>
-    <div class="welcome-streak">
-      <span class="welcome-streak-num">🔥1</span>
-      <span class="welcome-streak-lbl">يوم</span>
-    </div>
+    <div class="welcome-streak"><span class="welcome-streak-num">🔥1</span><span class="welcome-streak-lbl">يوم</span></div>
   </div>
   <div class="quick-stats">
     <div class="qstat"><div class="qstat-num" id="qs1">0</div><div class="qstat-lbl">📝 كلمة</div></div>
@@ -287,10 +235,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   </div>
   <div class="daily-tip">
     <div class="tip-icon">💡</div>
-    <div>
-      <div class="tip-label">نصيحة اليوم</div>
-      <div class="tip-text" id="dailyTip">اضغط على أي كلمة ذهبية أثناء القراءة لترجمتها وحفظها تلقائياً!</div>
-    </div>
+    <div><div class="tip-label">نصيحة اليوم</div><div class="tip-text" id="dailyTip">اضغط على الكلمات الذهبية لترجمتها وحفظها!</div></div>
   </div>
   <div class="level-tabs">
     <button class="ltab active" onclick="filterLevel('all',this)">الكل</button>
@@ -314,7 +259,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="section"><div class="section-title">🗺️ مغامرة</div><div class="books-scroll" id="classicGrid"></div></div>
 </div>
 
-<!-- READER PAGE -->
 <div class="page" id="readerPage">
   <div class="reader-topbar">
     <button class="icon-btn" onclick="closeReader()">✕</button>
@@ -343,11 +287,10 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
       <button class="play-main" id="playMain" onclick="togglePlay()">▶</button>
       <button class="skip-btn" onclick="skipFwd()">⏩<span class="skip-lbl">أمام</span></button>
     </div>
-    <div class="status-bar" id="statusBar">اضغط ▶ للاستماع بصوت Linda 🎙️</div>
+    <div class="status-bar" id="statusBar">اضغط ▶ للاستماع 🎙️</div>
   </div>
 </div>
 
-<!-- CONVERSATIONS PAGE -->
 <div class="page" id="convPage">
   <div class="topbar"><div class="topbar-title">🗣️ المحادثات</div></div>
   <div class="level-tabs">
@@ -359,7 +302,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="conv-list" id="convList"></div>
 </div>
 
-<!-- VOCAB PAGE -->
 <div class="page" id="vocabPage">
   <div class="topbar">
     <div class="topbar-title">📝 المفردات</div>
@@ -368,7 +310,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="vocab-list" id="vocabList"></div>
 </div>
 
-<!-- PROGRESS PAGE -->
 <div class="page" id="progressPage">
   <div class="topbar"><div class="topbar-title">🏆 تقدمي</div></div>
   <div class="progress-page">
@@ -389,10 +330,6 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
       <div class="prog-title">🗣️ المحادثات المكتملة</div>
       <div id="convCompleted" style="color:var(--muted);font-size:.85rem;padding:8px 0">لم تكمل محادثات بعد</div>
     </div>
-    <div class="prog-card">
-      <div class="prog-title">📚 الكتب المتاحة</div>
-      <div style="color:var(--muted);font-size:.85rem;padding:8px 0">5 كتب من A1 إلى B1 — اقرأ واستمع لتتعلم أكثر</div>
-    </div>
   </div>
 </div>
 
@@ -404,31 +341,84 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 </div>
 
 <script>
-const VOICE_KEY='973dcf818d50455ab578ba27e964642e';
+// ===== WEB SPEECH API - بدون تقطع =====
+const synth = window.speechSynthesis;
+let playSpeed = 1.0;
+let isPlaying = false;
+let sentences = [], currentSentence = 0;
+let progressTimer = null;
+let playbackId = 0;
 
-const tips=[
-  'اضغط على أي كلمة ذهبية لترجمتها وحفظها تلقائياً!',
+function getVoice() {
+  const voices = synth.getVoices();
+  return voices.find(v => v.lang === 'en-GB' && v.name.toLowerCase().includes('female'))
+      || voices.find(v => v.lang === 'en-GB')
+      || voices.find(v => v.lang === 'en-US' && v.name.toLowerCase().includes('female'))
+      || voices.find(v => v.lang.startsWith('en-US'))
+      || voices.find(v => v.lang.startsWith('en'))
+      || null;
+}
+synth.onvoiceschanged = () => getVoice();
+
+function speakWord(word) {
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(word);
+  u.lang = 'en-GB'; u.rate = 0.85; u.pitch = 1.05;
+  const v = getVoice(); if (v) u.voice = v;
+  synth.speak(u);
+}
+
+function speakWithVoiceRSS(text, myId, onDone) {
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-GB'; u.rate = playSpeed; u.pitch = 1.05; u.volume = 1;
+  const v = getVoice(); if (v) u.voice = v;
+  u.onstart = () => setStatus('🔊 جاري القراءة...');
+  u.onend = () => { setStatus(''); if (myId === playbackId && onDone) onDone(); };
+  u.onerror = () => { setStatus(''); if (myId === playbackId && onDone) onDone(); };
+  synth.speak(u);
+}
+
+function stopAudio() {
+  playbackId++; isPlaying = false;
+  synth.cancel();
+  clearInterval(progressTimer);
+  const pm = document.getElementById('playMain');
+  if (pm) pm.textContent = '▶';
+  setStatus('');
+}
+
+function cycleSpeed() {
+  const sp = [0.75, 1.0, 1.25, 1.5];
+  playSpeed = sp[(sp.indexOf(playSpeed) + 1) % sp.length];
+  document.getElementById('speedBtn').textContent = playSpeed + 'x';
+  if (synth.speaking) { synth.cancel(); if (isPlaying) playNext(currentSentence); }
+}
+// ===== END AUDIO ENGINE =====
+
+const tips = [
+  'اضغط على الكلمات الذهبية لترجمتها وحفظها تلقائياً!',
   'استمع للمحادثات اليومية لتحسين نطقك بسرعة.',
   'حاول تخمين معنى الكلمة قبل الضغط عليها.',
-  'أكمل محادثة واحدة يومياً لتحسن مستواك بشكل ملحوظ.',
+  'أكمل محادثة واحدة يومياً لتحسن مستواك.',
   'استخدم وضع القراءة لفهم النص بدون صوت أولاً.',
   'اجمع 10 كلمات جديدة يومياً للوصول لمستوى B1.',
 ];
 
-const conversations=[
+const conversations = [
   {id:0,title:"At the Coffee Shop",emoji:"☕",level:"A1",topic:"طلب القهوة",lines:[{speaker:"A",en:"Good morning! What would you like to drink?",ar:"صباح الخير! ماذا تريد أن تشرب؟"},{speaker:"B",en:"Good morning! I would like a coffee please.",ar:"صباح الخير! أريد قهوة من فضلك."},{speaker:"A",en:"Small or large?",ar:"صغيرة أم كبيرة؟"},{speaker:"B",en:"Large please. With milk and sugar.",ar:"كبيرة من فضلك. مع حليب وسكر."},{speaker:"A",en:"Of course. Anything else?",ar:"بالتأكيد. أي شيء آخر؟"},{speaker:"B",en:"Yes, one chocolate cake please.",ar:"نعم، قطعة كيك شوكولاتة من فضلك."},{speaker:"A",en:"That will be five pounds please.",ar:"هذا سيكون خمسة جنيهات من فضلك."},{speaker:"B",en:"Here you are. Thank you very much.",ar:"تفضل. شكراً جزيلاً."},{speaker:"A",en:"You are welcome. Enjoy your coffee!",ar:"على الرحب والسعة. استمتع بقهوتك!"}]},
-  {id:1,title:"Meeting Someone New",emoji:"🤝",level:"A1",topic:"تعارف جديد",lines:[{speaker:"A",en:"Hello! My name is Tom. What is your name?",ar:"مرحباً! اسمي توم. ما اسمك؟"},{speaker:"B",en:"Hi Tom! Nice to meet you. I am Sara.",ar:"مرحباً توم! يسعدني لقاؤك. أنا سارة."},{speaker:"A",en:"Nice to meet you too Sara. Where are you from?",ar:"يسعدني لقاؤك أيضاً سارة. من أين أنت؟"},{speaker:"B",en:"I am from London. And you?",ar:"أنا من لندن. وأنت؟"},{speaker:"A",en:"I am from Manchester. Do you live in London now?",ar:"أنا من مانشستر. هل تعيشين في لندن الآن؟"},{speaker:"B",en:"Yes I do. I have lived here for three years.",ar:"نعم. أعيش هنا منذ ثلاث سنوات."},{speaker:"A",en:"It is a beautiful city.",ar:"إنها مدينة جميلة."},{speaker:"B",en:"Are you here for work or holiday?",ar:"هل أنت هنا للعمل أم للإجازة؟"},{speaker:"A",en:"I am here for work. I am a teacher.",ar:"أنا هنا للعمل. أنا مدرس."},{speaker:"B",en:"How interesting! I am a doctor. Nice talking to you.",ar:"يا لها من مهنة رائعة! أنا طبيبة. كان من الجميل التحدث إليك."}]},
+  {id:1,title:"Meeting Someone New",emoji:"🤝",level:"A1",topic:"تعارف جديد",lines:[{speaker:"A",en:"Hello! My name is Tom. What is your name?",ar:"مرحباً! اسمي توم. ما اسمك؟"},{speaker:"B",en:"Hi Tom! Nice to meet you. I am Sara.",ar:"مرحباً توم! يسعدني لقاؤك. أنا سارة."},{speaker:"A",en:"Nice to meet you too Sara. Where are you from?",ar:"يسعدني لقاؤك أيضاً سارة. من أين أنت؟"},{speaker:"B",en:"I am from London. And you?",ar:"أنا من لندن. وأنت؟"},{speaker:"A",en:"I am from Manchester. Do you live in London now?",ar:"أنا من مانشستر. هل تعيشين في لندن الآن؟"},{speaker:"B",en:"Yes I do. I have lived here for three years.",ar:"نعم. أعيش هنا منذ ثلاث سنوات."},{speaker:"A",en:"It is a beautiful city.",ar:"إنها مدينة جميلة."},{speaker:"B",en:"Are you here for work or holiday?",ar:"هل أنت هنا للعمل أم للإجازة؟"},{speaker:"A",en:"I am here for work. I am a teacher.",ar:"أنا هنا للعمل. أنا مدرس."},{speaker:"B",en:"How interesting! I am a doctor. Nice talking to you.",ar:"يا لها من مهنة رائعة! أنا طبيبة."}]},
   {id:2,title:"At the Doctor",emoji:"🏥",level:"A1",topic:"عند الطبيب",lines:[{speaker:"A",en:"Good afternoon. How can I help you today?",ar:"مساء الخير. كيف يمكنني مساعدتك اليوم؟"},{speaker:"B",en:"Hello doctor. I have a bad headache and a sore throat.",ar:"مرحباً دكتور. لدي صداع شديد وألم في الحلق."},{speaker:"A",en:"I am sorry to hear that. How long have you felt this way?",ar:"آسف لسماع ذلك. منذ متى وأنت تشعر هكذا؟"},{speaker:"B",en:"Since yesterday morning. I also have a temperature.",ar:"منذ صباح أمس. لدي أيضاً حرارة."},{speaker:"A",en:"Let me check. Open your mouth please.",ar:"دعني أفحصك. افتح فمك من فضلك."},{speaker:"B",en:"Is it serious doctor?",ar:"هل الأمر خطير يا دكتور؟"},{speaker:"A",en:"No do not worry. You have a common cold.",ar:"لا تقلق. لديك نزلة برد عادية."},{speaker:"B",en:"Should I stay at home and rest?",ar:"هل يجب أن أبقى في البيت وأستريح؟"},{speaker:"A",en:"Yes. Drink plenty of water and rest for two days.",ar:"نعم. اشرب الكثير من الماء واسترح لمدة يومين."},{speaker:"B",en:"Thank you very much doctor.",ar:"شكراً جزيلاً دكتور."}]},
   {id:3,title:"Asking for Directions",emoji:"🗺️",level:"A2",topic:"طلب الاتجاهات",lines:[{speaker:"A",en:"Excuse me. Could you help me please? I am lost.",ar:"عذراً. هل يمكنك مساعدتي من فضلك؟ لقد ضعت."},{speaker:"B",en:"Of course! Where are you trying to go?",ar:"بالتأكيد! أين تحاول أن تذهب؟"},{speaker:"A",en:"I am looking for the National Museum.",ar:"أبحث عن المتحف الوطني."},{speaker:"B",en:"It is not far. Go straight ahead for two streets.",ar:"إنه ليس بعيداً. امضِ مستقيماً لشارعين."},{speaker:"A",en:"Then what do I do?",ar:"ثم ماذا أفعل؟"},{speaker:"B",en:"Turn left at the traffic lights.",ar:"انعطف يساراً عند إشارة المرور."},{speaker:"A",en:"And the museum is next to the park?",ar:"والمتحف بجانب الحديقة؟"},{speaker:"B",en:"Exactly. It is a large grey building.",ar:"بالضبط. إنه مبنى رمادي كبير."},{speaker:"A",en:"How long will it take to walk there?",ar:"كم من الوقت يستغرق المشي إلى هناك؟"},{speaker:"B",en:"About ten minutes. Have a nice visit!",ar:"حوالي عشر دقائق. استمتع بزيارتك!"}]},
   {id:4,title:"Job Interview",emoji:"💼",level:"A2",topic:"مقابلة عمل",lines:[{speaker:"A",en:"Good morning. Please take a seat.",ar:"صباح الخير. تفضل بالجلوس."},{speaker:"B",en:"Good morning. Thank you for seeing me today.",ar:"صباح الخير. شكراً لاستقبالك إياي اليوم."},{speaker:"A",en:"Tell me about yourself.",ar:"أخبرني عن نفسك."},{speaker:"B",en:"I have five years of experience in marketing.",ar:"لدي خمس سنوات من الخبرة في التسويق."},{speaker:"A",en:"Why do you want to work for us?",ar:"لماذا تريد العمل معنا؟"},{speaker:"B",en:"Your company has an excellent reputation.",ar:"شركتكم تتمتع بسمعة ممتازة."},{speaker:"A",en:"What are your greatest strengths?",ar:"ما هي أبرز نقاط قوتك؟"},{speaker:"B",en:"I am organised, hardworking, and I work well in a team.",ar:"أنا منظم، مجتهد، وأعمل بشكل جيد في فريق."},{speaker:"A",en:"When can you start?",ar:"متى يمكنك البدء؟"},{speaker:"B",en:"I can start immediately.",ar:"يمكنني البدء فوراً."}]},
   {id:5,title:"Talking About the Weather",emoji:"⛅",level:"A1",topic:"الطقس",lines:[{speaker:"A",en:"What terrible weather today! It is so cold.",ar:"يا له من طقس سيء اليوم! إنه بارد جداً."},{speaker:"B",en:"I know! I wore three jumpers this morning.",ar:"أعلم! لبست ثلاثة بلوفرات هذا الصباح."},{speaker:"A",en:"Will it rain tomorrow?",ar:"هل ستمطر غداً؟"},{speaker:"B",en:"Yes unfortunately. They said it will rain all week.",ar:"نعم للأسف. قالوا إنها ستمطر طوال الأسبوع."},{speaker:"A",en:"I was hoping to go to the park on Saturday.",ar:"كنت آمل الذهاب إلى الحديقة يوم السبت."},{speaker:"B",en:"Maybe it will clear up by the weekend.",ar:"ربما يتحسن الجو بحلول نهاية الأسبوع."},{speaker:"A",en:"Last week it was sunny and warm.",ar:"الأسبوع الماضي كان الجو مشمساً ودافئاً."},{speaker:"B",en:"Summer in England is wonderful when it is good.",ar:"الصيف في إنجلترا رائع حين يكون جيداً."}]},
-  {id:6,title:"At the Restaurant",emoji:"🍽️",level:"A2",topic:"في المطعم",lines:[{speaker:"A",en:"Good evening. Do you have a reservation?",ar:"مساء الخير. هل لديك حجز?"},{speaker:"B",en:"Yes. I booked a table for two. The name is Johnson.",ar:"نعم. حجزت طاولة لاثنين. الاسم جونسون."},{speaker:"A",en:"Please follow me. Here is your table.",ar:"تفضل بالمتابعة. هذه طاولتك."},{speaker:"B",en:"Could we see the menu please?",ar:"هل يمكننا رؤية القائمة من فضلك؟"},{speaker:"A",en:"Can I get you any drinks to start?",ar:"هل يمكنني إحضار أي مشروبات لتبدأ؟"},{speaker:"B",en:"Two glasses of water please.",ar:"كأسان من الماء من فضلك."},{speaker:"A",en:"Are you ready to order food?",ar:"هل أنت مستعد لطلب الطعام؟"},{speaker:"B",en:"I will have the grilled salmon.",ar:"سآخذ السلمون المشوي."},{speaker:"A",en:"Perfect. I will bring your drinks right away.",ar:"ممتاز. سأحضر مشروباتك في الحال."}]},
+  {id:6,title:"At the Restaurant",emoji:"🍽️",level:"A2",topic:"في المطعم",lines:[{speaker:"A",en:"Good evening. Do you have a reservation?",ar:"مساء الخير. هل لديك حجز؟"},{speaker:"B",en:"Yes. I booked a table for two. The name is Johnson.",ar:"نعم. حجزت طاولة لاثنين. الاسم جونسون."},{speaker:"A",en:"Please follow me. Here is your table.",ar:"تفضل بالمتابعة. هذه طاولتك."},{speaker:"B",en:"Could we see the menu please?",ar:"هل يمكننا رؤية القائمة من فضلك؟"},{speaker:"A",en:"Can I get you any drinks to start?",ar:"هل يمكنني إحضار أي مشروبات لتبدأ؟"},{speaker:"B",en:"Two glasses of water please.",ar:"كأسان من الماء من فضلك."},{speaker:"A",en:"Are you ready to order food?",ar:"هل أنت مستعد لطلب الطعام؟"},{speaker:"B",en:"I will have the grilled salmon.",ar:"سآخذ السلمون المشوي."},{speaker:"A",en:"Perfect. I will bring your drinks right away.",ar:"ممتاز. سأحضر مشروباتك في الحال."}]},
   {id:7,title:"Making Plans",emoji:"📅",level:"B1",topic:"التخطيط للقاء",lines:[{speaker:"A",en:"Hey are you free this weekend?",ar:"مرحباً هل أنت حر هذا الأسبوع؟"},{speaker:"B",en:"I am free on Saturday but I have a family dinner on Sunday.",ar:"أنا حر يوم السبت لكن لدي عشاء عائلي يوم الأحد."},{speaker:"A",en:"Saturday is perfect. Have you seen that new film?",ar:"السبت ممتاز. هل شاهدت الفيلم الجديد؟"},{speaker:"B",en:"No not yet. Is it good?",ar:"لا لم أشاهده بعد. هل هو جيد؟"},{speaker:"A",en:"We could catch the seven o clock showing.",ar:"يمكننا مشاهدة عرض الساعة السابعة."},{speaker:"B",en:"Should we get dinner beforehand?",ar:"هل يجب أن نتعشى قبل ذلك؟"},{speaker:"A",en:"There is a new Italian place near the cinema.",ar:"هناك مطعم إيطالي جديد بالقرب من السينما."},{speaker:"B",en:"Shall we say six o clock?",ar:"هل نقول الساعة السادسة؟"},{speaker:"A",en:"Six it is. I will book a table.",ar:"السادسة إذن. سأحجز طاولة."},{speaker:"B",en:"Brilliant. I am looking forward to it.",ar:"رائع. أنا أتطلع إليه."}]},
-  {id:8,title:"Shopping for Clothes",emoji:"👗",level:"A2",topic:"التسوق للملابس",lines:[{speaker:"A",en:"Can I help you?",ar:"هل يمكنني مساعدتك؟"},{speaker:"B",en:"I am looking for a smart jacket for work.",ar:"أبحث عن جاكيت أنيق للعمل."},{speaker:"A",en:"What size are you?",ar:"ما هو مقاسك؟"},{speaker:"B",en:"I am a medium. Dark blue or black.",ar:"أنا مقاس وسط. أزرق داكن أو أسود."},{speaker:"A",en:"What about this one? It just came in.",ar:"ماذا عن هذا؟ وصل للتو."},{speaker:"B",en:"Oh that is nice. Can I try it on?",ar:"أوه هذا جميل. هل يمكنني تجربته؟"},{speaker:"A",en:"The changing rooms are just over there.",ar:"غرف القياس هناك."},{speaker:"B",en:"It fits perfectly. How much is it?",ar:"إنه يناسبني تماماً. بكم هو؟"},{speaker:"A",en:"It is eighty five pounds with ten percent off today.",ar:"خمسة وثمانون جنيهاً مع خصم عشرة بالمائة اليوم."},{speaker:"B",en:"Wonderful. I will take it.",ar:"رائع. سآخذه."}]},
+  {id:8,title:"Shopping for Clothes",emoji:"👗",level:"A2",topic:"التسوق للملابس",lines:[{speaker:"A",en:"Can I help you?",ar:"هل يمكنني مساعدتك؟"},{speaker:"B",en:"I am looking for a smart jacket for work.",ar:"أبحث عن جاكيت أنيق للعمل."},{speaker:"A",en:"What size are you?",ar:"ما هو مقاسك؟"},{speaker:"B",en:"I am a medium. Dark blue or black.",ar:"أنا مقاس وسط. أزرق داكن أو أسود."},{speaker:"A",en:"What about this one? It just came in.",ar:"ماذا عن هذا؟ وصل للتو."},{speaker:"B",en:"Oh that is nice. Can I try it on?",ar:"أوه هذا جميل. هل يمكنني تجربته؟"},{speaker:"A",en:"The changing rooms are just over there.",ar:"غرف القياس هناك."},{speaker:"B",en:"It fits perfectly. How much is it?",ar:"إنه يناسبني تماماً. بكم هو؟"},{speaker:"A",en:"Eighty five pounds with ten percent off today.",ar:"خمسة وثمانون جنيهاً مع خصم عشرة بالمائة اليوم."},{speaker:"B",en:"Wonderful. I will take it.",ar:"رائع. سآخذه."}]},
   {id:9,title:"Calling in Sick",emoji:"🤒",level:"B1",topic:"الاتصال بالمرض",lines:[{speaker:"A",en:"Good morning. How can I help?",ar:"صباح الخير. كيف يمكنني المساعدة؟"},{speaker:"B",en:"Could I speak to my manager Sarah please?",ar:"هل يمكنني التحدث مع مديرتي سارة من فضلك؟"},{speaker:"A",en:"One moment please.",ar:"لحظة من فضلك."},{speaker:"B",en:"Hi Sarah. I am not well enough to come in today.",ar:"مرحباً سارة. لست بصحة جيدة بما يكفي للحضور اليوم."},{speaker:"A",en:"Oh I am sorry to hear that. What is the matter?",ar:"أوه آسفة لسماع ذلك. ما الأمر؟"},{speaker:"B",en:"I have a bad fever and I can barely get out of bed.",ar:"لدي حمى شديدة ولا أستطيع النهوض من السرير."},{speaker:"A",en:"Of course stay home and rest.",ar:"بالطبع ابق في المنزل واسترح."},{speaker:"B",en:"Could James cover the two o clock call?",ar:"هل يمكن لجيمس تغطية المكالمة الساعة الثانية؟"},{speaker:"A",en:"I will sort that out. Focus on getting better.",ar:"سأرتب ذلك. ركز على التعافي."},{speaker:"B",en:"Thank you so much Sarah.",ar:"شكراً جزيلاً سارة."}]},
 ];
 
-const books=[
+const books = [
 {id:0,title:"Harry Potter and the Philosopher's Stone",author:"J.K. Rowling",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#1a237e,#3949ab)",emoji:"⚡",
 quiz:[{q:"Where does Harry sleep at the Dursley house?",opts:["In a bedroom","Under the stairs","In the garden","In the attic"],ans:1},{q:"What is Harry's owl called?",opts:["Snowball","Hedwig","Luna","Pearl"],ans:1},{q:"What does Hagrid give Harry on his birthday?",opts:["A wand","A broomstick","A birthday cake","A cat"],ans:2},{q:"What is the name of the secret magical street?",opts:["Knockturn Alley","Diagon Alley","Dragon Street","Magic Lane"],ans:1}],
 chapters:[
@@ -467,32 +457,26 @@ chapters:[
 ]},
 ];
 
-const wordTranslations={"harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","strange":"غريب","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","voice":"صوت","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","wolf":"ذئب","chimney":"مدخنة","lazy":"كسول","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","rabbit":"أرنب","fell":"سقط","seed":"بذرة","grew":"نما","built":"بنى","blew":"نفخ","laughed":"ضحك","found":"وجد","saved":"أنقذ","warned":"حذّر","bottle":"زجاجة","clever":"ذكي","frightened":"خائف","grabbed":"أمسك","immediately":"فوراً","magnificent":"رائع","island":"جزيرة","pirate":"قرصان","sailor":"بحار","ship":"سفينة","captain":"قبطان","map":"خريطة","gold":"ذهب","murder":"قتل","clue":"دليل","brilliant":"عبقري","sword":"سيف","blood":"دم","winter":"شتاء","lion":"أسد","witch":"ساحرة","wardrobe":"خزانة","crown":"تاج","betrayed":"خان","innocent":"بريء","victory":"نصر","coffee":"قهوة","doctor":"طبيب","medicine":"دواء","fever":"حمى","museum":"متحف","experience":"خبرة","weather":"طقس","restaurant":"مطعم","reservation":"حجز","jacket":"جاكيت","sick":"مريض","manager":"مدير","chair":"كرسي","table":"طاولة","window":"نافذة","beautiful":"جميل","strong":"قوي","happy":"سعيد","important":"مهم","different":"مختلف","possible":"ممكن","special":"خاص","small":"صغير","large":"كبير","young":"شاب","right":"صحيح","wrong":"خطأ"};
+const wordTranslations={"harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","strange":"غريب","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","voice":"صوت","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","clever":"ذكي","frightened":"خائف","grabbed":"أمسك","immediately":"فوراً","magnificent":"رائع","island":"جزيرة","pirate":"قرصان","sailor":"بحار","ship":"سفينة","captain":"قبطان","map":"خريطة","gold":"ذهب","murder":"قتل","clue":"دليل","brilliant":"عبقري","sword":"سيف","blood":"دم","winter":"شتاء","lion":"أسد","witch":"ساحرة","wardrobe":"خزانة","crown":"تاج","betrayed":"خان","innocent":"بريء","coffee":"قهوة","doctor":"طبيب","medicine":"دواء","fever":"حمى","museum":"متحف","experience":"خبرة","weather":"طقس","restaurant":"مطعم","reservation":"حجز","jacket":"جاكيت","sick":"مريض","manager":"مدير","chair":"كرسي","table":"طاولة","window":"نافذة","important":"مهم","different":"مختلف","possible":"ممكن","special":"خاص","young":"شاب","right":"صحيح","wrong":"خطأ","found":"وجد","saved":"أنقذ","bottle":"زجاجة"};
 
 let savedVocab=JSON.parse(localStorage.getItem('eng_vocab')||'[]');
 let quizScores=JSON.parse(localStorage.getItem('eng_quiz')||'[]');
 let completedConvs=JSON.parse(localStorage.getItem('eng_convs')||'[]');
 let playerName=localStorage.getItem('eng_name')||'';
 let currentBook=null,currentChapter=0;
-let isPlaying=false,playSpeed=1.0;
 let sentences=[],currentSentence=0;
-let progressTimer=null;
 let currentLevel='all',currentCat='all';
-let sessionWords=0,playbackId=0,currentAudio=null;
+let sessionWords=0;
 let convLevel='all',currentConv=null,convLineIndex=0,isConvPlaying=false;
 
-// SPLASH
 function startApp(){
   const n=document.getElementById('splashName').value.trim()||'متعلم';
-  playerName=n;
-  localStorage.setItem('eng_name',n);
+  playerName=n;localStorage.setItem('eng_name',n);
   document.getElementById('splashPage').style.display='none';
-  updateWelcome();
-  renderLibrary();renderVocab();updateStats();renderConvList();
+  updateWelcome();renderLibrary();renderVocab();updateStats();renderConvList();
 }
 function updateWelcome(){
-  const initial=playerName.charAt(0).toUpperCase()||'؟';
-  document.getElementById('welcomeAvatar').textContent=initial;
+  document.getElementById('welcomeAvatar').textContent=playerName.charAt(0).toUpperCase()||'؟';
   document.getElementById('welcomeName').textContent='أهلاً '+playerName+'! 👋';
   const msgs=['استمر في التعلم اليوم 💪','لديك كلمات جديدة للمراجعة 📝','ابدأ محادثة جديدة اليوم 🗣️'];
   document.getElementById('welcomeSub').textContent=msgs[Math.floor(Math.random()*msgs.length)];
@@ -501,46 +485,37 @@ function updateWelcome(){
   document.getElementById('qs3').textContent=quizScores.length;
   document.getElementById('dailyTip').textContent=tips[Math.floor(Math.random()*tips.length)];
 }
-
-// INIT - check if returning user
 window.onload=()=>{
-  if(playerName){
-    document.getElementById('splashPage').style.display='none';
-    updateWelcome();
-    renderLibrary();renderVocab();updateStats();renderConvList();
-  }
+  if(playerName){document.getElementById('splashPage').style.display='none';updateWelcome();renderLibrary();renderVocab();updateStats();renderConvList();}
 };
 
-function voiceURL(text,rate='0'){return'https://api.voicerss.org/?'+new URLSearchParams({key:VOICE_KEY,hl:'en-gb',v:'Linda',r:rate,c:'mp3',f:'44khz_16bit_stereo',src:text});}
-function speakWithVoiceRSS(text,myId,onDone){
-  if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}
-  const audio=new Audio(voiceURL(text));audio.playbackRate=playSpeed;currentAudio=audio;
-  audio.oncanplaythrough=()=>setStatus('🔊 تقرأ Linda...');
-  audio.onended=()=>{if(myId===playbackId&&onDone){setStatus('');onDone();}};
-  audio.onerror=()=>{setStatus('');if(myId===playbackId&&onDone)onDone();};
-  setStatus('⏳ جاري التحميل...');audio.play().catch(()=>{setStatus('');if(onDone)onDone();});
-}
-function speakWord(word){playbackId++;if(currentAudio){currentAudio.pause();currentAudio=null;}new Audio(voiceURL(word,'-2')).play().catch(()=>{});}
 function setStatus(t){const el=document.getElementById('statusBar');if(el)el.textContent=t;}
-function stopAudio(){playbackId++;isPlaying=false;if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}clearInterval(progressTimer);const pm=document.getElementById('playMain');if(pm)pm.textContent='▶';setStatus('');}
+
 function togglePlay(){if(isPlaying)stopAudio();else startPlay();}
 function startPlay(){isPlaying=true;document.getElementById('playMain').textContent='⏸';playNext(currentSentence);}
 function playNext(si){
-  if(!isPlaying||si>=sentences.length){if(si>=sentences.length){stopAudio();currentSentence=0;updateProgressBar(0);setStatus('✅ انتهى');}return;}
+  if(!isPlaying||si>=sentences.length){
+    if(si>=sentences.length){stopAudio();currentSentence=0;updateProgressBar(0);setStatus('✅ انتهى');}
+    return;
+  }
   currentSentence=si;highlightSentence(si);updateProgressBar(si/sentences.length*100);
-  const myId=playbackId;
+  const myId=++playbackId;
   speakWithVoiceRSS(sentences[si],myId,()=>{if(myId===playbackId&&isPlaying)playNext(si+1);});
   clearInterval(progressTimer);
   const sentDur=sentences[si].split(' ').length*0.38/playSpeed;
   const startT=Date.now(),startPct=si/sentences.length*100;
-  progressTimer=setInterval(()=>{if(!isPlaying){clearInterval(progressTimer);return;}const e=(Date.now()-startT)/1000;updateProgressBar(Math.min(startPct+(e/sentDur/sentences.length*100),100));document.getElementById('timeNow').textContent=formatTime(si*sentDur+e);},300);
+  progressTimer=setInterval(()=>{
+    if(!isPlaying){clearInterval(progressTimer);return;}
+    const e=(Date.now()-startT)/1000;
+    updateProgressBar(Math.min(startPct+(e/sentDur/sentences.length*100),100));
+    document.getElementById('timeNow').textContent=formatTime(si*sentDur+e);
+  },300);
 }
 function updateProgressBar(pct){pct=Math.max(0,Math.min(pct,100));document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressDot').style.left=pct+'%';}
-function speakOneSentence(si){stopAudio();currentSentence=si;highlightSentence(si);speakWithVoiceRSS(sentences[si],playbackId,null);}
-function cycleSpeed(){const sp=[0.75,1.0,1.25,1.5];playSpeed=sp[(sp.indexOf(playSpeed)+1)%sp.length];document.getElementById('speedBtn').textContent=playSpeed+'x';if(currentAudio)currentAudio.playbackRate=playSpeed;}
-function skipBack(){const si=Math.max(0,currentSentence-1);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
-function skipFwd(){const si=Math.min(sentences.length-1,currentSentence+1);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
-function seekProgress(e){const rect=e.currentTarget.getBoundingClientRect();const pct=Math.max(0,Math.min((e.clientX-rect.left)/rect.width,1));const si=Math.floor(pct*sentences.length);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
+function speakOneSentence(si){stopAudio();currentSentence=si;highlightSentence(si);const myId=++playbackId;speakWithVoiceRSS(sentences[si],myId,null);}
+function skipBack(){const si=Math.max(0,currentSentence-1);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playNext(si);}
+function skipFwd(){const si=Math.min(sentences.length-1,currentSentence+1);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playNext(si);}
+function seekProgress(e){const rect=e.currentTarget.getBoundingClientRect();const pct=Math.max(0,Math.min((e.clientX-rect.left)/rect.width,1));const si=Math.floor(pct*sentences.length);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playNext(si);}
 function highlightSentence(si){document.querySelectorAll('.word').forEach(w=>w.classList.remove('highlighted'));document.querySelectorAll(`[data-si="${si}"]`).forEach(w=>w.classList.add('highlighted'));const first=document.querySelector(`[data-si="${si}"]`);if(first)first.scrollIntoView({behavior:'smooth',block:'center'});}
 function formatTime(s){s=Math.max(0,s||0);const m=Math.floor(s/60),sec=Math.floor(s%60);return`${m<10?'0'+m:m}:${sec<10?'0'+sec:sec}`;}
 function setMode(m,btn){document.querySelectorAll('.audio-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');}
@@ -553,7 +528,7 @@ function renderConvList(){
         <div class="conv-emoji">${c.emoji}</div>
         <div class="conv-info">
           <div class="conv-title">${c.title}</div>
-          <div class="conv-meta">${c.topic} • ${c.lines.length} أسطر ${completedConvs.includes(c.id)?'• ✅':''}  </div>
+          <div class="conv-meta">${c.topic} • ${c.lines.length} أسطر ${completedConvs.includes(c.id)?'• ✅':''}</div>
         </div>
         <span class="conv-level badge-${c.level.toLowerCase()}">${c.level}</span>
       </div>
@@ -567,7 +542,8 @@ function openConv(id){
   document.getElementById('convReaderLevel').textContent=currentConv.level;
   document.getElementById('convReaderLevel').className='conv-level badge-'+currentConv.level.toLowerCase();
   renderConvBody();document.getElementById('convReader').classList.add('show');
-  document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='اضغط ▶ للاستماع 🎙️';
+  document.getElementById('convPlayBtn').textContent='▶';
+  document.getElementById('convStatus').textContent='اضغط ▶ للاستماع 🎙️';
 }
 function closeConv(){stopAudio();isConvPlaying=false;document.getElementById('convReader').classList.remove('show');}
 function renderConvBody(){
@@ -582,20 +558,41 @@ function renderConvBody(){
     </div>`).join('');
 }
 function highlightConvLine(i){document.querySelectorAll('.conv-line').forEach(l=>l.style.opacity='0.5');const el=document.getElementById('convLine'+i);if(el){el.style.opacity='1';el.scrollIntoView({behavior:'smooth',block:'center'});}}
-function toggleConvPlay(){if(isConvPlaying){isConvPlaying=false;stopAudio();document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='متوقف';}else{isConvPlaying=true;document.getElementById('convPlayBtn').textContent='⏸';playConvLine(convLineIndex);}}
+function toggleConvPlay(){
+  if(isConvPlaying){isConvPlaying=false;stopAudio();document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='متوقف';}
+  else{isConvPlaying=true;document.getElementById('convPlayBtn').textContent='⏸';playConvLine(convLineIndex);}
+}
 function playConvLine(i){
   if(!isConvPlaying||i>=currentConv.lines.length){
-    if(i>=currentConv.lines.length){isConvPlaying=false;document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='✅ انتهت المحادثة!';document.querySelectorAll('.conv-line').forEach(l=>l.style.opacity='1');if(!completedConvs.includes(currentConv.id)){completedConvs.push(currentConv.id);localStorage.setItem('eng_convs',JSON.stringify(completedConvs));updateWelcome();}}return;
+    if(i>=currentConv.lines.length){
+      isConvPlaying=false;document.getElementById('convPlayBtn').textContent='▶';
+      document.getElementById('convStatus').textContent='✅ انتهت المحادثة!';
+      document.querySelectorAll('.conv-line').forEach(l=>l.style.opacity='1');
+      if(!completedConvs.includes(currentConv.id)){completedConvs.push(currentConv.id);localStorage.setItem('eng_convs',JSON.stringify(completedConvs));updateWelcome();}
+    }
+    return;
   }
-  convLineIndex=i;highlightConvLine(i);document.getElementById('convStatus').textContent='🔊 '+(currentConv.lines[i].speaker==='A'?'Person A':'Person B')+' يتحدث...';
-  const myId=++playbackId;const audio=new Audio(voiceURL(currentConv.lines[i].en));currentAudio=audio;audio.playbackRate=playSpeed;
-  audio.onended=()=>{if(myId===playbackId&&isConvPlaying)setTimeout(()=>playConvLine(i+1),500);};
-  audio.onerror=()=>{if(myId===playbackId&&isConvPlaying)playConvLine(i+1);};
-  audio.play().catch(()=>{if(isConvPlaying)playConvLine(i+1);});
+  convLineIndex=i;highlightConvLine(i);
+  document.getElementById('convStatus').textContent='🔊 '+(currentConv.lines[i].speaker==='A'?'Person A':'Person B')+' يتحدث...';
+  const myId=++playbackId;
+  synth.cancel();
+  const u=new SpeechSynthesisUtterance(currentConv.lines[i].en);
+  u.lang='en-GB';u.rate=playSpeed;u.pitch=1.05;
+  const v=getVoice();if(v)u.voice=v;
+  u.onend=()=>{if(myId===playbackId&&isConvPlaying)setTimeout(()=>playConvLine(i+1),400);};
+  u.onerror=()=>{if(myId===playbackId&&isConvPlaying)playConvLine(i+1);};
+  synth.speak(u);
 }
-function playSingleLine(i){isConvPlaying=false;stopAudio();convLineIndex=i;highlightConvLine(i);document.getElementById('convPlayBtn').textContent='▶';const myId=++playbackId;const audio=new Audio(voiceURL(currentConv.lines[i].en));currentAudio=audio;audio.play().catch(()=>{});}
-function convSkipBack(){const i=Math.max(0,convLineIndex-1);stopAudio();convLineIndex=i;if(isConvPlaying)playConvLine(i);else highlightConvLine(i);}
-function convSkipFwd(){const i=Math.min(currentConv.lines.length-1,convLineIndex+1);stopAudio();convLineIndex=i;if(isConvPlaying)playConvLine(i);else highlightConvLine(i);}
+function playSingleLine(i){
+  isConvPlaying=false;synth.cancel();convLineIndex=i;highlightConvLine(i);
+  document.getElementById('convPlayBtn').textContent='▶';
+  const u=new SpeechSynthesisUtterance(currentConv.lines[i].en);
+  u.lang='en-GB';u.rate=playSpeed;u.pitch=1.05;
+  const v=getVoice();if(v)u.voice=v;
+  synth.speak(u);
+}
+function convSkipBack(){const i=Math.max(0,convLineIndex-1);synth.cancel();convLineIndex=i;if(isConvPlaying)playConvLine(i);else highlightConvLine(i);}
+function convSkipFwd(){const i=Math.min(currentConv.lines.length-1,convLineIndex+1);synth.cancel();convLineIndex=i;if(isConvPlaying)playConvLine(i);else highlightConvLine(i);}
 
 function renderLibrary(){
   const f=b=>(currentLevel==='all'||b.level===currentLevel)&&(currentCat==='all'||b.cat===currentCat);
@@ -656,7 +653,11 @@ function renderChapter(){
   updateProgressBar(0);currentSentence=0;
   let html=`<div class="chapter-title"><span>${ch.title}:</span> ${ch.subtitle}</div>`;
   sentences.forEach((sent,si)=>{
-    const wHTML=sent.trim().split(/\s+/).map(w=>{const clean=w.replace(/[^a-zA-Z]/g,'').toLowerCase();const isNew=!!wordTranslations[clean]&&!savedVocab.find(v=>v.word===clean);return`<span class="word${isNew?' new-word':''}" data-word="${clean}" data-si="${si}" onclick="showTranslation(this,event)">${w}</span> `;}).join('');
+    const wHTML=sent.trim().split(/\s+/).map(w=>{
+      const clean=w.replace(/[^a-zA-Z]/g,'').toLowerCase();
+      const isNew=!!wordTranslations[clean]&&!savedVocab.find(v=>v.word===clean);
+      return`<span class="word${isNew?' new-word':''}" data-word="${clean}" data-si="${si}" onclick="showTranslation(this,event)">${w}</span> `;
+    }).join('');
     html+=`<span data-si="${si}">${wHTML}</span><span class="sent-btn" onclick="speakOneSentence(${si})">🔊</span> `;
   });
   document.getElementById('chapterContent').innerHTML=html;
@@ -720,7 +721,7 @@ function renderVocab(){
         </div>
         <button class="speak-word-btn" onclick="speakWord('${v.word}')">🔊</button>
       </div>`).join(''):
-    '<div class="empty-state"><div class="empty-state-icon">📝</div><div class="empty-state-title">لا توجد مفردات محفوظة بعد</div><div class="empty-state-sub">اضغط على الكلمات الذهبية أثناء القراءة لحفظها هنا</div></div>';
+    '<div class="empty-state"><div class="empty-state-icon">📝</div><div class="empty-state-title">لا توجد مفردات بعد</div><div class="empty-state-sub">اضغط على الكلمات الذهبية أثناء القراءة لحفظها</div></div>';
 }
 function clearVocab(){if(confirm('هل تريد مسح كل المفردات؟')){savedVocab=[];localStorage.removeItem('eng_vocab');renderVocab();updateStats();updateWelcome();}}
 function updateStats(){
