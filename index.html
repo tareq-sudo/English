@@ -10,16 +10,63 @@
 body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 .page{display:none;min-height:100vh;padding-bottom:80px}
 .page.active{display:block}
-.topbar{padding:16px 16px 10px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
-.topbar-title{font-size:1.3rem;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* SPLASH */
+#splashPage{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:40px 24px;background:linear-gradient(135deg,#0a0a0f,#0d1a2e);position:fixed;inset:0;z-index:999}
+.splash-logo{font-size:5rem;margin-bottom:16px;animation:floatAnim 2s ease-in-out infinite}
+@keyframes floatAnim{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.splash-title{font-size:2.4rem;font-weight:900;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.splash-sub{font-size:.92rem;color:var(--muted);text-align:center;margin-bottom:40px;line-height:1.7}
+.splash-features{display:flex;flex-direction:column;gap:12px;width:100%;max-width:320px;margin-bottom:40px}
+.splash-feat{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+.splash-feat-icon{font-size:1.8rem;flex-shrink:0}
+.splash-feat-text{font-size:.85rem;color:var(--text);font-weight:600}
+.splash-feat-sub{font-size:.72rem;color:var(--muted);margin-top:2px}
+.splash-name-input{background:var(--card);border:2px solid var(--border);color:var(--text);padding:14px 18px;border-radius:16px;font-size:1rem;width:100%;max-width:320px;text-align:center;outline:none;font-family:inherit;margin-bottom:14px;transition:border-color .2s}
+.splash-name-input:focus{border-color:var(--blue)}
+.splash-name-input::placeholder{color:var(--muted)}
+.splash-start-btn{background:linear-gradient(135deg,var(--blue),var(--purple));border:none;color:white;padding:16px 40px;border-radius:20px;font-size:1.1rem;font-weight:800;cursor:pointer;width:100%;max-width:320px;box-shadow:0 8px 24px rgba(91,155,213,.3);font-family:inherit}
+.splash-start-btn:active{transform:scale(.97)}
+
+/* TOPBAR */
+.topbar{padding:14px 16px 10px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:rgba(10,10,15,.97);z-index:50;border-bottom:1px solid var(--border);backdrop-filter:blur(10px)}
+.topbar-title{font-size:1.2rem;font-weight:800;background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .icon-btn{background:var(--card2);border:none;color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .icon-btn:hover{background:var(--blue);color:white}
+
+/* WELCOME CARD */
+.welcome-card{margin:14px 16px;background:linear-gradient(135deg,rgba(91,155,213,.12),rgba(139,92,246,.12));border:1px solid rgba(91,155,213,.25);border-radius:20px;padding:18px;display:flex;align-items:center;gap:14px}
+.welcome-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:900;color:white;flex-shrink:0}
+.welcome-text{flex:1}
+.welcome-name{font-size:1rem;font-weight:800;margin-bottom:3px}
+.welcome-sub{font-size:.76rem;color:var(--muted)}
+.welcome-streak{background:rgba(240,180,41,.12);border:1px solid rgba(240,180,41,.25);border-radius:12px;padding:6px 12px;text-align:center;flex-shrink:0}
+.welcome-streak-num{font-size:1.3rem;font-weight:900;color:var(--gold);display:block}
+.welcome-streak-lbl{font-size:.6rem;color:var(--muted)}
+
+/* QUICK STATS */
+.quick-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:0 16px 16px}
+.qstat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
+.qstat-num{font-size:1.4rem;font-weight:900;color:var(--blue)}
+.qstat-lbl{font-size:.65rem;color:var(--muted);margin-top:2px}
+
+/* CONTINUE BANNER */
+.continue-banner{margin:0 16px 14px;background:linear-gradient(135deg,rgba(76,175,80,.1),rgba(91,155,213,.1));border:1px solid rgba(76,175,80,.25);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer}
+.continue-banner:active{transform:scale(.98)}
+.continue-info{flex:1}
+.continue-title{font-size:.88rem;font-weight:700;margin-bottom:3px}
+.continue-sub{font-size:.72rem;color:var(--muted)}
+.continue-prog{width:100%;height:4px;background:var(--border);border-radius:4px;margin-top:8px;overflow:hidden}
+.continue-prog-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:4px}
+
+/* LEVEL TABS */
 .level-tabs{display:flex;gap:8px;padding:12px 16px;overflow-x:auto;scrollbar-width:none}
 .level-tabs::-webkit-scrollbar{display:none}
 .ltab{padding:6px 18px;border-radius:20px;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;white-space:nowrap;transition:all .2s;font-weight:600}
 .ltab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border-color:transparent}
 .section{padding:0 16px 16px}
-.section-title{font-size:1rem;font-weight:700;margin-bottom:12px}
+.section-title{font-size:1rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
+.section-title span{font-size:.75rem;color:var(--blue);cursor:pointer}
 .cat-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
 .cat-scroll::-webkit-scrollbar{display:none}
 .cat-chip{padding:8px 16px;border-radius:12px;background:var(--card2);border:1px solid var(--border);color:var(--text);cursor:pointer;font-size:.82rem;white-space:nowrap;display:flex;align-items:center;gap:6px;transition:all .2s}
@@ -45,16 +92,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .featured-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.72rem;font-weight:700;margin-bottom:6px}
 .featured-title{font-size:1.05rem;font-weight:800;direction:ltr;color:white}
 .featured-sub{font-size:.78rem;color:#aaa;margin-top:4px}
-.conv-list{padding:0 16px;display:flex;flex-direction:column;gap:10px;padding-bottom:16px}
-.conv-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s}
-.conv-card:hover{border-color:var(--blue);transform:translateY(-2px)}
-.conv-header{padding:14px 16px;display:flex;align-items:center;gap:12px}
-.conv-emoji{font-size:2.2rem;width:48px;text-align:center}
-.conv-info{flex:1}
-.conv-title{font-size:.92rem;font-weight:700;direction:ltr;color:var(--text)}
-.conv-meta{font-size:.72rem;color:var(--muted);margin-top:2px;direction:ltr}
-.conv-level{padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700}
-.conv-preview{font-size:.8rem;color:var(--muted);padding:0 16px 14px;direction:ltr;font-style:italic}
+
+/* READER */
 .conv-reader{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;flex-direction:column}
 .conv-reader.show{display:flex}
 .conv-reader-top{padding:12px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border);background:rgba(10,10,15,.97)}
@@ -135,14 +174,68 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 .prog-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--blue),var(--purple));transition:width .5s}
 .prog-info{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
 .streak-num{font-size:3rem;font-weight:900;color:var(--gold);text-align:center}
+.conv-list{padding:0 16px;display:flex;flex-direction:column;gap:10px;padding-bottom:16px}
+.conv-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .2s}
+.conv-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.conv-header{padding:14px 16px;display:flex;align-items:center;gap:12px}
+.conv-emoji{font-size:2.2rem;width:48px;text-align:center}
+.conv-info{flex:1}
+.conv-title{font-size:.92rem;font-weight:700;direction:ltr;color:var(--text)}
+.conv-meta{font-size:.72rem;color:var(--muted);margin-top:2px;direction:ltr}
+.conv-level{padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:700}
+.conv-preview{font-size:.8rem;color:var(--muted);padding:0 16px 14px;direction:ltr;font-style:italic}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(19,19,26,.98);border-top:1px solid var(--border);display:flex;z-index:60;padding:8px 0 14px;backdrop-filter:blur(10px)}
 .nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:4px}
 .nav-icon{font-size:1.3rem}
 .nav-label{font-size:.62rem;color:var(--muted)}
 .nav-item.active .nav-label{color:var(--blue);font-weight:700}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:50px 20px;color:var(--muted)}
+.empty-state-icon{font-size:3.5rem;margin-bottom:12px}
+.empty-state-title{font-size:1rem;font-weight:700;margin-bottom:6px;color:var(--text)}
+.empty-state-sub{font-size:.82rem;line-height:1.6}
+
+/* DAILY TIP */
+.daily-tip{margin:0 16px 14px;background:rgba(240,180,41,.06);border:1px solid rgba(240,180,41,.2);border-radius:14px;padding:12px 14px;display:flex;align-items:flex-start;gap:10px}
+.tip-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.tip-text{font-size:.78rem;color:var(--text);line-height:1.6}
+.tip-label{font-size:.65rem;color:var(--gold);font-weight:700;margin-bottom:3px}
 </style>
 </head>
 <body>
+
+<!-- SPLASH / ONBOARDING -->
+<div id="splashPage">
+  <div class="splash-logo">📚</div>
+  <div class="splash-title">ReadEnglish</div>
+  <div class="splash-sub">تعلم الإنجليزية من خلال القراءة والاستماع<br>بأسلوب ممتع وفعّال</div>
+  <div class="splash-features">
+    <div class="splash-feat">
+      <div class="splash-feat-icon">🎧</div>
+      <div>
+        <div class="splash-feat-text">استماع بصوت حقيقي</div>
+        <div class="splash-feat-sub">بصوت Linda البريطانية</div>
+      </div>
+    </div>
+    <div class="splash-feat">
+      <div class="splash-feat-icon">📖</div>
+      <div>
+        <div class="splash-feat-text">5 كتب و10 محادثات</div>
+        <div class="splash-feat-sub">من مستوى A1 حتى B1</div>
+      </div>
+    </div>
+    <div class="splash-feat">
+      <div class="splash-feat-icon">💡</div>
+      <div>
+        <div class="splash-feat-text">ترجمة فورية للكلمات</div>
+        <div class="splash-feat-sub">اضغط على أي كلمة لترجمتها</div>
+      </div>
+    </div>
+  </div>
+  <input class="splash-name-input" id="splashName" type="text" placeholder="اكتب اسمك هنا..." maxlength="15">
+  <button class="splash-start-btn" onclick="startApp()">🚀 ابدأ التعلم الآن!</button>
+</div>
 
 <div class="trans-popup" id="transPopup">
   <div class="trans-word" id="tWord"></div>
@@ -170,8 +263,35 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   </div>
 </div>
 
+<!-- LIBRARY PAGE -->
 <div class="page active" id="libPage">
-  <div class="topbar"><div class="topbar-title">📚 ReadEnglish</div></div>
+  <div class="topbar">
+    <div class="topbar-title">📚 ReadEnglish</div>
+    <button class="icon-btn" onclick="showMainPage('progressPage',document.querySelectorAll('.nav-item')[0])">📊</button>
+  </div>
+  <div class="welcome-card" id="welcomeCard">
+    <div class="welcome-avatar" id="welcomeAvatar">؟</div>
+    <div class="welcome-text">
+      <div class="welcome-name" id="welcomeName">مرحباً!</div>
+      <div class="welcome-sub" id="welcomeSub">استمر في التعلم اليوم 💪</div>
+    </div>
+    <div class="welcome-streak">
+      <span class="welcome-streak-num">🔥1</span>
+      <span class="welcome-streak-lbl">يوم</span>
+    </div>
+  </div>
+  <div class="quick-stats">
+    <div class="qstat"><div class="qstat-num" id="qs1">0</div><div class="qstat-lbl">📝 كلمة</div></div>
+    <div class="qstat"><div class="qstat-num" id="qs2">0</div><div class="qstat-lbl">🗣️ محادثة</div></div>
+    <div class="qstat"><div class="qstat-num" id="qs3">0</div><div class="qstat-lbl">🧪 اختبار</div></div>
+  </div>
+  <div class="daily-tip">
+    <div class="tip-icon">💡</div>
+    <div>
+      <div class="tip-label">نصيحة اليوم</div>
+      <div class="tip-text" id="dailyTip">اضغط على أي كلمة ذهبية أثناء القراءة لترجمتها وحفظها تلقائياً!</div>
+    </div>
+  </div>
   <div class="level-tabs">
     <button class="ltab active" onclick="filterLevel('all',this)">الكل</button>
     <button class="ltab" onclick="filterLevel('A1',this)">🟢 A1</button>
@@ -194,6 +314,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="section"><div class="section-title">🗺️ مغامرة</div><div class="books-scroll" id="classicGrid"></div></div>
 </div>
 
+<!-- READER PAGE -->
 <div class="page" id="readerPage">
   <div class="reader-topbar">
     <button class="icon-btn" onclick="closeReader()">✕</button>
@@ -226,6 +347,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   </div>
 </div>
 
+<!-- CONVERSATIONS PAGE -->
 <div class="page" id="convPage">
   <div class="topbar"><div class="topbar-title">🗣️ المحادثات</div></div>
   <div class="level-tabs">
@@ -237,36 +359,45 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
   <div class="conv-list" id="convList"></div>
 </div>
 
+<!-- VOCAB PAGE -->
 <div class="page" id="vocabPage">
-  <div class="topbar"><div class="topbar-title">📝 المفردات</div></div>
+  <div class="topbar">
+    <div class="topbar-title">📝 المفردات</div>
+    <button class="icon-btn" onclick="clearVocab()" style="font-size:.7rem;width:auto;padding:0 10px;border-radius:20px">مسح</button>
+  </div>
   <div class="vocab-list" id="vocabList"></div>
 </div>
 
+<!-- PROGRESS PAGE -->
 <div class="page" id="progressPage">
-  <div class="topbar"><div class="topbar-title">🏆 النشاط</div></div>
+  <div class="topbar"><div class="topbar-title">🏆 تقدمي</div></div>
   <div class="progress-page">
     <div class="prog-card" style="text-align:center">
       <div class="streak-num">🔥 1</div>
       <div style="color:var(--muted);font-size:.85rem">أيام متواصلة</div>
     </div>
     <div class="prog-card">
-      <div class="prog-title">📝 المفردات</div>
+      <div class="prog-title">📝 المفردات المحفوظة</div>
       <div class="prog-bar-wrap"><div class="prog-bar-fill" id="vocabProg" style="width:0%"></div></div>
       <div class="prog-info"><span id="vocabCountProg">0 كلمة</span><span>الهدف: 100</span></div>
     </div>
     <div class="prog-card">
-      <div class="prog-title">🧪 الاختبارات</div>
+      <div class="prog-title">🧪 نتائج الاختبارات</div>
       <div id="quizResults" style="color:var(--muted);font-size:.85rem;padding:8px 0">لم تجري اختبارات بعد</div>
     </div>
     <div class="prog-card">
       <div class="prog-title">🗣️ المحادثات المكتملة</div>
       <div id="convCompleted" style="color:var(--muted);font-size:.85rem;padding:8px 0">لم تكمل محادثات بعد</div>
     </div>
+    <div class="prog-card">
+      <div class="prog-title">📚 الكتب المتاحة</div>
+      <div style="color:var(--muted);font-size:.85rem;padding:8px 0">5 كتب من A1 إلى B1 — اقرأ واستمع لتتعلم أكثر</div>
+    </div>
   </div>
 </div>
 
 <div class="bottom-nav" id="bottomNav">
-  <div class="nav-item" onclick="showMainPage('progressPage',this)"><div class="nav-icon">🏆</div><div class="nav-label">النشاط</div></div>
+  <div class="nav-item" onclick="showMainPage('progressPage',this)"><div class="nav-icon">🏆</div><div class="nav-label">تقدمي</div></div>
   <div class="nav-item active" onclick="showMainPage('libPage',this)"><div class="nav-icon">📚</div><div class="nav-label">المكتبة</div></div>
   <div class="nav-item" onclick="showMainPage('convPage',this)"><div class="nav-icon">🗣️</div><div class="nav-label">محادثات</div></div>
   <div class="nav-item" onclick="showMainPage('vocabPage',this)"><div class="nav-icon">📝</div><div class="nav-label">مفردات</div></div>
@@ -275,200 +406,73 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--te
 <script>
 const VOICE_KEY='973dcf818d50455ab578ba27e964642e';
 
+const tips=[
+  'اضغط على أي كلمة ذهبية لترجمتها وحفظها تلقائياً!',
+  'استمع للمحادثات اليومية لتحسين نطقك بسرعة.',
+  'حاول تخمين معنى الكلمة قبل الضغط عليها.',
+  'أكمل محادثة واحدة يومياً لتحسن مستواك بشكل ملحوظ.',
+  'استخدم وضع القراءة لفهم النص بدون صوت أولاً.',
+  'اجمع 10 كلمات جديدة يومياً للوصول لمستوى B1.',
+];
+
 const conversations=[
-  {id:0,title:"At the Coffee Shop",emoji:"☕",level:"A1",topic:"طلب القهوة",
-   lines:[
-     {speaker:"A",en:"Good morning! What would you like to drink?",ar:"صباح الخير! ماذا تريد أن تشرب؟"},
-     {speaker:"B",en:"Good morning! I would like a coffee please.",ar:"صباح الخير! أريد قهوة من فضلك."},
-     {speaker:"A",en:"Small or large?",ar:"صغيرة أم كبيرة؟"},
-     {speaker:"B",en:"Large please. With milk and sugar.",ar:"كبيرة من فضلك. مع حليب وسكر."},
-     {speaker:"A",en:"Of course. Anything else?",ar:"بالتأكيد. أي شيء آخر؟"},
-     {speaker:"B",en:"Yes, one chocolate cake please.",ar:"نعم، قطعة كيك شوكولاتة من فضلك."},
-     {speaker:"A",en:"That will be five pounds please.",ar:"هذا سيكون خمسة جنيهات من فضلك."},
-     {speaker:"B",en:"Here you are. Thank you very much.",ar:"تفضل. شكراً جزيلاً."},
-     {speaker:"A",en:"You are welcome. Enjoy your coffee!",ar:"على الرحب والسعة. استمتع بقهوتك!"},
-   ]},
-  {id:1,title:"Meeting Someone New",emoji:"🤝",level:"A1",topic:"تعارف جديد",
-   lines:[
-     {speaker:"A",en:"Hello! My name is Tom. What is your name?",ar:"مرحباً! اسمي توم. ما اسمك؟"},
-     {speaker:"B",en:"Hi Tom! Nice to meet you. I am Sara.",ar:"مرحباً توم! يسعدني لقاؤك. أنا سارة."},
-     {speaker:"A",en:"Nice to meet you too Sara. Where are you from?",ar:"يسعدني لقاؤك أيضاً سارة. من أين أنت؟"},
-     {speaker:"B",en:"I am from London. And you?",ar:"أنا من لندن. وأنت؟"},
-     {speaker:"A",en:"I am from Manchester. Do you live in London now?",ar:"أنا من مانشستر. هل تعيشين في لندن الآن؟"},
-     {speaker:"B",en:"Yes I do. I have lived here for three years.",ar:"نعم. أعيش هنا منذ ثلاث سنوات."},
-     {speaker:"A",en:"Yes very much! It is a beautiful city.",ar:"نعم جداً! إنها مدينة جميلة."},
-     {speaker:"B",en:"Are you here for work or holiday?",ar:"هل أنت هنا للعمل أم للإجازة؟"},
-     {speaker:"A",en:"I am here for work. I am a teacher.",ar:"أنا هنا للعمل. أنا مدرس."},
-     {speaker:"B",en:"How interesting! I am a doctor. Nice talking to you.",ar:"يا لها من مهنة رائعة! أنا طبيبة. كان من الجميل التحدث إليك."},
-   ]},
-  {id:2,title:"At the Doctor",emoji:"🏥",level:"A1",topic:"عند الطبيب",
-   lines:[
-     {speaker:"A",en:"Good afternoon. How can I help you today?",ar:"مساء الخير. كيف يمكنني مساعدتك اليوم؟"},
-     {speaker:"B",en:"Hello doctor. I have a bad headache and a sore throat.",ar:"مرحباً دكتور. لدي صداع شديد وألم في الحلق."},
-     {speaker:"A",en:"I am sorry to hear that. How long have you felt this way?",ar:"آسف لسماع ذلك. منذ متى وأنت تشعر هكذا؟"},
-     {speaker:"B",en:"Since yesterday morning. I also have a temperature.",ar:"منذ صباح أمس. لدي أيضاً حرارة."},
-     {speaker:"A",en:"Let me check. Open your mouth please. Say ah.",ar:"دعني أفحصك. افتح فمك من فضلك. قل آه."},
-     {speaker:"B",en:"Ah. Is it serious doctor?",ar:"آه. هل الأمر خطير يا دكتور؟"},
-     {speaker:"A",en:"No do not worry. You have a common cold.",ar:"لا تقلق. لديك نزلة برد عادية."},
-     {speaker:"B",en:"Should I stay at home and rest?",ar:"هل يجب أن أبقى في البيت وأستريح؟"},
-     {speaker:"A",en:"Yes. Drink plenty of water and rest for two days.",ar:"نعم. اشرب الكثير من الماء واسترح لمدة يومين."},
-     {speaker:"B",en:"Thank you very much doctor.",ar:"شكراً جزيلاً دكتور."},
-   ]},
-  {id:3,title:"Asking for Directions",emoji:"🗺️",level:"A2",topic:"طلب الاتجاهات",
-   lines:[
-     {speaker:"A",en:"Excuse me. Could you help me please? I am lost.",ar:"عذراً. هل يمكنك مساعدتي من فضلك؟ لقد ضعت."},
-     {speaker:"B",en:"Of course! Where are you trying to go?",ar:"بالتأكيد! أين تحاول أن تذهب؟"},
-     {speaker:"A",en:"I am looking for the National Museum.",ar:"أبحث عن المتحف الوطني."},
-     {speaker:"B",en:"It is not far. Go straight ahead for two streets.",ar:"إنه ليس بعيداً. امضِ مستقيماً لشارعين."},
-     {speaker:"A",en:"Then what do I do?",ar:"ثم ماذا أفعل؟"},
-     {speaker:"B",en:"Turn left at the traffic lights. You will see a big park.",ar:"انعطف يساراً عند إشارة المرور. ستجد حديقة كبيرة."},
-     {speaker:"A",en:"And the museum is next to the park?",ar:"والمتحف بجانب الحديقة؟"},
-     {speaker:"B",en:"Exactly. It is a large grey building. You cannot miss it.",ar:"بالضبط. إنه مبنى رمادي كبير. لا يمكنك أن تخطئه."},
-     {speaker:"A",en:"How long will it take to walk there?",ar:"كم من الوقت يستغرق المشي إلى هناك؟"},
-     {speaker:"B",en:"About ten minutes. Have a nice visit!",ar:"حوالي عشر دقائق. استمتع بزيارتك!"},
-   ]},
-  {id:4,title:"Job Interview",emoji:"💼",level:"A2",topic:"مقابلة عمل",
-   lines:[
-     {speaker:"A",en:"Good morning. Please take a seat.",ar:"صباح الخير. تفضل بالجلوس."},
-     {speaker:"B",en:"Good morning. Thank you for seeing me today.",ar:"صباح الخير. شكراً لاستقبالك إياي اليوم."},
-     {speaker:"A",en:"Tell me about yourself. What is your background?",ar:"أخبرني عن نفسك. ما هي خلفيتك المهنية؟"},
-     {speaker:"B",en:"I have five years of experience in marketing.",ar:"لدي خمس سنوات من الخبرة في التسويق."},
-     {speaker:"A",en:"Why do you want to work for us?",ar:"لماذا تريد العمل معنا؟"},
-     {speaker:"B",en:"Your company has an excellent reputation. I can contribute a lot.",ar:"شركتكم تتمتع بسمعة ممتازة. أستطيع المساهمة كثيراً."},
-     {speaker:"A",en:"What are your greatest strengths?",ar:"ما هي أبرز نقاط قوتك؟"},
-     {speaker:"B",en:"I am organised, hardworking, and I work well in a team.",ar:"أنا منظم، مجتهد، وأعمل بشكل جيد في فريق."},
-     {speaker:"A",en:"When can you start?",ar:"متى يمكنك البدء؟"},
-     {speaker:"B",en:"I can start immediately. I am very excited about this opportunity.",ar:"يمكنني البدء فوراً. أنا متحمس جداً لهذه الفرصة."},
-   ]},
-  {id:5,title:"Talking About the Weather",emoji:"⛅",level:"A1",topic:"الطقس",
-   lines:[
-     {speaker:"A",en:"What terrible weather today! It is so cold.",ar:"يا له من طقس سيء اليوم! إنه بارد جداً."},
-     {speaker:"B",en:"I know! I wore three jumpers this morning.",ar:"أعلم! لبست ثلاثة بلوفرات هذا الصباح."},
-     {speaker:"A",en:"Will it rain tomorrow?",ar:"هل ستمطر غداً؟"},
-     {speaker:"B",en:"Yes unfortunately. They said it will rain all week.",ar:"نعم للأسف. قالوا إنها ستمطر طوال الأسبوع."},
-     {speaker:"A",en:"Oh no. I was hoping to go to the park on Saturday.",ar:"يا إلهي. كنت آمل الذهاب إلى الحديقة يوم السبت."},
-     {speaker:"B",en:"Maybe it will clear up by the weekend.",ar:"ربما يتحسن الجو بحلول نهاية الأسبوع."},
-     {speaker:"A",en:"Last week it was sunny and warm. I loved it.",ar:"الأسبوع الماضي كان الجو مشمساً ودافئاً. أحببته."},
-     {speaker:"B",en:"Summer in England is wonderful when it is good.",ar:"الصيف في إنجلترا رائع حين يكون جيداً."},
-   ]},
-  {id:6,title:"At the Restaurant",emoji:"🍽️",level:"A2",topic:"في المطعم",
-   lines:[
-     {speaker:"A",en:"Good evening. Do you have a reservation?",ar:"مساء الخير. هل لديك حجز؟"},
-     {speaker:"B",en:"Yes. I booked a table for two. The name is Johnson.",ar:"نعم. حجزت طاولة لاثنين. الاسم جونسون."},
-     {speaker:"A",en:"Please follow me. Here is your table.",ar:"تفضل بالمتابعة. هذه طاولتك."},
-     {speaker:"B",en:"Thank you. Could we see the menu please?",ar:"شكراً. هل يمكننا رؤية القائمة من فضلك؟"},
-     {speaker:"A",en:"Of course. Can I get you any drinks to start?",ar:"بالتأكيد. هل يمكنني إحضار أي مشروبات لتبدأ؟"},
-     {speaker:"B",en:"Yes please. Two glasses of water.",ar:"نعم من فضلك. كأسان من الماء."},
-     {speaker:"A",en:"Are you ready to order food?",ar:"هل أنت مستعد لطلب الطعام؟"},
-     {speaker:"B",en:"We are ready. I will have the grilled salmon.",ar:"نحن مستعدون. سآخذ السلمون المشوي."},
-     {speaker:"A",en:"Perfect. I will bring your drinks right away.",ar:"ممتاز. سأحضر مشروباتك في الحال."},
-   ]},
-  {id:7,title:"Making Plans",emoji:"📅",level:"B1",topic:"التخطيط للقاء",
-   lines:[
-     {speaker:"A",en:"Hey are you free this weekend?",ar:"مرحباً هل أنت حر هذا الأسبوع؟"},
-     {speaker:"B",en:"I am free on Saturday but I have a family dinner on Sunday.",ar:"أنا حر يوم السبت لكن لدي عشاء عائلي يوم الأحد."},
-     {speaker:"A",en:"Saturday is perfect. Have you seen that new film everyone is talking about?",ar:"السبت ممتاز. هل شاهدت الفيلم الجديد الذي يتحدث عنه الجميع؟"},
-     {speaker:"B",en:"No not yet. Is it good?",ar:"لا لم أشاهده بعد. هل هو جيد؟"},
-     {speaker:"A",en:"Supposed to be brilliant. We could catch the seven o clock showing.",ar:"يُقال إنه رائع. يمكننا مشاهدة عرض الساعة السابعة."},
-     {speaker:"B",en:"That sounds great. Should we get dinner beforehand?",ar:"يبدو هذا رائعاً. هل يجب أن نتعشى قبل ذلك؟"},
-     {speaker:"A",en:"Good idea. There is a new Italian place near the cinema.",ar:"فكرة جيدة. هناك مطعم إيطالي جديد بالقرب من السينما."},
-     {speaker:"B",en:"Perfect. Shall we say six o clock?",ar:"ممتاز. هل نقول الساعة السادسة؟"},
-     {speaker:"A",en:"Six it is. I will book a table at the restaurant.",ar:"السادسة إذن. سأحجز طاولة في المطعم."},
-     {speaker:"B",en:"Brilliant. I am looking forward to it.",ar:"رائع. أنا أتطلع إليه."},
-   ]},
-  {id:8,title:"Shopping for Clothes",emoji:"👗",level:"A2",topic:"التسوق للملابس",
-   lines:[
-     {speaker:"A",en:"Can I help you?",ar:"هل يمكنني مساعدتك؟"},
-     {speaker:"B",en:"Yes please. I am looking for a smart jacket for work.",ar:"نعم من فضلك. أبحث عن جاكيت أنيق للعمل."},
-     {speaker:"A",en:"What size are you?",ar:"ما هو مقاسك؟"},
-     {speaker:"B",en:"I am a medium. I was thinking dark blue or black.",ar:"أنا مقاس وسط. كنت أفكر في الأزرق الداكن أو الأسود."},
-     {speaker:"A",en:"What about this one? It just came in.",ar:"ماذا عن هذا؟ وصل للتو."},
-     {speaker:"B",en:"Oh that is nice. Can I try it on?",ar:"أوه هذا جميل. هل يمكنني تجربته؟"},
-     {speaker:"A",en:"Of course. The changing rooms are just over there.",ar:"بالتأكيد. غرف القياس هناك."},
-     {speaker:"B",en:"It fits perfectly. How much is it?",ar:"إنه يناسبني تماماً. بكم هو؟"},
-     {speaker:"A",en:"It is eighty five pounds. We have ten percent off today.",ar:"إنه خمسة وثمانون جنيهاً. لدينا خصم عشرة بالمائة اليوم."},
-     {speaker:"B",en:"Wonderful. I will take it. Can I pay by card?",ar:"رائع. سآخذه. هل يمكنني الدفع بالبطاقة؟"},
-   ]},
-  {id:9,title:"Calling in Sick",emoji:"🤒",level:"B1",topic:"الاتصال بالمرض",
-   lines:[
-     {speaker:"A",en:"Good morning. How can I help?",ar:"صباح الخير. كيف يمكنني المساعدة؟"},
-     {speaker:"B",en:"Hello. Could I speak to my manager Sarah please?",ar:"مرحباً. هل يمكنني التحدث مع مديرتي سارة من فضلك؟"},
-     {speaker:"A",en:"One moment please. I will put you through.",ar:"لحظة من فضلك. سأوصلك بها."},
-     {speaker:"B",en:"Hi Sarah. I am not well enough to come in today.",ar:"مرحباً سارة. لست بصحة جيدة بما يكفي للحضور اليوم."},
-     {speaker:"A",en:"Oh I am sorry to hear that. What is the matter?",ar:"أوه آسفة لسماع ذلك. ما الأمر؟"},
-     {speaker:"B",en:"I have a bad fever and I can barely get out of bed.",ar:"لدي حمى شديدة ولا أستطيع بالكاد النهوض من السرير."},
-     {speaker:"A",en:"Of course stay home and rest.",ar:"بالطبع ابق في المنزل واسترح."},
-     {speaker:"B",en:"I have the client call at two. Could James cover it?",ar:"لدي مكالمة مع العميل الساعة الثانية. هل يمكن لجيمس تغطيتها؟"},
-     {speaker:"A",en:"I will sort that out. You just focus on getting better.",ar:"سأرتب ذلك. فقط ركز على التعافي."},
-     {speaker:"B",en:"Thank you so much Sarah. I hope to be back tomorrow.",ar:"شكراً جزيلاً سارة. آمل أن أعود غداً."},
-   ]},
+  {id:0,title:"At the Coffee Shop",emoji:"☕",level:"A1",topic:"طلب القهوة",lines:[{speaker:"A",en:"Good morning! What would you like to drink?",ar:"صباح الخير! ماذا تريد أن تشرب؟"},{speaker:"B",en:"Good morning! I would like a coffee please.",ar:"صباح الخير! أريد قهوة من فضلك."},{speaker:"A",en:"Small or large?",ar:"صغيرة أم كبيرة؟"},{speaker:"B",en:"Large please. With milk and sugar.",ar:"كبيرة من فضلك. مع حليب وسكر."},{speaker:"A",en:"Of course. Anything else?",ar:"بالتأكيد. أي شيء آخر؟"},{speaker:"B",en:"Yes, one chocolate cake please.",ar:"نعم، قطعة كيك شوكولاتة من فضلك."},{speaker:"A",en:"That will be five pounds please.",ar:"هذا سيكون خمسة جنيهات من فضلك."},{speaker:"B",en:"Here you are. Thank you very much.",ar:"تفضل. شكراً جزيلاً."},{speaker:"A",en:"You are welcome. Enjoy your coffee!",ar:"على الرحب والسعة. استمتع بقهوتك!"}]},
+  {id:1,title:"Meeting Someone New",emoji:"🤝",level:"A1",topic:"تعارف جديد",lines:[{speaker:"A",en:"Hello! My name is Tom. What is your name?",ar:"مرحباً! اسمي توم. ما اسمك؟"},{speaker:"B",en:"Hi Tom! Nice to meet you. I am Sara.",ar:"مرحباً توم! يسعدني لقاؤك. أنا سارة."},{speaker:"A",en:"Nice to meet you too Sara. Where are you from?",ar:"يسعدني لقاؤك أيضاً سارة. من أين أنت؟"},{speaker:"B",en:"I am from London. And you?",ar:"أنا من لندن. وأنت؟"},{speaker:"A",en:"I am from Manchester. Do you live in London now?",ar:"أنا من مانشستر. هل تعيشين في لندن الآن؟"},{speaker:"B",en:"Yes I do. I have lived here for three years.",ar:"نعم. أعيش هنا منذ ثلاث سنوات."},{speaker:"A",en:"It is a beautiful city.",ar:"إنها مدينة جميلة."},{speaker:"B",en:"Are you here for work or holiday?",ar:"هل أنت هنا للعمل أم للإجازة؟"},{speaker:"A",en:"I am here for work. I am a teacher.",ar:"أنا هنا للعمل. أنا مدرس."},{speaker:"B",en:"How interesting! I am a doctor. Nice talking to you.",ar:"يا لها من مهنة رائعة! أنا طبيبة. كان من الجميل التحدث إليك."}]},
+  {id:2,title:"At the Doctor",emoji:"🏥",level:"A1",topic:"عند الطبيب",lines:[{speaker:"A",en:"Good afternoon. How can I help you today?",ar:"مساء الخير. كيف يمكنني مساعدتك اليوم؟"},{speaker:"B",en:"Hello doctor. I have a bad headache and a sore throat.",ar:"مرحباً دكتور. لدي صداع شديد وألم في الحلق."},{speaker:"A",en:"I am sorry to hear that. How long have you felt this way?",ar:"آسف لسماع ذلك. منذ متى وأنت تشعر هكذا؟"},{speaker:"B",en:"Since yesterday morning. I also have a temperature.",ar:"منذ صباح أمس. لدي أيضاً حرارة."},{speaker:"A",en:"Let me check. Open your mouth please.",ar:"دعني أفحصك. افتح فمك من فضلك."},{speaker:"B",en:"Is it serious doctor?",ar:"هل الأمر خطير يا دكتور؟"},{speaker:"A",en:"No do not worry. You have a common cold.",ar:"لا تقلق. لديك نزلة برد عادية."},{speaker:"B",en:"Should I stay at home and rest?",ar:"هل يجب أن أبقى في البيت وأستريح؟"},{speaker:"A",en:"Yes. Drink plenty of water and rest for two days.",ar:"نعم. اشرب الكثير من الماء واسترح لمدة يومين."},{speaker:"B",en:"Thank you very much doctor.",ar:"شكراً جزيلاً دكتور."}]},
+  {id:3,title:"Asking for Directions",emoji:"🗺️",level:"A2",topic:"طلب الاتجاهات",lines:[{speaker:"A",en:"Excuse me. Could you help me please? I am lost.",ar:"عذراً. هل يمكنك مساعدتي من فضلك؟ لقد ضعت."},{speaker:"B",en:"Of course! Where are you trying to go?",ar:"بالتأكيد! أين تحاول أن تذهب؟"},{speaker:"A",en:"I am looking for the National Museum.",ar:"أبحث عن المتحف الوطني."},{speaker:"B",en:"It is not far. Go straight ahead for two streets.",ar:"إنه ليس بعيداً. امضِ مستقيماً لشارعين."},{speaker:"A",en:"Then what do I do?",ar:"ثم ماذا أفعل؟"},{speaker:"B",en:"Turn left at the traffic lights.",ar:"انعطف يساراً عند إشارة المرور."},{speaker:"A",en:"And the museum is next to the park?",ar:"والمتحف بجانب الحديقة؟"},{speaker:"B",en:"Exactly. It is a large grey building.",ar:"بالضبط. إنه مبنى رمادي كبير."},{speaker:"A",en:"How long will it take to walk there?",ar:"كم من الوقت يستغرق المشي إلى هناك؟"},{speaker:"B",en:"About ten minutes. Have a nice visit!",ar:"حوالي عشر دقائق. استمتع بزيارتك!"}]},
+  {id:4,title:"Job Interview",emoji:"💼",level:"A2",topic:"مقابلة عمل",lines:[{speaker:"A",en:"Good morning. Please take a seat.",ar:"صباح الخير. تفضل بالجلوس."},{speaker:"B",en:"Good morning. Thank you for seeing me today.",ar:"صباح الخير. شكراً لاستقبالك إياي اليوم."},{speaker:"A",en:"Tell me about yourself.",ar:"أخبرني عن نفسك."},{speaker:"B",en:"I have five years of experience in marketing.",ar:"لدي خمس سنوات من الخبرة في التسويق."},{speaker:"A",en:"Why do you want to work for us?",ar:"لماذا تريد العمل معنا؟"},{speaker:"B",en:"Your company has an excellent reputation.",ar:"شركتكم تتمتع بسمعة ممتازة."},{speaker:"A",en:"What are your greatest strengths?",ar:"ما هي أبرز نقاط قوتك؟"},{speaker:"B",en:"I am organised, hardworking, and I work well in a team.",ar:"أنا منظم، مجتهد، وأعمل بشكل جيد في فريق."},{speaker:"A",en:"When can you start?",ar:"متى يمكنك البدء؟"},{speaker:"B",en:"I can start immediately.",ar:"يمكنني البدء فوراً."}]},
+  {id:5,title:"Talking About the Weather",emoji:"⛅",level:"A1",topic:"الطقس",lines:[{speaker:"A",en:"What terrible weather today! It is so cold.",ar:"يا له من طقس سيء اليوم! إنه بارد جداً."},{speaker:"B",en:"I know! I wore three jumpers this morning.",ar:"أعلم! لبست ثلاثة بلوفرات هذا الصباح."},{speaker:"A",en:"Will it rain tomorrow?",ar:"هل ستمطر غداً؟"},{speaker:"B",en:"Yes unfortunately. They said it will rain all week.",ar:"نعم للأسف. قالوا إنها ستمطر طوال الأسبوع."},{speaker:"A",en:"I was hoping to go to the park on Saturday.",ar:"كنت آمل الذهاب إلى الحديقة يوم السبت."},{speaker:"B",en:"Maybe it will clear up by the weekend.",ar:"ربما يتحسن الجو بحلول نهاية الأسبوع."},{speaker:"A",en:"Last week it was sunny and warm.",ar:"الأسبوع الماضي كان الجو مشمساً ودافئاً."},{speaker:"B",en:"Summer in England is wonderful when it is good.",ar:"الصيف في إنجلترا رائع حين يكون جيداً."}]},
+  {id:6,title:"At the Restaurant",emoji:"🍽️",level:"A2",topic:"في المطعم",lines:[{speaker:"A",en:"Good evening. Do you have a reservation?",ar:"مساء الخير. هل لديك حجز?"},{speaker:"B",en:"Yes. I booked a table for two. The name is Johnson.",ar:"نعم. حجزت طاولة لاثنين. الاسم جونسون."},{speaker:"A",en:"Please follow me. Here is your table.",ar:"تفضل بالمتابعة. هذه طاولتك."},{speaker:"B",en:"Could we see the menu please?",ar:"هل يمكننا رؤية القائمة من فضلك؟"},{speaker:"A",en:"Can I get you any drinks to start?",ar:"هل يمكنني إحضار أي مشروبات لتبدأ؟"},{speaker:"B",en:"Two glasses of water please.",ar:"كأسان من الماء من فضلك."},{speaker:"A",en:"Are you ready to order food?",ar:"هل أنت مستعد لطلب الطعام؟"},{speaker:"B",en:"I will have the grilled salmon.",ar:"سآخذ السلمون المشوي."},{speaker:"A",en:"Perfect. I will bring your drinks right away.",ar:"ممتاز. سأحضر مشروباتك في الحال."}]},
+  {id:7,title:"Making Plans",emoji:"📅",level:"B1",topic:"التخطيط للقاء",lines:[{speaker:"A",en:"Hey are you free this weekend?",ar:"مرحباً هل أنت حر هذا الأسبوع؟"},{speaker:"B",en:"I am free on Saturday but I have a family dinner on Sunday.",ar:"أنا حر يوم السبت لكن لدي عشاء عائلي يوم الأحد."},{speaker:"A",en:"Saturday is perfect. Have you seen that new film?",ar:"السبت ممتاز. هل شاهدت الفيلم الجديد؟"},{speaker:"B",en:"No not yet. Is it good?",ar:"لا لم أشاهده بعد. هل هو جيد؟"},{speaker:"A",en:"We could catch the seven o clock showing.",ar:"يمكننا مشاهدة عرض الساعة السابعة."},{speaker:"B",en:"Should we get dinner beforehand?",ar:"هل يجب أن نتعشى قبل ذلك؟"},{speaker:"A",en:"There is a new Italian place near the cinema.",ar:"هناك مطعم إيطالي جديد بالقرب من السينما."},{speaker:"B",en:"Shall we say six o clock?",ar:"هل نقول الساعة السادسة؟"},{speaker:"A",en:"Six it is. I will book a table.",ar:"السادسة إذن. سأحجز طاولة."},{speaker:"B",en:"Brilliant. I am looking forward to it.",ar:"رائع. أنا أتطلع إليه."}]},
+  {id:8,title:"Shopping for Clothes",emoji:"👗",level:"A2",topic:"التسوق للملابس",lines:[{speaker:"A",en:"Can I help you?",ar:"هل يمكنني مساعدتك؟"},{speaker:"B",en:"I am looking for a smart jacket for work.",ar:"أبحث عن جاكيت أنيق للعمل."},{speaker:"A",en:"What size are you?",ar:"ما هو مقاسك؟"},{speaker:"B",en:"I am a medium. Dark blue or black.",ar:"أنا مقاس وسط. أزرق داكن أو أسود."},{speaker:"A",en:"What about this one? It just came in.",ar:"ماذا عن هذا؟ وصل للتو."},{speaker:"B",en:"Oh that is nice. Can I try it on?",ar:"أوه هذا جميل. هل يمكنني تجربته؟"},{speaker:"A",en:"The changing rooms are just over there.",ar:"غرف القياس هناك."},{speaker:"B",en:"It fits perfectly. How much is it?",ar:"إنه يناسبني تماماً. بكم هو؟"},{speaker:"A",en:"It is eighty five pounds with ten percent off today.",ar:"خمسة وثمانون جنيهاً مع خصم عشرة بالمائة اليوم."},{speaker:"B",en:"Wonderful. I will take it.",ar:"رائع. سآخذه."}]},
+  {id:9,title:"Calling in Sick",emoji:"🤒",level:"B1",topic:"الاتصال بالمرض",lines:[{speaker:"A",en:"Good morning. How can I help?",ar:"صباح الخير. كيف يمكنني المساعدة؟"},{speaker:"B",en:"Could I speak to my manager Sarah please?",ar:"هل يمكنني التحدث مع مديرتي سارة من فضلك؟"},{speaker:"A",en:"One moment please.",ar:"لحظة من فضلك."},{speaker:"B",en:"Hi Sarah. I am not well enough to come in today.",ar:"مرحباً سارة. لست بصحة جيدة بما يكفي للحضور اليوم."},{speaker:"A",en:"Oh I am sorry to hear that. What is the matter?",ar:"أوه آسفة لسماع ذلك. ما الأمر؟"},{speaker:"B",en:"I have a bad fever and I can barely get out of bed.",ar:"لدي حمى شديدة ولا أستطيع النهوض من السرير."},{speaker:"A",en:"Of course stay home and rest.",ar:"بالطبع ابق في المنزل واسترح."},{speaker:"B",en:"Could James cover the two o clock call?",ar:"هل يمكن لجيمس تغطية المكالمة الساعة الثانية؟"},{speaker:"A",en:"I will sort that out. Focus on getting better.",ar:"سأرتب ذلك. ركز على التعافي."},{speaker:"B",en:"Thank you so much Sarah.",ar:"شكراً جزيلاً سارة."}]},
 ];
 
 const books=[
 {id:0,title:"Harry Potter and the Philosopher's Stone",author:"J.K. Rowling",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#1a237e,#3949ab)",emoji:"⚡",
-quiz:[
-  {q:"Where does Harry sleep at the Dursley house?",opts:["In a bedroom","Under the stairs","In the garden","In the attic"],ans:1},
-  {q:"What is Harry's owl called?",opts:["Snowball","Hedwig","Luna","Pearl"],ans:1},
-  {q:"What does Hagrid give Harry on his birthday?",opts:["A wand","A broomstick","A birthday cake","A cat"],ans:2},
-  {q:"What is the name of the secret magical street?",opts:["Knockturn Alley","Diagon Alley","Dragon Street","Magic Lane"],ans:1},
-],
+quiz:[{q:"Where does Harry sleep at the Dursley house?",opts:["In a bedroom","Under the stairs","In the garden","In the attic"],ans:1},{q:"What is Harry's owl called?",opts:["Snowball","Hedwig","Luna","Pearl"],ans:1},{q:"What does Hagrid give Harry on his birthday?",opts:["A wand","A broomstick","A birthday cake","A cat"],ans:2},{q:"What is the name of the secret magical street?",opts:["Knockturn Alley","Diagon Alley","Dragon Street","Magic Lane"],ans:1}],
 chapters:[
-  {title:"Chapter 1",subtitle:"حياة هاري الحزينة",text:"Harry Potter is a small boy who lives with the Dursley family at number four Privet Drive. His aunt Petunia and uncle Vernon are not kind to him at all. They give him old clothes that are too big and make him sleep in a very small dark space under the stairs. It is cold and uncomfortable but Harry has no choice. Dudley is Harry's cousin. Dudley is fat and rude and has everything he wants. He has many toys and sweets and a big bedroom. But Dudley is always mean to Harry and tries to hurt him whenever he can. The Dursleys never say anything nice to Harry. They do not tell him the truth about his parents. They say that his parents died in a car crash. Harry feels very sad and very lonely every single day. He never gets gifts or love or kindness. One day at the zoo something very strange happens. A big snake in the glass tank starts to talk to Harry. Harry can understand it perfectly. The Dursleys are furious and terrified. Harry does not understand what is happening but he knows he is different from other boys."},
-  {title:"Chapter 2",subtitle:"الرسائل الغامضة",text:"One ordinary morning many letters arrive at number four Privet Drive. They are all addressed to Harry Potter in green ink. Uncle Vernon grabs them all before Harry can read even one. The next day more letters come. Then even more. Uncle Vernon nails the letter slot shut. But the letters keep coming through the windows and down the chimney. Uncle Vernon becomes more and more frightened and angry. He packs the whole family into the car and drives them to a cold dark hut on a rock in the middle of the sea. But on the stroke of midnight on Harry's birthday the door of the hut smashes open. A very big man with a wild black beard and kind eyes fills the doorway. His name is Hagrid and he is a gamekeeper at Hogwarts School of Witchcraft and Wizardry. Hagrid gives Harry a birthday cake with pink icing. It is the very first birthday cake Harry has ever had in his whole life. Then Hagrid tells Harry the incredible truth. Harry James Potter is a wizard. His parents were brave and wonderful people who were murdered by a dark wizard named Voldemort. But when Voldemort tried to kill baby Harry the curse bounced back because Harry's mother sacrificed herself for him. Harry cannot believe what he is hearing. He is famous in the whole wizarding world and he did not even know it."},
-  {title:"Chapter 3",subtitle:"ديجون ألي",text:"The next morning Hagrid takes Harry to London. They stop in front of a small grubby pub called the Leaky Cauldron. Inside everyone recognizes Harry and wants to shake his hand. Behind the pub Hagrid taps a certain brick in the wall with his umbrella. The wall slowly opens to reveal a long winding cobblestone street full of magical shops and hundreds of witches and wizards in robes. This is Diagon Alley. First they go to Gringotts bank which is run by clever goblins. Deep underground they find Harry's vault which is full of gold coins his parents left him. Harry buys his school robes and books and a cauldron. The most exciting moment is choosing his wand at Ollivanders shop. Many wands reject Harry until one special wand chooses him. The wand maker says this wand is unusual because its core came from the same phoenix who gave a feather to the wand that gave Harry his scar. Then Hagrid surprises Harry with a wonderful gift. It is a beautiful snowy white owl in a cage. Harry names her Hedwig immediately. He has never had a friend or a pet before and his heart is full of joy."},
-  {title:"Chapter 4",subtitle:"هوجوارتس",text:"On the first of September Harry goes to Kings Cross station to catch the Hogwarts Express. He cannot find platform nine and three quarters anywhere. It does not seem to exist. Harry is starting to panic when a red-haired family shows him how to walk straight through the solid barrier. Harry takes a deep breath and runs at the wall and suddenly he is on a completely different platform. The scarlet steam engine is waiting. Harry finds a compartment and is soon joined by a red-haired boy named Ron Weasley who becomes his first real friend. On the train a girl named Hermione Granger comes in. She has bushy brown hair and already knows a great deal about magic. Harry also meets a pale blond boy named Draco Malfoy who seems arrogant and unpleasant. When the Hogwarts Express arrives the students travel across a dark lake in small boats and Harry gets his first breathtaking view of Hogwarts castle rising against the starry sky. It is enormous and magnificent and Harry feels that he has finally come home."},
+{title:"Chapter 1",subtitle:"حياة هاري الحزينة",text:"Harry Potter is a small boy who lives with the Dursley family at number four Privet Drive. His aunt Petunia and uncle Vernon are not kind to him at all. They give him old clothes that are too big and make him sleep in a very small dark space under the stairs. It is cold and uncomfortable but Harry has no choice. Dudley is Harry's cousin. Dudley is fat and rude and has everything he wants. He has many toys and sweets and a big bedroom. But Dudley is always mean to Harry. The Dursleys never say anything nice to Harry. They do not tell him the truth about his parents. They say that his parents died in a car crash. Harry feels very sad and very lonely every single day. He never gets gifts or love or kindness. One day at the zoo something very strange happens. A big snake in the glass tank starts to talk to Harry. Harry can understand it perfectly. The Dursleys are furious and terrified. Harry does not understand what is happening but he knows he is different from other boys."},
+{title:"Chapter 2",subtitle:"الرسائل الغامضة",text:"One ordinary morning many letters arrive at number four Privet Drive. They are all addressed to Harry Potter in green ink. Uncle Vernon grabs them all before Harry can read even one. The next day more letters come. Then even more. Uncle Vernon nails the letter slot shut. But the letters keep coming through the windows and down the chimney. Uncle Vernon becomes more and more frightened and angry. He packs the whole family into the car and drives them to a cold dark hut on a rock in the middle of the sea. But on the stroke of midnight on Harry's birthday the door of the hut smashes open. A very big man with a wild black beard and kind eyes fills the doorway. His name is Hagrid and he is a gamekeeper at Hogwarts School of Witchcraft and Wizardry. Hagrid gives Harry a birthday cake with pink icing. It is the very first birthday cake Harry has ever had in his whole life. Then Hagrid tells Harry the incredible truth. Harry James Potter is a wizard."},
+{title:"Chapter 3",subtitle:"ديجون ألي",text:"The next morning Hagrid takes Harry to London. They stop in front of a small grubby pub called the Leaky Cauldron. Inside everyone recognizes Harry and wants to shake his hand. Behind the pub Hagrid taps a certain brick in the wall with his umbrella. The wall slowly opens to reveal a long winding cobblestone street full of magical shops and hundreds of witches and wizards in robes. This is Diagon Alley. First they go to Gringotts bank which is run by clever goblins. Harry buys his school robes and books and a cauldron. The most exciting moment is choosing his wand at Ollivanders shop. Many wands reject Harry until one special wand chooses him. Then Hagrid surprises Harry with a wonderful gift. It is a beautiful snowy white owl in a cage. Harry names her Hedwig immediately. He has never had a friend or a pet before and his heart is full of joy."},
+{title:"Chapter 4",subtitle:"هوجوارتس",text:"On the first of September Harry goes to Kings Cross station to catch the Hogwarts Express. He cannot find platform nine and three quarters anywhere. A red-haired family shows him how to walk straight through the solid barrier. Harry takes a deep breath and runs at the wall and suddenly he is on a completely different platform. The scarlet steam engine is waiting. Harry finds a compartment and is soon joined by a red-haired boy named Ron Weasley who becomes his first real friend. On the train a girl named Hermione Granger comes in. She has bushy brown hair and already knows a great deal about magic. When the Hogwarts Express arrives the students travel across a dark lake in small boats and Harry gets his first breathtaking view of Hogwarts castle rising against the starry sky. It is enormous and magnificent and Harry feels that he has finally come home."},
 ]},
 {id:1,title:"Charlotte's Web",author:"E.B. White",level:"A1",cat:"classic",color:"linear-gradient(135deg,#e65100,#f57c00)",emoji:"🕷️",
-quiz:[
-  {q:"What animal is Wilbur?",opts:["A horse","A pig","A spider","A dog"],ans:1},
-  {q:"Who saves Wilbur's life?",opts:["Fern","Mr Zuckerman","Charlotte","Templeton"],ans:2},
-  {q:"What words does Charlotte write in her web?",opts:["Save him","Some Pig","Help us","Wilbur"],ans:1},
-],
+quiz:[{q:"What animal is Wilbur?",opts:["A horse","A pig","A spider","A dog"],ans:1},{q:"Who saves Wilbur's life?",opts:["Fern","Mr Zuckerman","Charlotte","Templeton"],ans:2},{q:"What words does Charlotte write in her web?",opts:["Save him","Some Pig","Help us","Wilbur"],ans:1}],
 chapters:[
-  {title:"Chapter 1",subtitle:"خنزير صغير",text:"Wilbur is a small pig who is born on a cold spring morning on the Arable farm. He is the smallest and weakest of all the piglets. When Fern Arable sees her father walking toward the barn with an axe she runs after him and cries and begs him to let the small pig live. She argues that it is unfair to kill something just because it is small. Her father looks at her for a long moment and then agrees. He gives the pig to Fern to take care of. Fern is only eight years old but she is very responsible. She feeds Wilbur warm milk from a baby bottle every few hours just like a real mother. She pushes him in her doll carriage and carries him everywhere. When Wilbur is older he goes to live in the barn at her uncle's farm. In the barn Wilbur is lonely. He wants a true friend more than anything in the world. One night when the barn is dark he hears a small thin voice speaking to him from somewhere above his head. The voice says that it will be his friend. In the morning Wilbur sees a large grey spider in the corner of his pen. Her name is Charlotte. She is the most beautiful and clever spider he has ever seen. Charlotte and Wilbur spend their days talking and laughing and sharing secrets."},
-  {title:"Chapter 2",subtitle:"شارلوت تنقذ ويلبر",text:"One terrible day Wilbur overhears the farmer talking about killing him before Christmas to make ham and bacon. Wilbur screams with horror and runs around his pen crying. Charlotte tells him to calm down. She says she has a plan to save his life and he must trust her completely. Charlotte thinks very carefully about her plan. She has noticed that people believe whatever they see written down. So she decides to write words in her web about how special and wonderful Wilbur is. She works through the whole night making her letters perfectly. In the morning the farmer and his wife stop and stare at the web in complete amazement. Written clearly in the web are the words SOME PIG. They think Wilbur must be a truly extraordinary pig. Word spreads quickly. Hundreds of people come to see the miraculous pig. Mr Zuckerman feels very proud and would never think of killing such a famous pig now. Charlotte writes more words. She writes TERRIFIC and then RADIANT and then HUMBLE. Each time people are astonished and Wilbur becomes more and more famous. But Charlotte is working very hard and getting very tired. Writing all these words is taking all her strength and energy."},
-  {title:"Chapter 3",subtitle:"الوداع الحزين",text:"Charlotte decides to take Wilbur to the county fair so everyone can see what a special pig he is. At the fair Wilbur wins a special prize. He is saved forever. But Charlotte is very weak and tired. She tells Wilbur quietly that she will not be coming home with him. She has laid her egg sac at the fair and her work is done. She does not have much time left. Wilbur is heartbroken. He loves Charlotte with all his heart and cannot imagine life without her. He asks the rat Templeton to help him bring Charlotte's precious egg sac safely back to the farm. Templeton agrees with some convincing. Charlotte dies alone at the fair after her friends have gone. Wilbur is devastated but he keeps Charlotte's egg sac safe all winter long. In the spring hundreds of tiny spiders hatch from the sac. Most of them float away on the breeze. But three of them stay and become Wilbur's new friends. He never forgets Charlotte. He thinks of her every day for the rest of his long and happy life. She was his best friend and she saved his life."},
+{title:"Chapter 1",subtitle:"خنزير صغير",text:"Wilbur is a small pig who is born on a cold spring morning on the Arable farm. He is the smallest and weakest of all the piglets. When Fern Arable sees her father walking toward the barn with an axe she runs after him and cries and begs him to let the small pig live. Her father looks at her for a long moment and then agrees. He gives the pig to Fern to take care of. Fern is only eight years old but she is very responsible. She feeds Wilbur warm milk from a baby bottle every few hours just like a real mother. When Wilbur is older he goes to live in the barn at her uncle's farm. In the barn Wilbur is lonely. He wants a true friend more than anything in the world. One night when the barn is dark he hears a small thin voice speaking to him from somewhere above his head. The voice says that it will be his friend. In the morning Wilbur sees a large grey spider in the corner of his pen. Her name is Charlotte. She is the most beautiful and clever spider he has ever seen."},
+{title:"Chapter 2",subtitle:"شارلوت تنقذ ويلبر",text:"One terrible day Wilbur overhears the farmer talking about killing him before Christmas to make ham and bacon. Wilbur screams with horror and runs around his pen crying. Charlotte tells him to calm down. She says she has a plan to save his life and he must trust her completely. Charlotte decides to write words in her web about how special and wonderful Wilbur is. She works through the whole night making her letters perfectly. In the morning the farmer and his wife stop and stare at the web in complete amazement. Written clearly in the web are the words SOME PIG. They think Wilbur must be a truly extraordinary pig. Word spreads quickly. Hundreds of people come to see the miraculous pig. Charlotte writes more words. She writes TERRIFIC and then RADIANT and then HUMBLE. Each time people are astonished and Wilbur becomes more and more famous."},
+{title:"Chapter 3",subtitle:"الوداع الحزين",text:"Charlotte decides to take Wilbur to the county fair so everyone can see what a special pig he is. At the fair Wilbur wins a special prize. He is saved forever. But Charlotte is very weak and tired. She tells Wilbur quietly that she will not be coming home with him. She has laid her egg sac at the fair and her work is done. She does not have much time left. Wilbur is heartbroken. He loves Charlotte with all his heart and cannot imagine life without her. Charlotte dies alone at the fair after her friends have gone. Wilbur is devastated but he keeps Charlotte's egg sac safe all winter long. In the spring hundreds of tiny spiders hatch from the sac. Most of them float away on the breeze. But three of them stay and become Wilbur's new friends. He never forgets Charlotte. She was his best friend and she saved his life."},
 ]},
 {id:2,title:"The Lion the Witch and the Wardrobe",author:"C.S. Lewis",level:"A1",cat:"fantasy",color:"linear-gradient(135deg,#004d40,#00796b)",emoji:"🦁",
-quiz:[
-  {q:"What does Lucy find at the back of the wardrobe?",opts:["A hidden room","Snow and a forest","A treasure","A door"],ans:1},
-  {q:"What is the faun's name?",opts:["Mr Beaver","Aslan","Mr Tumnus","The White Witch"],ans:2},
-  {q:"Who is the true ruler of Narnia?",opts:["The White Witch","Aslan","Mr Tumnus","Father Christmas"],ans:1},
-],
+quiz:[{q:"What does Lucy find at the back of the wardrobe?",opts:["A hidden room","Snow and a forest","A treasure","A door"],ans:1},{q:"What is the faun's name?",opts:["Mr Beaver","Aslan","Mr Tumnus","The White Witch"],ans:2},{q:"Who is the true ruler of Narnia?",opts:["The White Witch","Aslan","Mr Tumnus","Father Christmas"],ans:1}],
 chapters:[
-  {title:"Chapter 1",subtitle:"الخزانة السحرية",text:"During the Second World War four children are sent away from London to stay in the large old house of an elderly professor in the countryside. Their names are Peter, Susan, Edmund, and Lucy. The house is enormous with many mysterious rooms. On a rainy day Lucy finds a very large wooden wardrobe. She goes inside and pushes past the rows of fur coats. At the back she feels something cold and wet. She looks down and sees snow. She walks into a forest in winter night. A lamp post stands alone in the snow. A strange creature walks toward her. He has the legs of a goat and the body of a man with curly horns and a small red scarf. His name is Mr Tumnus. He is a Faun and this magical land is called Narnia. He invites her to his warm cozy cave for tea and toast and sardines and stories. But then his face becomes very sad. He confesses that he is an agent of the terrible White Witch who rules Narnia and has made it always winter and never Christmas. He was supposed to capture any human he found. But he cannot bring himself to do it. He walks Lucy safely back to the lamp post so she can go home."},
-  {title:"Chapter 2",subtitle:"الساحرة البيضاء",text:"When Lucy rushes back she discovers that no time has passed in the real world. She tries to tell the others but nobody believes her. Edmund is especially unkind and calls her a liar. A few days later Lucy goes back and Edmund follows her. Lucy runs ahead to find Mr Tumnus. Edmund finds himself alone in the cold forest. Then a magnificent sledge drawn by white reindeer appears. A tall and terrifying beautiful woman in a white fur cloak and golden crown sits in it. This is the White Witch Jadis who calls herself Queen of Narnia. She speaks very sweetly to Edmund and gives him enchanted Turkish Delight. It is so delicious that he wants more and more and thinks of nothing else. She tells him to bring his brother and sisters to her house and she will give him a whole room full of Turkish Delight and make him a prince. Edmund agrees without thinking what this means for his family. This is the worst decision he has ever made."},
-  {title:"Chapter 3",subtitle:"أسلان",text:"All four children eventually enter Narnia together. They learn from Mr and Mrs Beaver that a great lion named Aslan is the true ruler of Narnia and he is on the move at last. When Aslan comes the White Witch's power will end. There is an ancient prophecy that says when two Sons of Adam and two Daughters of Eve sit on the four thrones at Cair Paravel the White Witch's reign will be over. But Edmund secretly goes to the White Witch and betrays his family. The Witch captures him. The other children hurry to find Aslan. When they finally meet Aslan it is the most overwhelming moment of their lives. He is enormous and golden and terrible and kind all at once. He agrees to trade his own life for Edmund's. The Witch kills Aslan on the Stone Table. But she does not know about the deeper magic from before the dawn of time. When an innocent victim is killed on the Stone Table death works backwards. In the morning Aslan rises again stronger than ever and they win the greatest battle Narnia has ever seen."},
+{title:"Chapter 1",subtitle:"الخزانة السحرية",text:"During the Second World War four children are sent away from London to stay in the large old house of an elderly professor in the countryside. Their names are Peter Susan Edmund and Lucy. The house is enormous with many mysterious rooms. On a rainy day Lucy finds a very large wooden wardrobe. She goes inside and pushes past the rows of fur coats. At the back she feels something cold and wet. She looks down and sees snow. She walks into a forest in winter night. A lamp post stands alone in the snow. A strange creature walks toward her. He has the legs of a goat and the body of a man with curly horns and a small red scarf. His name is Mr Tumnus. He is a Faun and this magical land is called Narnia. He invites her to his warm cozy cave for tea and toast and stories. But then his face becomes very sad. He confesses that he was supposed to capture any human he found. But he cannot bring himself to do it. He walks Lucy safely back to the lamp post so she can go home."},
+{title:"Chapter 2",subtitle:"الساحرة البيضاء",text:"When Lucy rushes back she discovers that no time has passed in the real world. She tries to tell the others but nobody believes her. Edmund is especially unkind and calls her a liar. A few days later Lucy goes back and Edmund follows her. Edmund finds himself alone in the cold forest. Then a magnificent sledge drawn by white reindeer appears. A tall and terrifying beautiful woman in a white fur cloak and golden crown sits in it. This is the White Witch Jadis who calls herself Queen of Narnia. She speaks very sweetly to Edmund and gives him enchanted Turkish Delight. It is so delicious that he wants more and more. She tells him to bring his brother and sisters to her house and she will make him a prince. Edmund agrees without thinking what this means for his family."},
+{title:"Chapter 3",subtitle:"أسلان",text:"All four children eventually enter Narnia together. They learn from Mr and Mrs Beaver that a great lion named Aslan is the true ruler of Narnia and he is on the move at last. There is an ancient prophecy that says when two Sons of Adam and two Daughters of Eve sit on the four thrones the White Witch's reign will be over. But Edmund secretly goes to the White Witch and betrays his family. The Witch captures him. The other children hurry to find Aslan. When they finally meet Aslan it is the most overwhelming moment of their lives. He is enormous and golden and terrible and kind all at once. He agrees to trade his own life for Edmund's. The Witch kills Aslan on the Stone Table. But when an innocent victim is killed on the Stone Table death works backwards. In the morning Aslan rises again stronger than ever."},
 ]},
 {id:3,title:"A Study in Scarlet",author:"Arthur Conan Doyle",level:"B1",cat:"mystery",color:"linear-gradient(135deg,#4a148c,#7b1fa2)",emoji:"🔍",
-quiz:[
-  {q:"How does Holmes know Watson was in Afghanistan?",opts:["Watson told him","A friend said","Holmes deduced it from clues","He read it"],ans:2},
-  {q:"What does Holmes call himself?",opts:["A police detective","A consulting detective","A private eye","An inspector"],ans:1},
-  {q:"What word is written on the wall in blood?",opts:["RACHEL","REVENGE","RACHE","MURDER"],ans:2},
-],
+quiz:[{q:"How does Holmes know Watson was in Afghanistan?",opts:["Watson told him","A friend said","Holmes deduced it from clues","He read it"],ans:2},{q:"What does Holmes call himself?",opts:["A police detective","A consulting detective","A private eye","An inspector"],ans:1},{q:"What word is written on the wall?",opts:["RACHEL","REVENGE","RACHE","MURDER"],ans:2}],
 chapters:[
-  {title:"Chapter 1",subtitle:"اللقاء الأول",text:"In the year 1878 I became a Doctor of Medicine and went to serve as a surgeon in Afghanistan. I was wounded in battle and spent many painful months in hospital before being sent back to England with very little money and no home. One day I met my old friend Stamford who knew a man looking to share lodgings at two hundred and twenty one B Baker Street. His name was Sherlock Holmes. At the hospital laboratory I met Holmes for the first time. He was very tall and thin with piercing grey eyes and an air of intense energy. Before I could say a word he looked at me and said You have been in Afghanistan I perceive. I was completely astonished. He explained later that he had seen my deep tan ending at my wrist, my military bearing, and my injured arm held stiffly. He put all these clues together in an instant. I had never met anyone who thought like this. Holmes and I moved into the Baker Street rooms. I quickly discovered that my new companion was remarkable in many ways. He could identify over a hundred different kinds of tobacco ash. He played the violin beautifully but also terribly at all hours of the night. And he received a stream of strange visitors who came to him with their impossible problems."},
-  {title:"Chapter 2",subtitle:"الجريمة الغامضة",text:"One morning Holmes receives a note from Scotland Yard asking for help with a puzzling murder. A man named Enoch Drebber from America has been found dead in an empty house in Brixton. There is no sign of any wound but his face is distorted with terror. On the wall above the body someone has written the word RACHE in blood red letters. The police think RACHE is an unfinished attempt to write RACHEL but Holmes immediately disagrees. He says RACHE is the German word for revenge and this tells us something very important about the killer. Holmes examines the body and the room with extraordinary care using a magnifying glass and tape measure. He finds footprints in the dust and measures them precisely. He finds traces of a second person and deduces their exact height and age. He finds cigar ash of a particular type and a woman's wedding ring on the floor. Holmes tells the police everything he has deduced but refuses to reveal how. He knows who killed Drebber and he sets an elaborate trap. Within days the murderer walks right into it."},
-  {title:"Chapter 3",subtitle:"الحقيقة الكاملة",text:"The killer turns out to be a man named Jefferson Hope an American cab driver. He is dying of a heart condition and has only weeks to live. He does not deny what he did. Instead he tells Holmes and Watson the whole extraordinary story. Twenty years ago in the wilds of Utah a young woman named Lucy Ferrier died of a broken heart after being forced to marry Enoch Drebber. Jefferson Hope loved Lucy deeply and had promised to marry her himself. The tragedy destroyed his life. He spent years hunting Drebber across America and Europe seeking justice. He finally found him in London. He offered Drebber a choice between two pills one poisoned and one harmless. He took the other pill himself. Drebber got the poison. Hope sees himself not as a murderer but as an instrument of justice. Holmes listens to the whole story with deep interest. Jefferson Hope dies in his cell before he can be tried. The case is closed. Holmes calls it the most interesting case he has ever investigated. Watson writes up the whole story and publishes it. It is the beginning of a very long partnership."},
+{title:"Chapter 1",subtitle:"اللقاء الأول",text:"In the year 1878 I became a Doctor of Medicine and went to serve as a surgeon in Afghanistan. I was wounded in battle and spent many painful months in hospital before being sent back to England with very little money and no home. One day I met my old friend Stamford who knew a man looking to share lodgings at two hundred and twenty one B Baker Street. His name was Sherlock Holmes. At the hospital laboratory I met Holmes for the first time. He was very tall and thin with piercing grey eyes. Before I could say a word he looked at me and said You have been in Afghanistan I perceive. I was completely astonished. Holmes and I moved into the Baker Street rooms. I quickly discovered that my new companion was remarkable in many ways. He could identify over a hundred different kinds of tobacco ash. He played the violin beautifully. And he received a stream of strange visitors who came to him with their impossible problems."},
+{title:"Chapter 2",subtitle:"الجريمة الغامضة",text:"One morning Holmes receives a note from Scotland Yard asking for help with a puzzling murder. A man named Enoch Drebber from America has been found dead in an empty house in Brixton. There is no sign of any wound but his face is distorted with terror. On the wall above the body someone has written the word RACHE in blood red letters. The police think RACHE is an unfinished attempt to write RACHEL but Holmes immediately disagrees. He says RACHE is the German word for revenge and this tells us something very important about the killer. Holmes examines the body and the room with extraordinary care using a magnifying glass and tape measure. He finds footprints in the dust and measures them precisely. Holmes tells the police everything he has deduced but refuses to reveal how. He knows who killed Drebber and he sets an elaborate trap."},
+{title:"Chapter 3",subtitle:"الحقيقة الكاملة",text:"The killer turns out to be a man named Jefferson Hope an American cab driver. He is dying of a heart condition and has only weeks to live. He does not deny what he did. Instead he tells Holmes and Watson the whole extraordinary story. Twenty years ago in the wilds of Utah a young woman named Lucy Ferrier died of a broken heart after being forced to marry Enoch Drebber. Jefferson Hope loved Lucy deeply and had promised to marry her himself. The tragedy destroyed his life. He spent years hunting Drebber across America and Europe seeking justice. He finally found him in London. Hope sees himself not as a murderer but as an instrument of justice. Jefferson Hope dies in his cell before he can be tried. Holmes calls it the most interesting case he has ever investigated."},
 ]},
 {id:4,title:"Treasure Island",author:"Robert Louis Stevenson",level:"B1",cat:"adventure",color:"linear-gradient(135deg,#bf360c,#e64a19)",emoji:"🏴‍☠️",
-quiz:[
-  {q:"What is in Billy Bones's chest?",opts:["Gold coins only","A treasure map","An old sword","A compass"],ans:1},
-  {q:"What is Long John Silver's job on the ship?",opts:["Captain","First mate","Cook","Navigator"],ans:2},
-  {q:"What does Jim overhear from inside the apple barrel?",opts:["A ghost story","Silver's mutiny plan","A love song","Weather forecast"],ans:1},
-],
+quiz:[{q:"What is in Billy Bones's chest?",opts:["Gold coins only","A treasure map","An old sword","A compass"],ans:1},{q:"What is Long John Silver's job on the ship?",opts:["Captain","First mate","Cook","Navigator"],ans:2},{q:"What does Jim overhear from inside the apple barrel?",opts:["A ghost story","Silver's mutiny plan","A love song","Weather forecast"],ans:1}],
 chapters:[
-  {title:"Chapter 1",subtitle:"الملاح العجوز",text:"My name is Jim Hawkins and I am going to tell you the whole story of Treasure Island. My father owned the Admiral Benbow inn near the sea in Bristol. One cold autumn morning a strange old sailor with a tarry pigtail and sabre scar across his cheek came trudging up the road pulling a large battered sea chest. His name was the Captain. Every day he walked along the headland looking through a long brass telescope. He paid me a silver coin every month to watch for a one-legged man and warn him if I saw such a person. I was afraid of the Captain but also fascinated by him. He told me he had sailed with the most terrible pirate that ever lived a man called Captain Flint who buried an enormous treasure somewhere in the world. One freezing night a blind man named Pew came to the inn and gave the Captain a black spot which is a pirate death warning. The Captain died of fright on the spot. I grabbed the key from around his neck and opened his chest. Inside I found a sealed oilskin packet containing a map of an island with three red crosses marking where Captain Flint buried his treasure amounting to seven hundred thousand pounds in gold."},
-  {title:"Chapter 2",subtitle:"لونج جون سيلفر",text:"In Bristol Squire Trelawney had already hired a ship called the Hispaniola and a captain named Smollett who was careful and serious. The most important crew member was the ship's cook a large cheerful one-legged man named Long John Silver who had a green parrot called Captain Flint sitting on his shoulder. Silver was enormously popular with everyone. He laughed and joked and seemed to know everything about everything. I liked him enormously at first. But one terrible day hiding inside a large apple barrel I overheard Silver talking quietly to some of the other sailors. I heard him tell them his real plan. He and most of the crew were former pirates who had sailed with the original Captain Flint. They planned to let us find the treasure and then murder everyone and take it for themselves. Silver was their leader. The warm friendly man I had admired was a cold calculating pirate who would kill without hesitation. I sat frozen in the barrel hardly daring to breathe. That night I told the Captain and the Doctor everything I had heard. The voyage had become extremely dangerous."},
-  {title:"Chapter 3",subtitle:"جزيرة الكنز",text:"When we reached the island the pirates mutinied. The loyal crew hid in a stockade on the island and fought desperately against the pirates. Jim made several daring solo adventures. He cut the ship free from its anchor so the pirates could not use it. He found a half-mad sailor named Ben Gunn who had been stranded on the island for three years. And most importantly Ben Gunn had already found the treasure and hidden it in his cave. When the pirates finally attacked the stockade they found it empty. The Doctor had discovered the treasure was already moved and made a deal with Silver who had switched sides again. The pirates were led to the empty treasure pit and went mad with rage. Jim and the others collected the real treasure from Ben Gunn's cave. They sailed away leaving the worst pirates stranded on the island. Silver escaped with a small bag of gold during the night. Jim returns home safely with more gold than he can spend in a lifetime. But he never forgets the island and sometimes wakes at night hearing the sound of the surf and the voice of Long John Silver calling out for gold."},
+{title:"Chapter 1",subtitle:"الملاح العجوز",text:"My name is Jim Hawkins and I am going to tell you the whole story of Treasure Island. My father owned the Admiral Benbow inn near the sea in Bristol. One cold autumn morning a strange old sailor with a tarry pigtail came trudging up the road pulling a large battered sea chest. His name was the Captain. Every day he walked along the headland looking through a long brass telescope. He paid me a silver coin every month to watch for a one-legged man. I was afraid of the Captain but also fascinated by him. He told me he had sailed with the most terrible pirate that ever lived called Captain Flint who buried an enormous treasure somewhere in the world. One freezing night a blind man named Pew came to the inn and gave the Captain a black spot which is a pirate death warning. The Captain died of fright on the spot. Inside his chest I found a sealed oilskin packet containing a map of an island with three red crosses marking where Captain Flint buried his treasure amounting to seven hundred thousand pounds in gold."},
+{title:"Chapter 2",subtitle:"لونج جون سيلفر",text:"In Bristol Squire Trelawney had already hired a ship called the Hispaniola and a captain named Smollett who was careful and serious. The most important crew member was the ship's cook a large cheerful one-legged man named Long John Silver who had a green parrot called Captain Flint sitting on his shoulder. Silver was enormously popular with everyone. He laughed and joked and seemed to know everything about everything. I liked him enormously at first. But one terrible day hiding inside a large apple barrel I overheard Silver talking quietly to some of the other sailors. He and most of the crew were former pirates. They planned to let us find the treasure and then murder everyone and take it for themselves. Silver was their leader. The warm friendly man I had admired was a cold calculating pirate who would kill without hesitation."},
+{title:"Chapter 3",subtitle:"جزيرة الكنز",text:"When we reached the island the pirates mutinied. The loyal crew hid in a stockade on the island and fought desperately against the pirates. Jim made several daring solo adventures. He cut the ship free from its anchor so the pirates could not use it. He found a half-mad sailor named Ben Gunn who had been stranded on the island for three years. And most importantly Ben Gunn had already found the treasure and hidden it in his cave. When the pirates finally attacked the stockade they found it empty. Jim and the others collected the real treasure from Ben Gunn's cave. They sailed away leaving the worst pirates stranded on the island. Silver escaped with a small bag of gold during the night. Jim returns home safely with more gold than he can spend in a lifetime."},
 ]},
 ];
 
-const wordTranslations={"harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","belong":"ينتمي","strange":"غريب","surprised":"متفاجئ","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","voice":"صوت","wise":"حكيم","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","wolf":"ذئب","chimney":"مدخنة","lazy":"كسول","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","rabbit":"أرنب","fell":"سقط","seed":"بذرة","grew":"نما","built":"بنى","blew":"نفخ","laughed":"ضحك","found":"وجد","saved":"أنقذ","warned":"حذّر","bottle":"زجاجة","clever":"ذكي","frightened":"خائف","grabbed":"أمسك","immediately":"فوراً","magnificent":"رائع","island":"جزيرة","pirate":"قرصان","sailor":"بحار","ship":"سفينة","captain":"قبطان","map":"خريطة","gold":"ذهب","murder":"قتل","clue":"دليل","brilliant":"عبقري","sword":"سيف","blood":"دم","winter":"شتاء","lion":"أسد","witch":"ساحرة","wardrobe":"خزانة","crown":"تاج","betrayed":"خان","innocent":"بريء","victory":"نصر","coffee":"قهوة","doctor":"طبيب","medicine":"دواء","fever":"حمى","museum":"متحف","experience":"خبرة","weather":"طقس","restaurant":"مطعم","reservation":"حجز","jacket":"جاكيت","sick":"مريض","manager":"مدير"};
+const wordTranslations={"harry":"هاري","small":"صغير","boy":"ولد","lives":"يعيش","family":"عائلة","aunt":"خالة","uncle":"خال","kind":"لطيف","clothes":"ملابس","sleep":"ينام","stairs":"الدرج","cousin":"ابن العم","toys":"ألعاب","rude":"وقح","hurt":"يؤذي","never":"أبداً","truth":"الحقيقة","parents":"الوالدان","died":"مات","feels":"يشعر","sad":"حزين","lonely":"وحيد","gifts":"هدايا","love":"حب","strange":"غريب","letters":"رسائل","birthday":"عيد ميلاد","wizard":"ساحر","magical":"سحري","wand":"عصا سحرية","school":"مدرسة","scared":"خائف","forest":"غابة","snow":"ثلج","creature":"مخلوق","friend":"صديق","warm":"دافئ","detective":"محقق","weak":"ضعيف","born":"وُلد","voice":"صوت","golden":"ذهبي","wonderful":"رائع","beautiful":"جميل","happy":"سعيد","angry":"غاضب","strong":"قوي","brave":"شجاع","danger":"خطر","safe":"آمن","secret":"سر","treasure":"كنز","adventure":"مغامرة","ancient":"قديم","enormous":"ضخم","terrible":"مريع","impossible":"مستحيل","garden":"حديقة","locked":"مقفل","dream":"حلم","hope":"أمل","heart":"قلب","dark":"مظلم","cold":"بارد","hard":"صعب","easy":"سهل","door":"باب","house":"بيت","room":"غرفة","tree":"شجرة","water":"ماء","fire":"نار","night":"ليل","morning":"صباح","time":"وقت","day":"يوم","big":"كبير","old":"قديم","new":"جديد","long":"طويل","alone":"وحيد","quickly":"بسرعة","slowly":"ببطء","suddenly":"فجأة","finally":"أخيراً","always":"دائماً","first":"أول","last":"أخير","together":"معاً","outside":"خارج","inside":"داخل","wolf":"ذئب","chimney":"مدخنة","lazy":"كسول","spider":"عنكبوت","barn":"حظيرة","key":"مفتاح","rabbit":"أرنب","fell":"سقط","seed":"بذرة","grew":"نما","built":"بنى","blew":"نفخ","laughed":"ضحك","found":"وجد","saved":"أنقذ","warned":"حذّر","bottle":"زجاجة","clever":"ذكي","frightened":"خائف","grabbed":"أمسك","immediately":"فوراً","magnificent":"رائع","island":"جزيرة","pirate":"قرصان","sailor":"بحار","ship":"سفينة","captain":"قبطان","map":"خريطة","gold":"ذهب","murder":"قتل","clue":"دليل","brilliant":"عبقري","sword":"سيف","blood":"دم","winter":"شتاء","lion":"أسد","witch":"ساحرة","wardrobe":"خزانة","crown":"تاج","betrayed":"خان","innocent":"بريء","victory":"نصر","coffee":"قهوة","doctor":"طبيب","medicine":"دواء","fever":"حمى","museum":"متحف","experience":"خبرة","weather":"طقس","restaurant":"مطعم","reservation":"حجز","jacket":"جاكيت","sick":"مريض","manager":"مدير","chair":"كرسي","table":"طاولة","window":"نافذة","beautiful":"جميل","strong":"قوي","happy":"سعيد","important":"مهم","different":"مختلف","possible":"ممكن","special":"خاص","small":"صغير","large":"كبير","young":"شاب","right":"صحيح","wrong":"خطأ"};
 
 let savedVocab=JSON.parse(localStorage.getItem('eng_vocab')||'[]');
 let quizScores=JSON.parse(localStorage.getItem('eng_quiz')||'[]');
 let completedConvs=JSON.parse(localStorage.getItem('eng_convs')||'[]');
+let playerName=localStorage.getItem('eng_name')||'';
 let currentBook=null,currentChapter=0;
 let isPlaying=false,playSpeed=1.0;
 let sentences=[],currentSentence=0;
@@ -477,107 +481,93 @@ let currentLevel='all',currentCat='all';
 let sessionWords=0,playbackId=0,currentAudio=null;
 let convLevel='all',currentConv=null,convLineIndex=0,isConvPlaying=false;
 
-function voiceURL(text,rate='0'){
-  return'https://api.voicerss.org/?'+new URLSearchParams({key:VOICE_KEY,hl:'en-gb',v:'Linda',r:rate,c:'mp3',f:'44khz_16bit_stereo',src:text});
+// SPLASH
+function startApp(){
+  const n=document.getElementById('splashName').value.trim()||'متعلم';
+  playerName=n;
+  localStorage.setItem('eng_name',n);
+  document.getElementById('splashPage').style.display='none';
+  updateWelcome();
+  renderLibrary();renderVocab();updateStats();renderConvList();
 }
+function updateWelcome(){
+  const initial=playerName.charAt(0).toUpperCase()||'؟';
+  document.getElementById('welcomeAvatar').textContent=initial;
+  document.getElementById('welcomeName').textContent='أهلاً '+playerName+'! 👋';
+  const msgs=['استمر في التعلم اليوم 💪','لديك كلمات جديدة للمراجعة 📝','ابدأ محادثة جديدة اليوم 🗣️'];
+  document.getElementById('welcomeSub').textContent=msgs[Math.floor(Math.random()*msgs.length)];
+  document.getElementById('qs1').textContent=savedVocab.length;
+  document.getElementById('qs2').textContent=completedConvs.length;
+  document.getElementById('qs3').textContent=quizScores.length;
+  document.getElementById('dailyTip').textContent=tips[Math.floor(Math.random()*tips.length)];
+}
+
+// INIT - check if returning user
+window.onload=()=>{
+  if(playerName){
+    document.getElementById('splashPage').style.display='none';
+    updateWelcome();
+    renderLibrary();renderVocab();updateStats();renderConvList();
+  }
+};
+
+function voiceURL(text,rate='0'){return'https://api.voicerss.org/?'+new URLSearchParams({key:VOICE_KEY,hl:'en-gb',v:'Linda',r:rate,c:'mp3',f:'44khz_16bit_stereo',src:text});}
 function speakWithVoiceRSS(text,myId,onDone){
   if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}
-  const audio=new Audio(voiceURL(text));
-  audio.playbackRate=playSpeed;currentAudio=audio;
+  const audio=new Audio(voiceURL(text));audio.playbackRate=playSpeed;currentAudio=audio;
   audio.oncanplaythrough=()=>setStatus('🔊 تقرأ Linda...');
   audio.onended=()=>{if(myId===playbackId&&onDone){setStatus('');onDone();}};
   audio.onerror=()=>{setStatus('');if(myId===playbackId&&onDone)onDone();};
-  setStatus('⏳ جاري التحميل...');
-  audio.play().catch(()=>{setStatus('');if(onDone)onDone();});
+  setStatus('⏳ جاري التحميل...');audio.play().catch(()=>{setStatus('');if(onDone)onDone();});
 }
-function speakWord(word){
-  playbackId++;
-  if(currentAudio){currentAudio.pause();currentAudio=null;}
-  new Audio(voiceURL(word,'-2')).play().catch(()=>{});
-}
+function speakWord(word){playbackId++;if(currentAudio){currentAudio.pause();currentAudio=null;}new Audio(voiceURL(word,'-2')).play().catch(()=>{});}
 function setStatus(t){const el=document.getElementById('statusBar');if(el)el.textContent=t;}
-function stopAudio(){
-  playbackId++;isPlaying=false;
-  if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}
-  clearInterval(progressTimer);
-  const pm=document.getElementById('playMain');if(pm)pm.textContent='▶';
-  setStatus('');
-}
+function stopAudio(){playbackId++;isPlaying=false;if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio=null;}clearInterval(progressTimer);const pm=document.getElementById('playMain');if(pm)pm.textContent='▶';setStatus('');}
 function togglePlay(){if(isPlaying)stopAudio();else startPlay();}
 function startPlay(){isPlaying=true;document.getElementById('playMain').textContent='⏸';playNext(currentSentence);}
 function playNext(si){
-  if(!isPlaying||si>=sentences.length){
-    if(si>=sentences.length){stopAudio();currentSentence=0;updateProgressBar(0);setStatus('✅ انتهى');}
-    return;
-  }
+  if(!isPlaying||si>=sentences.length){if(si>=sentences.length){stopAudio();currentSentence=0;updateProgressBar(0);setStatus('✅ انتهى');}return;}
   currentSentence=si;highlightSentence(si);updateProgressBar(si/sentences.length*100);
   const myId=playbackId;
   speakWithVoiceRSS(sentences[si],myId,()=>{if(myId===playbackId&&isPlaying)playNext(si+1);});
   clearInterval(progressTimer);
   const sentDur=sentences[si].split(' ').length*0.38/playSpeed;
   const startT=Date.now(),startPct=si/sentences.length*100;
-  progressTimer=setInterval(()=>{
-    if(!isPlaying){clearInterval(progressTimer);return;}
-    const e=(Date.now()-startT)/1000;
-    updateProgressBar(Math.min(startPct+(e/sentDur/sentences.length*100),100));
-    document.getElementById('timeNow').textContent=formatTime(si*sentDur+e);
-  },300);
+  progressTimer=setInterval(()=>{if(!isPlaying){clearInterval(progressTimer);return;}const e=(Date.now()-startT)/1000;updateProgressBar(Math.min(startPct+(e/sentDur/sentences.length*100),100));document.getElementById('timeNow').textContent=formatTime(si*sentDur+e);},300);
 }
-function updateProgressBar(pct){
-  pct=Math.max(0,Math.min(pct,100));
-  document.getElementById('progressFill').style.width=pct+'%';
-  document.getElementById('progressDot').style.left=pct+'%';
-}
+function updateProgressBar(pct){pct=Math.max(0,Math.min(pct,100));document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressDot').style.left=pct+'%';}
 function speakOneSentence(si){stopAudio();currentSentence=si;highlightSentence(si);speakWithVoiceRSS(sentences[si],playbackId,null);}
-function cycleSpeed(){
-  const sp=[0.75,1.0,1.25,1.5];
-  playSpeed=sp[(sp.indexOf(playSpeed)+1)%sp.length];
-  document.getElementById('speedBtn').textContent=playSpeed+'x';
-  if(currentAudio)currentAudio.playbackRate=playSpeed;
-}
+function cycleSpeed(){const sp=[0.75,1.0,1.25,1.5];playSpeed=sp[(sp.indexOf(playSpeed)+1)%sp.length];document.getElementById('speedBtn').textContent=playSpeed+'x';if(currentAudio)currentAudio.playbackRate=playSpeed;}
 function skipBack(){const si=Math.max(0,currentSentence-1);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
 function skipFwd(){const si=Math.min(sentences.length-1,currentSentence+1);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
-function seekProgress(e){
-  const rect=e.currentTarget.getBoundingClientRect();
-  const pct=Math.max(0,Math.min((e.clientX-rect.left)/rect.width,1));
-  const si=Math.floor(pct*sentences.length);
-  stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);
-}
-function highlightSentence(si){
-  document.querySelectorAll('.word').forEach(w=>w.classList.remove('highlighted'));
-  document.querySelectorAll(`[data-si="${si}"]`).forEach(w=>w.classList.add('highlighted'));
-  const first=document.querySelector(`[data-si="${si}"]`);
-  if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
-}
+function seekProgress(e){const rect=e.currentTarget.getBoundingClientRect();const pct=Math.max(0,Math.min((e.clientX-rect.left)/rect.width,1));const si=Math.floor(pct*sentences.length);stopAudio();currentSentence=si;isPlaying=true;document.getElementById('playMain').textContent='⏸';playbackId++;playNext(si);}
+function highlightSentence(si){document.querySelectorAll('.word').forEach(w=>w.classList.remove('highlighted'));document.querySelectorAll(`[data-si="${si}"]`).forEach(w=>w.classList.add('highlighted'));const first=document.querySelector(`[data-si="${si}"]`);if(first)first.scrollIntoView({behavior:'smooth',block:'center'});}
 function formatTime(s){s=Math.max(0,s||0);const m=Math.floor(s/60),sec=Math.floor(s%60);return`${m<10?'0'+m:m}:${sec<10?'0'+sec:sec}`;}
 function setMode(m,btn){document.querySelectorAll('.audio-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');}
 
 function renderConvList(){
   const list=conversations.filter(c=>convLevel==='all'||c.level===convLevel);
-  document.getElementById('convList').innerHTML=list.map(c=>`
+  document.getElementById('convList').innerHTML=list.length?list.map(c=>`
     <div class="conv-card" onclick="openConv(${c.id})">
       <div class="conv-header">
         <div class="conv-emoji">${c.emoji}</div>
         <div class="conv-info">
           <div class="conv-title">${c.title}</div>
-          <div class="conv-meta">${c.topic} • ${c.lines.length} أسطر ${completedConvs.includes(c.id)?'• ✅ مكتملة':''}</div>
+          <div class="conv-meta">${c.topic} • ${c.lines.length} أسطر ${completedConvs.includes(c.id)?'• ✅':''}  </div>
         </div>
         <span class="conv-level badge-${c.level.toLowerCase()}">${c.level}</span>
       </div>
       <div class="conv-preview">"${c.lines[0].en}"</div>
-    </div>`).join('');
+    </div>`).join(''):'<div class="empty-state"><div class="empty-state-icon">🗣️</div><div class="empty-state-title">لا توجد محادثات</div><div class="empty-state-sub">اختر مستوى آخر</div></div>';
 }
 function filterConvLevel(l,btn){convLevel=l;document.querySelectorAll('#convPage .ltab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');renderConvList();}
 function openConv(id){
-  currentConv=conversations.find(c=>c.id===id);
-  convLineIndex=0;isConvPlaying=false;stopAudio();
+  currentConv=conversations.find(c=>c.id===id);convLineIndex=0;isConvPlaying=false;stopAudio();
   document.getElementById('convReaderTitle').textContent=currentConv.title+' '+currentConv.emoji;
   document.getElementById('convReaderLevel').textContent=currentConv.level;
   document.getElementById('convReaderLevel').className='conv-level badge-'+currentConv.level.toLowerCase();
-  renderConvBody();
-  document.getElementById('convReader').classList.add('show');
-  document.getElementById('convPlayBtn').textContent='▶';
-  document.getElementById('convStatus').textContent='اضغط ▶ للاستماع 🎙️';
+  renderConvBody();document.getElementById('convReader').classList.add('show');
+  document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='اضغط ▶ للاستماع 🎙️';
 }
 function closeConv(){stopAudio();isConvPlaying=false;document.getElementById('convReader').classList.remove('show');}
 function renderConvBody(){
@@ -591,41 +581,19 @@ function renderConvBody(){
       </div>
     </div>`).join('');
 }
-function highlightConvLine(i){
-  document.querySelectorAll('.conv-line').forEach(l=>l.style.opacity='0.5');
-  const el=document.getElementById('convLine'+i);
-  if(el){el.style.opacity='1';el.scrollIntoView({behavior:'smooth',block:'center'});}
-}
-function toggleConvPlay(){
-  if(isConvPlaying){isConvPlaying=false;stopAudio();document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='متوقف';}
-  else{isConvPlaying=true;document.getElementById('convPlayBtn').textContent='⏸';playConvLine(convLineIndex);}
-}
+function highlightConvLine(i){document.querySelectorAll('.conv-line').forEach(l=>l.style.opacity='0.5');const el=document.getElementById('convLine'+i);if(el){el.style.opacity='1';el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function toggleConvPlay(){if(isConvPlaying){isConvPlaying=false;stopAudio();document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='متوقف';}else{isConvPlaying=true;document.getElementById('convPlayBtn').textContent='⏸';playConvLine(convLineIndex);}}
 function playConvLine(i){
   if(!isConvPlaying||i>=currentConv.lines.length){
-    if(i>=currentConv.lines.length){
-      isConvPlaying=false;document.getElementById('convPlayBtn').textContent='▶';
-      document.getElementById('convStatus').textContent='✅ انتهت المحادثة!';
-      document.querySelectorAll('.conv-line').forEach(l=>l.style.opacity='1');
-      if(!completedConvs.includes(currentConv.id)){completedConvs.push(currentConv.id);localStorage.setItem('eng_convs',JSON.stringify(completedConvs));}
-    }
-    return;
+    if(i>=currentConv.lines.length){isConvPlaying=false;document.getElementById('convPlayBtn').textContent='▶';document.getElementById('convStatus').textContent='✅ انتهت المحادثة!';document.querySelectorAll('.conv-line').forEach(l=>l.style.opacity='1');if(!completedConvs.includes(currentConv.id)){completedConvs.push(currentConv.id);localStorage.setItem('eng_convs',JSON.stringify(completedConvs));updateWelcome();}}return;
   }
-  convLineIndex=i;highlightConvLine(i);
-  document.getElementById('convStatus').textContent='🔊 '+(currentConv.lines[i].speaker==='A'?'Person A':'Person B')+' يتحدث...';
-  const myId=++playbackId;
-  const audio=new Audio(voiceURL(currentConv.lines[i].en));
-  currentAudio=audio;audio.playbackRate=playSpeed;
+  convLineIndex=i;highlightConvLine(i);document.getElementById('convStatus').textContent='🔊 '+(currentConv.lines[i].speaker==='A'?'Person A':'Person B')+' يتحدث...';
+  const myId=++playbackId;const audio=new Audio(voiceURL(currentConv.lines[i].en));currentAudio=audio;audio.playbackRate=playSpeed;
   audio.onended=()=>{if(myId===playbackId&&isConvPlaying)setTimeout(()=>playConvLine(i+1),500);};
   audio.onerror=()=>{if(myId===playbackId&&isConvPlaying)playConvLine(i+1);};
   audio.play().catch(()=>{if(isConvPlaying)playConvLine(i+1);});
 }
-function playSingleLine(i){
-  isConvPlaying=false;stopAudio();convLineIndex=i;highlightConvLine(i);
-  document.getElementById('convPlayBtn').textContent='▶';
-  const myId=++playbackId;
-  const audio=new Audio(voiceURL(currentConv.lines[i].en));
-  currentAudio=audio;audio.play().catch(()=>{});
-}
+function playSingleLine(i){isConvPlaying=false;stopAudio();convLineIndex=i;highlightConvLine(i);document.getElementById('convPlayBtn').textContent='▶';const myId=++playbackId;const audio=new Audio(voiceURL(currentConv.lines[i].en));currentAudio=audio;audio.play().catch(()=>{});}
 function convSkipBack(){const i=Math.max(0,convLineIndex-1);stopAudio();convLineIndex=i;if(isConvPlaying)playConvLine(i);else highlightConvLine(i);}
 function convSkipFwd(){const i=Math.min(currentConv.lines.length-1,convLineIndex+1);stopAudio();convLineIndex=i;if(isConvPlaying)playConvLine(i);else highlightConvLine(i);}
 
@@ -644,7 +612,7 @@ function renderLibrary(){
         <div class="featured-sub">${feat.author}</div>
       </div>
     </div>`;
-  const rg=list=>list.map(b=>`
+  const rg=list=>list.length?list.map(b=>`
     <div class="book-card" onclick="openBook(${b.id})">
       <div class="book-cover" style="background:${b.color}">
         <div class="book-emoji">${b.emoji}</div>
@@ -653,7 +621,7 @@ function renderLibrary(){
       </div>
       <div class="book-name">${b.title}</div>
       <div class="book-author">${b.author}</div>
-    </div>`).join('');
+    </div>`).join(''):'<div style="color:var(--muted);font-size:.8rem;padding:10px">لا توجد كتب في هذه الفئة</div>';
   document.getElementById('a1Grid').innerHTML=rg(all.filter(b=>b.level==='A1'));
   document.getElementById('fantasyGrid').innerHTML=rg(all.filter(b=>b.cat==='fantasy'));
   document.getElementById('mysteryGrid').innerHTML=rg(all.filter(b=>b.cat==='mystery'));
@@ -674,11 +642,9 @@ function closeReader(){
   document.getElementById('readerPage').classList.remove('active');
   document.getElementById('libPage').classList.add('active');
   document.getElementById('bottomNav').style.display='flex';
+  updateWelcome();
 }
-function renderChapterNav(){
-  document.getElementById('chapterNav').innerHTML=currentBook.chapters.map((ch,i)=>`
-    <button class="ch-btn${i===currentChapter?' active':''}" onclick="switchChapter(${i})">${ch.title}</button>`).join('');
-}
+function renderChapterNav(){document.getElementById('chapterNav').innerHTML=currentBook.chapters.map((ch,i)=>`<button class="ch-btn${i===currentChapter?' active':''}" onclick="switchChapter(${i})">${ch.title}</button>`).join('');}
 function switchChapter(i){stopAudio();currentChapter=i;currentSentence=0;renderChapter();renderChapterNav();}
 function renderChapter(){
   const ch=currentBook.chapters[currentChapter];
@@ -690,27 +656,17 @@ function renderChapter(){
   updateProgressBar(0);currentSentence=0;
   let html=`<div class="chapter-title"><span>${ch.title}:</span> ${ch.subtitle}</div>`;
   sentences.forEach((sent,si)=>{
-    const wHTML=sent.trim().split(/\s+/).map(w=>{
-      const clean=w.replace(/[^a-zA-Z]/g,'').toLowerCase();
-      const isNew=!!wordTranslations[clean]&&!savedVocab.find(v=>v.word===clean);
-      return`<span class="word${isNew?' new-word':''}" data-word="${clean}" data-si="${si}" onclick="showTranslation(this,event)">${w}</span> `;
-    }).join('');
+    const wHTML=sent.trim().split(/\s+/).map(w=>{const clean=w.replace(/[^a-zA-Z]/g,'').toLowerCase();const isNew=!!wordTranslations[clean]&&!savedVocab.find(v=>v.word===clean);return`<span class="word${isNew?' new-word':''}" data-word="${clean}" data-si="${si}" onclick="showTranslation(this,event)">${w}</span> `;}).join('');
     html+=`<span data-si="${si}">${wHTML}</span><span class="sent-btn" onclick="speakOneSentence(${si})">🔊</span> `;
   });
   document.getElementById('chapterContent').innerHTML=html;
 }
 function showTranslation(el,e){
-  e.stopPropagation();
-  const word=el.dataset.word;if(!word)return;
-  const arabic=wordTranslations[word];if(!arabic)return;
-  document.getElementById('tWord').textContent=word;
-  document.getElementById('tArabic').textContent=arabic;
+  e.stopPropagation();const word=el.dataset.word;if(!word)return;const arabic=wordTranslations[word];if(!arabic)return;
+  document.getElementById('tWord').textContent=word;document.getElementById('tArabic').textContent=arabic;
   const popup=document.getElementById('transPopup');popup.classList.add('show');
-  const rect=el.getBoundingClientRect();
-  let top=rect.top-105,left=rect.left;
-  if(top<60)top=rect.bottom+8;
-  if(left+190>window.innerWidth)left=window.innerWidth-195;
-  if(left<5)left=5;
+  const rect=el.getBoundingClientRect();let top=rect.top-105,left=rect.left;
+  if(top<60)top=rect.bottom+8;if(left+190>window.innerWidth)left=window.innerWidth-195;if(left<5)left=5;
   popup.style.top=top+'px';popup.style.left=left+'px';popup.style.right='auto';
   if(!savedVocab.find(v=>v.word===word)){
     savedVocab.push({word,arabic,book:currentBook?.title||''});
@@ -720,24 +676,16 @@ function showTranslation(el,e){
   }
   speakWord(word);
 }
-document.addEventListener('click',e=>{
-  if(!e.target.classList.contains('word')&&!e.target.closest('.trans-popup'))
-    document.getElementById('transPopup').classList.remove('show');
-});
+document.addEventListener('click',e=>{if(!e.target.classList.contains('word')&&!e.target.closest('.trans-popup'))document.getElementById('transPopup').classList.remove('show');});
+
 let quizQ=0,quizScore=0,quizAnswered=false;
-function showQuiz(){
-  if(!currentBook?.quiz?.length){alert('لا يوجد اختبار');return;}
-  quizQ=0;quizScore=0;renderQuizQ();document.getElementById('quizOverlay').classList.add('show');
-}
+function showQuiz(){if(!currentBook?.quiz?.length){alert('لا يوجد اختبار');return;}quizQ=0;quizScore=0;renderQuizQ();document.getElementById('quizOverlay').classList.add('show');}
 function renderQuizQ(){
-  const quiz=currentBook.quiz;
-  if(quizQ>=quiz.length){showQuizResult();return;}
+  const quiz=currentBook.quiz;if(quizQ>=quiz.length){showQuizResult();return;}
   const q=quiz[quizQ];quizAnswered=false;
   document.getElementById('quizCard').innerHTML=`
     <div class="quiz-progress">سؤال ${quizQ+1} من ${quiz.length}</div>
-    <div style="width:100%;height:4px;background:var(--border);border-radius:4px;margin-bottom:16px">
-      <div style="width:${quizQ/quiz.length*100}%;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:4px"></div>
-    </div>
+    <div style="width:100%;height:4px;background:var(--border);border-radius:4px;margin-bottom:16px"><div style="width:${quizQ/quiz.length*100}%;height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:4px"></div></div>
     <div class="quiz-q">${q.q}</div>
     <div class="quiz-opts">${q.opts.map((o,i)=>`<div class="quiz-opt" onclick="answerQuiz(${i},${q.ans},this)">${o}</div>`).join('')}</div>`;
 }
@@ -751,12 +699,13 @@ function answerQuiz(chosen,correct,el){
 function showQuizResult(){
   const total=currentBook.quiz.length,pct=Math.round(quizScore/total*100);
   quizScores.push({book:currentBook.title,score:quizScore,total,pct});
-  localStorage.setItem('eng_quiz',JSON.stringify(quizScores));updateStats();
+  localStorage.setItem('eng_quiz',JSON.stringify(quizScores));updateStats();updateWelcome();
   document.getElementById('quizCard').innerHTML=`
     <div style="text-align:center;padding:10px">
       <div class="quiz-score">${quizScore}/${total}</div>
       <div style="font-size:2rem;margin:8px 0">${pct>=80?'🌟':pct>=60?'✅':'🔄'}</div>
-      <div style="color:var(--muted);font-weight:700">${pct>=80?'ممتاز!':pct>=60?'جيد!':'حاول مرة أخرى'}</div>
+      <div style="color:var(--muted);font-weight:700;margin-bottom:4px">${pct>=80?'ممتاز!':pct>=60?'جيد جداً!':'حاول مرة أخرى'}</div>
+      <div style="font-size:.78rem;color:var(--muted)">${pct}% إجابات صحيحة</div>
       <button class="quiz-btn" onclick="document.getElementById('quizOverlay').classList.remove('show')">إغلاق</button>
     </div>`;
 }
@@ -771,32 +720,26 @@ function renderVocab(){
         </div>
         <button class="speak-word-btn" onclick="speakWord('${v.word}')">🔊</button>
       </div>`).join(''):
-    '<div style="text-align:center;padding:40px;color:var(--muted)">📝 اضغط على الكلمات الذهبية لحفظها</div>';
+    '<div class="empty-state"><div class="empty-state-icon">📝</div><div class="empty-state-title">لا توجد مفردات محفوظة بعد</div><div class="empty-state-sub">اضغط على الكلمات الذهبية أثناء القراءة لحفظها هنا</div></div>';
 }
+function clearVocab(){if(confirm('هل تريد مسح كل المفردات؟')){savedVocab=[];localStorage.removeItem('eng_vocab');renderVocab();updateStats();updateWelcome();}}
 function updateStats(){
   const vc=savedVocab.length;
   document.getElementById('vocabCountProg').textContent=vc+' كلمة';
   document.getElementById('vocabProg').style.width=Math.min(vc,100)+'%';
-  if(quizScores.length){
-    document.getElementById('quizResults').innerHTML=quizScores.slice(-3).reverse().map(s=>
-      `<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)">
-        <span style="font-size:.8rem">${s.book.split(' ').slice(0,3).join(' ')}...</span>
-        <span style="font-weight:700;color:${s.pct>=80?'var(--green)':s.pct>=60?'var(--gold)':'var(--red)'}">${s.pct}%</span>
-      </div>`).join('');
-  }
-  document.getElementById('convCompleted').textContent=
-    completedConvs.length?`أكملت ${completedConvs.length} محادثة من ${conversations.length}`:'لم تكمل محادثات بعد';
+  if(quizScores.length){document.getElementById('quizResults').innerHTML=quizScores.slice(-3).reverse().map(s=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)"><span style="font-size:.8rem">${s.book.split(' ').slice(0,3).join(' ')}...</span><span style="font-weight:700;color:${s.pct>=80?'var(--green)':s.pct>=60?'var(--gold)':'var(--red)'}">${s.pct}%</span></div>`).join('');}
+  document.getElementById('convCompleted').textContent=completedConvs.length?`أكملت ${completedConvs.length} محادثة من ${conversations.length}`:'لم تكمل محادثات بعد';
 }
 function showMainPage(id,nav){
   ['libPage','vocabPage','progressPage','convPage'].forEach(p=>document.getElementById(p).classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
-  nav.classList.add('active');
+  if(nav)nav.classList.add('active');
   if(id==='vocabPage')renderVocab();
   if(id==='progressPage')updateStats();
   if(id==='convPage')renderConvList();
+  if(id==='libPage')updateWelcome();
 }
-renderLibrary();renderVocab();updateStats();renderConvList();
 </script>
 </body>
 </html>
